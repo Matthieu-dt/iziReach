@@ -10,10 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_150458) do
+ActiveRecord::Schema.define(version: 2020_11_23_153937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "influencer_id", null: false
+    t.bigint "campaign_id", null: false
+    t.string "status"
+    t.text "contract"
+    t.integer "total_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_id"], name: "index_bookings_on_campaign_id"
+    t.index ["influencer_id"], name: "index_bookings_on_influencer_id"
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "name"
+    t.text "description"
+    t.string "target"
+    t.datetime "occurs_at"
+    t.string "status"
+    t.integer "number_of_stories"
+    t.integer "number_of_photos"
+    t.integer "number_of_videos"
+    t.integer "number_of_lives"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_campaigns_on_company_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.text "description"
+    t.text "values"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "influencers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "firt_name"
+    t.string "last_name"
+    t.string "user_name"
+    t.text "description"
+    t.integer "price_per_story"
+    t.integer "price_per_photo"
+    t.integer "price_per_video"
+    t.integer "price_per_live"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_influencers_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.integer "rating"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +90,10 @@ ActiveRecord::Schema.define(version: 2020_11_23_150458) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "campaigns"
+  add_foreign_key "bookings", "influencers"
+  add_foreign_key "campaigns", "companies"
+  add_foreign_key "companies", "users"
+  add_foreign_key "influencers", "users"
+  add_foreign_key "reviews", "bookings"
 end
