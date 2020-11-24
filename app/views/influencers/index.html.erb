@@ -1,0 +1,4 @@
+<% @influencers.each do |influencer| %>
+<%= influencer.first_name %>
+ <%= link_to 'Book', new_influencer_booking_path(influencer) %>
+<% end %>

@@ -1,8 +1,7 @@
 class InfluencerPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
-    end
+      scope.all    end
   end
 
     def create?
@@ -11,5 +10,9 @@ class InfluencerPolicy < ApplicationPolicy
 
     def update?
       record.user == user
+    end
+
+    def index?
+      user.company == true
     end
 end

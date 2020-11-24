@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.influencer = Influencer.find(params[:influencer_id])
     @booking.campaign = Campaign.find(params[:campaign_id])
     if @booking.save
-      redirect_to campaignr_path(@campaign)
+      redirect_to campaign_path(@booking.campaign)
     else
       render :new
     end

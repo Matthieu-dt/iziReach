@@ -1,5 +1,9 @@
 class InfluencersController < ApplicationController
 
+  def index
+    @influencers = policy_scope(Influencer)
+  end
+
   def new
     @influencer = Influencer.new
     authorize @influencer
