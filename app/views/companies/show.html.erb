@@ -1,0 +1,15 @@
+<h3>Company profil</h3>
+<ul>
+<li><%= @company.name %></li>
+<li><%= @company.description %></li>
+<li><%= @company.values %></li>
+<li><%=@company.url %></li>
+</ul>
+
+<% if policy(@company).edit? %>
+  <%= link_to edit_company_path(@company) do %>
+    <div class="btn btns">
+       Edit
+    </div>
+  <% end %>
+<% end %>
