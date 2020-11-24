@@ -1,4 +1,4 @@
 <% @influencers.each do |influencer| %>
 <%= influencer.first_name %>
- <%= link_to 'Book', new_influencer_booking_path(influencer) %>
+ <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
 <% end %>

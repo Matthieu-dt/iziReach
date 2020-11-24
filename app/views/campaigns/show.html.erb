@@ -4,4 +4,4 @@
 <% @campaign.bookings.each do |booking| %>
 <%= booking.influencer.first_name %>
 <% end %>
-<%= link_to 'See influencers', influencers_path %>
+<%= link_to 'See influencers', campaign_influencers_path(@campaign) %>
