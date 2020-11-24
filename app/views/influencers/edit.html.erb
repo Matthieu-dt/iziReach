@@ -1,0 +1,7 @@
+ <%= simple_form_for [ @influencer ] do |f| %>
+      <%= f.input :price_per_story%>
+      <%= f.input :price_per_photo%>
+      <%= f.input :price_per_video%>
+      <%= f.input :price_per_live%>
+      <%= f.submit "Edit", class: "btn" %>
+      <% end %>

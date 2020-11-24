@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :companies, only: [:new, :create, :update, :edit]
 
-  resources :influencers, only: [:new, :create, :update, :edit] do
+  resources :influencers, only: [:new, :create, :update, :edit, :show] do
     resources :bookings, only: [:edit, :update]
   end
 
