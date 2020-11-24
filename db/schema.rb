@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_153937) do
+ActiveRecord::Schema.define(version: 2020_11_24_143810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_153937) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "influencer_id", null: false
     t.bigint "campaign_id", null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.text "contract"
     t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_153937) do
     t.text "description"
     t.string "target"
     t.datetime "occurs_at"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "number_of_stories"
     t.integer "number_of_photos"
     t.integer "number_of_videos"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_153937) do
 
   create_table "influencers", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "firt_name"
+    t.string "first_name"
     t.string "last_name"
     t.string "user_name"
     t.text "description"

@@ -1,0 +1,24 @@
+<h3>Company profil</h3>
+<ul>
+<li><%= @company.name %></li>
+<li><%= @company.description %></li>
+<li><%= @company.values %></li>
+<li><%=@company.url %></li>
+</ul>
+
+<% if policy(@company).edit? %>
+  <%= link_to edit_company_path(@company) do %>
+    <div class="btn btns">
+       Edit
+    </div>
+  <% end %>
+<% end %>
+
+
+<% if @company.user == current_user %>
+  <%= link_to new_company_campaign_path(@company) do %>
+    <div class="btn btns">
+       Create campaign
+    </div>
+  <% end %>
+<% end %>

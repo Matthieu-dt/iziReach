@@ -1,0 +1,7 @@
+<%= @campaign.description %>
+<%= @campaign.name %>
+<%= @campaign.status %>
+<% @campaign.bookings.each do |booking| %>
+<%= booking.influencer.first_name %>
+<% end %>
+<%= link_to 'See influencers', influencers_path %>

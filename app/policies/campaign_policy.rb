@@ -3,17 +3,21 @@ class CampaignPolicy < ApplicationPolicy
     def resolve
       scope.where(user: user)
     end
+  end
 
-    def create?
-      user.company == true
-    end
+  def new?
+    record.company.user == user
+  end
 
-    def update?
-      record.company.user == user
-    end
+  def create?
+    record.company.user == user
+  end
 
-    def show?
-      record.company.user == user
-    end
+  def update?
+    record.company.user == user
+  end
+
+  def show?
+    record.company.user == user
   end
 end
