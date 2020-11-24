@@ -6,12 +6,10 @@ Rails.application.routes.draw do
     resources :campaigns, only: [:new, :create]
   end
   
-  resources :campaigns, only: [:show, :edit, :update]
+  resources :campaigns, only: [:show, :edit, :update, :destroy]
 
   resources :influencers, only: [:new, :create, :update, :edit, :show] do
-    resources :campaigns, only: [:destroy] do
       resources :bookings, only: [:new, :create]
-    end
   end
 
   resources :bookings, only: [:edit, :update, :destroy] do 

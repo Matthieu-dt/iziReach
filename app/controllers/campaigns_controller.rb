@@ -1,19 +1,25 @@
 class CampaignsController < ApplicationController
 
+
+  def show
+    @campaign = Campaign.find(params[:id])
+    authorize @campaign
+  end
+
   def new
     @company = Company.find(params[:company_id])
     @campaign = Campaign.new
+    @campaign.company = @company
     authorize @campaign
   end
   
   def create
     @company = Company.find(params[:company_id])
     @campaign = Campaign.new(campaign_params)
-    @campaign.user = current_user
     @campaign.company = @company
     authorize @campaign
     if @campaign.save!
-        redirect_to campaign_path
+        redirect_to campaign_path(@campaign)
     else
         render :new
     end

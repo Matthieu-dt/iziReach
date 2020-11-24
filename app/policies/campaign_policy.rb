@@ -10,7 +10,7 @@ class CampaignPolicy < ApplicationPolicy
   end
 
   def create?
-    user.company == true
+    record.company.user == user
   end
 
   def update?
