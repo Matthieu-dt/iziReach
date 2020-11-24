@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_143810) do
+
+ActiveRecord::Schema.define(version: 2020_11_24_142130) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_143810) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "influencer_id", null: false
     t.bigint "campaign_id", null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.text "contract"
     t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
@@ -97,3 +99,4 @@ ActiveRecord::Schema.define(version: 2020_11_24_143810) do
   add_foreign_key "influencers", "users"
   add_foreign_key "reviews", "bookings"
 end
+ 
