@@ -1,5 +1,10 @@
 class InfluencersController < ApplicationController
 
+  def index
+    @campaign = Campaign.find(params[:campaign_id])
+    @influencers = policy_scope(Influencer)
+  end
+
   def new
     @influencer = Influencer.new
     authorize @influencer

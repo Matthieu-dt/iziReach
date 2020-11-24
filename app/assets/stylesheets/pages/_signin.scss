@@ -1,0 +1,77 @@
+.container-signin {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cards-signin {
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  display: flex;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.card-signin {
+  // background-color: green;
+  width: 50%;
+  padding: 20px;
+}
+
+.card-signin span {
+  text-align: center;
+}
+
+.card-right {
+  width: 50%;
+  background-image: linear-gradient(to right, #9ab3f5, #e05297)
+}
+
+.card-signin h2 {
+  text-align: center;
+}
+
+.form-inputs label {
+  opacity: 0.6;
+}
+
+.link-member {
+  text-align: center;
+}
+
+form#new_user {
+  padding: 40px 0;
+  width: 370px;
+  margin: auto;
+}
+
+.card-right{
+  padding: 40px;
+}
+.card-right span {
+  color: white;
+  margin: auto;
+}
+
+input,
+textarea {
+    background-color: #F3E5F5;
+    border-radius: 50px !important;
+    padding: 12px 15px 12px 15px !important;
+    width: 100%;
+    box-sizing: border-box;
+    border: none !important;
+    border: 1px solid #F3E5F5 !important;
+    font-size: 16px !important;
+    color: #000 !important;
+    font-weight: 400
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #e05297 !important;
+    outline-width: 0;
+    font-weight: 400
+}

@@ -1,21 +1,20 @@
 class BookingsController < ApplicationController
-
-  def index
-    @bookings = Booking.all
-  end
-
   def new
+    @influencer = Influencer.find(params[:influencer_id])
+    @campaign = Campaign.find(params[:campaign_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @influencer = Influencer.find(params[:influencer_id])
+    @campaign = Campaign.find(params[:campaign_id])
+    @booking = Booking.new
     authorize @booking
-    @booking.influencer = Influencer.find(params[:influencer_id])
-    @booking.campaign = Campaign.find(params[:campaign_id])
+    @booking.influencer = @influencer
+    @booking.campaign = @campaign
     if @booking.save
-      redirect_to campaignr_path(@campaign)
+      redirect_to campaign_path(@campaign)
     else
       render :new
     end
@@ -41,6 +40,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:influencer).permit(:influencer, :campaign, :status)
+    params.require(:booking).permit(:status)
   end
 end

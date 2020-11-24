@@ -1,9 +1,22 @@
 <h1>Izireach</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<div class="btn">
-<%= link_to "Create Company", new_company_path%>
-</div>
-<div class="btn">
-<%= link_to "Create influencer profil", new_influencer_path%>
-</div>
+<% if current_user && current_user.company == nil && current_user.influencer == nil%>
+  <div class="btn">
+    <%= link_to "Create Company", new_company_path%>
+  </div>
+  <div class="btn">
+    <%= link_to "Create influencer profil", new_influencer_path%>
+  </div>
+<% end %>
+
+
+<% if current_user %>
+  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Log in', new_user_session_path %>
+<% end %>
+
+<% if current_user.company %>
+<%= link_to 'My campaigns', company_campaigns_path(current_user.company) %>
+<% end %>

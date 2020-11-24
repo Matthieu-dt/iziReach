@@ -1,0 +1,3 @@
+<%current_user.company.campaigns.each do |campaign| %>
+<%= link_to campaign.name, campaign_path(campaign)  %>
+<% end %>

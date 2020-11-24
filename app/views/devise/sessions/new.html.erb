@@ -1,20 +1,33 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="container-signin">
+    <div class="cards-signin">
+      <div class="card-signin">
+        <h2>Please login to your account !</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            <%= f.input :password,
+                        required: false,
+                        input_html: { autocomplete: "current-password" } %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Continue" %>
+          </div>
+        <% end %>
+        <div class="link-member">
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <p>Not a member? <%= link_to "Sign up now", new_registration_path(resource_name) %><br /></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-right">
+        <span><h2>LOREM TITLE</h2></span>
+        <span><p>Lorem, ipsum dolor sit amet consectetur adipisicing, elit. Facere fuga mollitia eius quos nostrum blanditiis nihil, in rem minima recusandae eaque quam at, doloremque natus, optio minus. Ratione modi, eos?</p></span>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
