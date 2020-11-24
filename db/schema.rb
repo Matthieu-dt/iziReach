@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_11_24_142130) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_142130) do
     t.text "description"
     t.string "target"
     t.datetime "occurs_at"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "number_of_stories"
     t.integer "number_of_photos"
     t.integer "number_of_videos"
@@ -97,3 +99,4 @@ ActiveRecord::Schema.define(version: 2020_11_24_142130) do
   add_foreign_key "influencers", "users"
   add_foreign_key "reviews", "bookings"
 end
+ 
