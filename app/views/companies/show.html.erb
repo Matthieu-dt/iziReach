@@ -13,3 +13,12 @@
     </div>
   <% end %>
 <% end %>
+
+
+<% if @company.user == current_user %>
+  <%= link_to new_company_campaign_path(@company) do %>
+    <div class="btn btns">
+       Create campaign
+    </div>
+  <% end %>
+<% end %>
