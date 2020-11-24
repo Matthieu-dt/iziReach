@@ -17,3 +17,8 @@
   <%= link_to 'Log in', new_user_session_path %>
 <% end %>
 
+
+<% if current_user && current_user.company %>
+<%= link_to 'My campaigns', campaigns_path(current_user.company) %>
+<% end %>
+
