@@ -12,7 +12,7 @@ class CampaignsController < ApplicationController
     @campaign.company = @company
     authorize @campaign
   end
-  
+
   def create
     @company = Company.find(params[:company_id])
     @campaign = Campaign.new(campaign_params)
@@ -35,6 +35,10 @@ class CampaignsController < ApplicationController
     authorize @compaign
     @campaign.update(campaign_params)
     redirect_to campaign_path(@campaign)
+  end
+
+  def index
+    @campaigns = policy_scope(Campaign)
   end
 
 private
