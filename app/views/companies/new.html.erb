@@ -6,6 +6,7 @@
       <%= f.input :description, placeholder: "Company detailed description"%>
       <%= f.input :values, placeholder: "Share your company vision and mission"%>
       <%= f.input :url, placeholder: "company's website" %>
+      <%= f.input :photo, as: :file %>
       <div class="btn btn-primary">
         <%= f.submit "Create", class: "btn" %>
 <% end %>

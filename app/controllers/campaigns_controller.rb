@@ -41,9 +41,16 @@ class CampaignsController < ApplicationController
     @campaigns = policy_scope(Campaign)
   end
 
+  def destroy
+    @campaign = Campaign.find(params[:id])
+    @campaign.destroy
+    redirect_to campaigns_path
+  end
+
+
 private
 
 def campaign_params
-    params.require(:campaign).permit(:name, :description, :target, :occurs_at, :status, :number_of_stories, :number_of_photos, :number_of_videos, :number_of_lives)
+    params.require(:campaign).permit(:name, :description, :target, :occurs_at, :status, :number_of_stories, :number_of_photos, :number_of_videos, :number_of_lives, :photo)
 end
 end

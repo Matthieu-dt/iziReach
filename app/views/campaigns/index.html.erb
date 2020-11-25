@@ -7,6 +7,7 @@
     <% if campaign.status == "pending" %>
       <h3>Pending</h3>
         <div class="campaign-card">
+        <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
           <ul>
             <%= link_to campaign.name, campaign_path(campaign)  %>
               <li>Description: <%= campaign.description %></li>
@@ -19,12 +20,15 @@
           </ul>
           <div>
            <%= campaign.status %>
+           <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+
           </div>
         </div>    
 
     <% elsif campaign.status == "ongoing" %>
     <h3>Ongoing campaigns</h3>
         <div class="campaign-card">
+          <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
           <ul>
             <%= link_to campaign.name, campaign_path(campaign)  %>
               <li>Description: <%= campaign.description %></li>
@@ -42,6 +46,7 @@
 
     <% else campaign.status == "ongoing" %>
     <h3>Passed campaigns</h3>
+      <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
           <ul>
             <%= link_to campaign.name, campaign_path(campaign)  %>
               <li>Description: <%= campaign.description %></li>
@@ -54,6 +59,7 @@
           </ul>
           <div>
            <%= campaign.status %>
+           <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </div>    
     <% end %>
