@@ -1,2 +1,11 @@
-<%= @influencer.first_name %>
+<ul>
+<li><%= @influencer.first_name %></li>
+<li><%= @influencer.description %></li>
+<li><%= @influencer.price_per_story %>€ per story</li>
+<li><%= @influencer.price_per_photo %>€ per photo</li>
+<li><%= @influencer.price_per_video %>€ per video</li>
+<li><%= @influencer.price_per_live %>€ per live</li>
+</ul>
 <%= link_to 'Edit my profile', edit_influencer_path(@influencer) %>
+<%= link_to 'See my prestations', solicitations_path(@influencer) %>
+

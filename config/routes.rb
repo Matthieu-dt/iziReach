@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  get "/solicitations", to: "bookings#solicitations"
+  get "/solicitations", to: "solicitations#solicitations"
 end
 

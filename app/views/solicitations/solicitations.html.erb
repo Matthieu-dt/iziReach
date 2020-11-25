@@ -1,0 +1,5 @@
+
+<% current_user.requests.each do |request| %>
+<%= request.campaign.name %>
+<%= request.campaign.company.name %>
+<% end %>
