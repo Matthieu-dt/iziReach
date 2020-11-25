@@ -52,8 +52,7 @@ form#new_user {
   margin: auto;
 }
 
-input,
-textarea {
+.test {
   background-color: #F3E5F5;
   border-radius: 50px !important;
   padding: 12px 15px 12px 15px !important;
@@ -66,8 +65,7 @@ textarea {
   font-weight: 400
 }
 
-input:focus,
-textarea:focus {
+.test:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
