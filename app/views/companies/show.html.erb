@@ -2,6 +2,7 @@
 
 <h3>Company profil</h3>
 <ul>
+<%= cl_image_tag @company.photo.key, height: 200, width: 200, crop: :fill %>
   <li><%= @company.name %></li>
   <li><%= @company.description %></li>
   <li><%= @company.values %></li>
