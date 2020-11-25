@@ -7,29 +7,47 @@
 <% current_user.requests.each do |request| %>
  <% if request.status == "pending" %>
     <div class="campaign-card">
-      <div>
+     <div style="margin: -16px 5px 0px -16px"><%= cl_image_tag request.campaign.photo.key, height: 220, width: 200, crop: :fill %>
+     </div>
+      <div style="margin: -8px 0px 0px -35px">
         <li>Company: <%= request.campaign.company.name %></li>
-        <li>Campaign name: <%= request.campaign.name %></li>
-        <li>Description: <%= request.campaign.description %></li>
+        <li>Campaign: <%= request.campaign.name %></li>
         <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
         <li># of stories: <%= request.campaign.number_of_stories %></li>
         <li># of lives: <%= request.campaign.number_of_lives %></li>
         <li>#of photos: <%= request.campaign.number_of_photos %></li>
         <li>#of videos: <%= request.campaign.number_of_videos %></li>
+        <li>Remuneration: <%= request.total_price %> €</li>
       </div>
 
-      <%= link_to update_status_influencer_path(request, params:{status:"accepted"}), method: :patch do %>
-        <div class="btn">
-        Accept
-        </div>
-      <% end %>
+      <div class="description_card" style="list-style-type:none;">
+        <li>Description: <%= request.campaign.description %></li>
+      </div>
 
-      <%= link_to update_status_influencer_path(request, params:{status:"refused"}), method: :patch do %>    
-        <div class="btn">
-          Refuse
-        </div>
-      <% end %>
+        <div style="margin-right:15px">
+          <div class="text-request">
+            <%= link_to update_status_influencer_path(request, params:{status:"accepted"}), method: :patch do %>
+              <div class="accept-btn">
+              Accept
+              </div>
+            <% end %>
+          </div>
 
+          <div class="text-request">
+            <%= link_to update_status_influencer_path(request, params:{status:"refused"}), method: :patch do %>    
+              <div class="refuse-btn">
+                Refuse
+              </div>
+            <% end %>
+          </div>
+      
+          <%= link_to company_path(request.campaign.company) do %>
+            <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
+              Company profil
+            </div>
+          <% end %>
+
+       </div>
     </div>
   <% end %>
   <% end %>
@@ -38,16 +56,28 @@
 <% current_user.requests.each do |request| %>
  <% if request.status == "accepted" %>
     <div class="campaign-card">
-      <div>
+      <div style="margin: -16px 5px 0px -16px"><%= cl_image_tag request.campaign.photo.key, height: 220, width: 200, crop: :fill %>
+      </div>
+      <div style="margin: -8px 0px 0px -35px">
         <li>Company: <%= request.campaign.company.name %></li>
-        <li>Campaign name: <%= request.campaign.name %></li>
-        <li>Description: <%= request.campaign.description %></li>
+        <li>Campaign: <%= request.campaign.name %></li>
         <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
         <li># of stories: <%= request.campaign.number_of_stories %></li>
         <li># of lives: <%= request.campaign.number_of_lives %></li>
         <li>#of photos: <%= request.campaign.number_of_photos %></li>
         <li>#of videos: <%= request.campaign.number_of_videos %></li>
+        <li>Remuneration: <%= request.total_price %> €</li>
       </div>
+
+      <div class="description_card" style="list-style-type:none;">
+        <li>Description: <%= request.campaign.description %></li>
+      </div>
+
+      <%= link_to company_path(request.campaign.company) do %>
+        <div class="gradient-blue-button" style="margin:25px 15px 0px 0px; font-size:18px; width:150px">
+          Company profil
+        </div>
+      <% end %>
 
     </div>
  <% end %>
@@ -57,16 +87,28 @@
 <% current_user.requests.each do |request| %>
  <% if request.status == "refused" %>
     <div class="campaign-card">
-      <div>
+     <div style="margin: -16px 5px 0px -16px"><%= cl_image_tag request.campaign.photo.key, height: 220, width: 200, crop: :fill %>
+     </div>
+      <div style="margin: -8px 0px 0px -35px">
         <li>Company: <%= request.campaign.company.name %></li>
-        <li>Campaign name: <%= request.campaign.name %></li>
-        <li>Description: <%= request.campaign.description %></li>
+        <li>Campaign: <%= request.campaign.name %></li>
         <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
         <li># of stories: <%= request.campaign.number_of_stories %></li>
         <li># of lives: <%= request.campaign.number_of_lives %></li>
         <li>#of photos: <%= request.campaign.number_of_photos %></li>
         <li>#of videos: <%= request.campaign.number_of_videos %></li>
+        <li>Remuneration: <%= request.total_price %> €</li>
       </div>
+
+    <div class="description_card" style="list-style-type:none;">
+      <li>Description: <%= request.campaign.description %></li>
+    </div>
+
+      <%= link_to company_path(request.campaign.company) do %>
+        <div class="gradient-blue-button" style="margin:25px 15px 0px 0px; font-size:18px; width:150px">
+          Company profil
+        </div>
+      <% end %>
 
     </div>
  <% end %>
