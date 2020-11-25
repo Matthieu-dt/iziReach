@@ -1,4 +1,8 @@
 .container-navbar {
+  display: flex;
+}
+
+.container-navbar-middle {
   background-color: white;
   height: 50px;
   width: 70%;
@@ -76,5 +80,61 @@ hr {
   border: none;
   transition: .2s ease-in-out;
 }
+
+
+//////
+
+
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.dropdown-menu.dropdown-menu-right.show {
+  border-radius: 25px;
+  margin-top: 25px;
+  left: -98px;
+  a:hover {
+    color: #a3d8f4;
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+.border-bottom-nav {
+  border-bottom: solid 2px #8a8a8a;
+  width: 40px;
+  /* align-items: center; */
+  margin: auto;
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0px 2px 10px #9ab3f53b;
+}
+
+.burger-btn {
+  cursor: pointer;
+}
+
+.container-burger {
+  height: 50px;
+  width: 100px;
+  border-radius: 25px;
+  background-color: red;
+  margin-top: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 2px 10px #9ab3f53b;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 
