@@ -1,9 +1,11 @@
+<div class="container">
+
 <h3>Company profil</h3>
 <ul>
-<li><%= @company.name %></li>
-<li><%= @company.description %></li>
-<li><%= @company.values %></li>
-<li><%=@company.url %></li>
+  <li><%= @company.name %></li>
+  <li><%= @company.description %></li>
+  <li><%= @company.values %></li>
+  <li><%=@company.url %></li>
 </ul>
 
 <% if policy(@company).edit? %>
@@ -22,3 +24,13 @@
     </div>
   <% end %>
 <% end %>
+
+<% if @company.user == current_user %>
+ <%= link_to campaigns_path(current_user.company) do %>
+    <div class="btn btns">
+       My campaigns
+    </div>
+<% end %>
+<% end %>
+
+</div>

@@ -1,3 +1,4 @@
+<div class="container">
 <%= simple_form_for [ @company, @campaign ] do |f| %>
       <%= f.input :name, placeholder: "campaign's name"%>
       <%= f.input :description, placeholder: "detailed information about your campaign"%>
@@ -11,3 +12,4 @@
         <%= f.submit "Create", class: "btn" %>
       </div>
     <% end %>
+</div>
