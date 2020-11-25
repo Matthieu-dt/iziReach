@@ -1,7 +1,8 @@
-<%= @campaign.description %>
 <%= @campaign.name %>
+<%= @campaign.description %>
 <%= @campaign.status %>
 <% @campaign.bookings.each do |booking| %>
 <%= booking.influencer.first_name %>
+<%= link_to 'Put a review', new_booking_review_path(booking)%>
 <% end %>
 <%= link_to 'See influencers', campaign_influencers_path(@campaign) %>
