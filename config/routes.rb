@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  authenticated :user do
+    root to: 'pages#dashboard'
+  end
+  unauthenticated :user do
+    root to: 'pages#home', as: :unauthenticated_root
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :companies, only: [:show, :new, :create, :update, :edit] do
     resources :campaigns, only: [:new, :create]
@@ -14,7 +19,7 @@ Rails.application.routes.draw do
       resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:edit, :update, :destroy] do
+  resources :bookings, only: [:index, :edit, :update, :destroy] do
     resources :reviews, only: [:new, :create]
   end
 

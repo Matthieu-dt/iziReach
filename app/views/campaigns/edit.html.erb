@@ -1,0 +1,14 @@
+<%= simple_form_for [ @company, @campaign ] do |f| %>
+      <%= f.input :name, placeholder: "campaign's name"%>
+      <%= f.input :description, placeholder: "detailed information about your campaign"%>
+      <%= f.input :target, placeholder: "campaign target" %>
+      <%= f.input :occurs_at, placeholder: "date"%>
+      <%= f.input :number_of_stories, placeholder: "# of stories"%>
+      <%= f.input :number_of_photos, placeholder: "# of photos"%>
+       <%= f.input :number_of_videos, placeholder: "# of videos"%>
+      <%= f.input :number_of_lives, placeholder: "# of lives"%>
+      <%= f.input :photo, as: :file %>
+      <div class="btn">
+        <%= f.submit "Create", class: "btn" %>
+      </div>
+    <% end %>
