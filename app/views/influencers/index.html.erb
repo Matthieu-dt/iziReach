@@ -1,4 +1,7 @@
 <% @influencers.each do |influencer| %>
 <%= influencer.first_name %>
- <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
+<% influencer.set_rating.times do %>
+<i class="fas fa-star"></i>
+<% end %>
+<%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
 <% end %>
