@@ -1,3 +1,77 @@
-<%current_user.company.campaigns.each do |campaign| %>
-<%= link_to campaign.name, campaign_path(campaign)  %>
-<% end %>
+<div class="container">
+<h2>My campaigns</h2>
+<%= link_to "Back", company_path(@current_user.company) %>
+
+
+      <h3>Pending</h3>
+        <%current_user.company.campaigns.each do |campaign| %>
+          <% if campaign.status == "pending" %>
+          <div class="campaign-card">
+            <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
+              <ul>
+                <%= link_to campaign.name, campaign_path(campaign)  %>
+                  <li>Description: <%= campaign.description %></li>
+                  <li>Target: <%= campaign.target %></li>
+                  <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+                  <li># of stories: <%= campaign.number_of_stories %></li>
+                  <li># of lives: <%= campaign.number_of_lives %></li>
+                  <li>#of photos: <%= campaign.number_of_photos %></li>
+                  <li>#of videos: <%= campaign.number_of_videos %></li>
+              </ul>
+              <div>
+                 <%= campaign.status %>
+                 <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+              </div>
+          </div>
+         <% end %>
+       <% end %>
+
+       <h3>Ongoing</h3>
+        <%current_user.company.campaigns.each do |campaign| %>
+          <% if campaign.status == "ongoing" %>
+          <div class="campaign-card">
+            <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
+              <ul>
+                <%= link_to campaign.name, campaign_path(campaign)  %>
+                  <li>Description: <%= campaign.description %></li>
+                  <li>Target: <%= campaign.target %></li>
+                  <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+                  <li># of stories: <%= campaign.number_of_stories %></li>
+                  <li># of lives: <%= campaign.number_of_lives %></li>
+                  <li>#of photos: <%= campaign.number_of_photos %></li>
+                  <li>#of videos: <%= campaign.number_of_videos %></li>
+              </ul>
+              <div>
+                 <%= campaign.status %>
+                 <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+              </div>
+          </div>
+         <% end %>
+       <% end %>
+
+       <h3>Passed</h3>
+        <%current_user.company.campaigns.each do |campaign| %>
+          <% if campaign.status == "passed" %>
+          <div class="campaign-card">
+            <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
+              <ul>
+                <%= link_to campaign.name, campaign_path(campaign)  %>
+                  <li>Description: <%= campaign.description %></li>
+                  <li>Target: <%= campaign.target %></li>
+                  <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+                  <li># of stories: <%= campaign.number_of_stories %></li>
+                  <li># of lives: <%= campaign.number_of_lives %></li>
+                  <li>#of photos: <%= campaign.number_of_photos %></li>
+                  <li>#of videos: <%= campaign.number_of_videos %></li>
+              </ul>
+              <div>
+                 <%= campaign.status %>
+                 <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+              </div>
+          </div>
+         <% end %>
+       <% end %>
+</div>

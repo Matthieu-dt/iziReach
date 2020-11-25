@@ -1,5 +1,63 @@
 
+<div class="container">
+
+<h2>My solicitations</h2>
+
 <% current_user.requests.each do |request| %>
-<%= request.campaign.name %>
-<%= request.campaign.company.name %>
+ <% if request.status == "pending" %>
+    <h3>Pending</h3>
+    <div class="campaign-card">
+      <div>
+        <li>Company: <%= request.campaign.company.name %></li>
+        <li>Campaign name: <%= request.campaign.name %></li>
+        <li>Description: <%= request.campaign.description %></li>
+        <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+        <li># of stories: <%= request.campaign.number_of_stories %></li>
+        <li># of lives: <%= request.campaign.number_of_lives %></li>
+        <li>#of photos: <%= request.campaign.number_of_photos %></li>
+        <li>#of videos: <%= request.campaign.number_of_videos %></li>
+      </div>
+      <div>
+        <%= request.status %>
+      </div>
+    </div>
+
+ <% elsif request.status == "accepted" %>
+    <h3>Accepted</h3>
+    <div class="campaign-card">
+      <div>
+        <li>Company: <%= request.campaign.company.name %></li>
+        <li>Campaign name: <%= request.campaign.name %></li>
+        <li>Description: <%= request.campaign.description %></li>
+        <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+        <li># of stories: <%= request.campaign.number_of_stories %></li>
+        <li># of lives: <%= request.campaign.number_of_lives %></li>
+        <li>#of photos: <%= request.campaign.number_of_photos %></li>
+        <li>#of videos: <%= request.campaign.number_of_videos %></li>
+      </div>
+      <div>
+        <%= request.status %>
+      </div>
+    </div>
+
+ <% else request.status == "refused" %>
+    <h3>Refused solicitations</h3>
+    <div class="campaign-card">
+      <div>
+        <li>Company: <%= request.campaign.company.name %></li>
+        <li>Campaign name: <%= request.campaign.name %></li>
+        <li>Description: <%= request.campaign.description %></li>
+        <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+        <li># of stories: <%= request.campaign.number_of_stories %></li>
+        <li># of lives: <%= request.campaign.number_of_lives %></li>
+        <li>#of photos: <%= request.campaign.number_of_photos %></li>
+        <li>#of videos: <%= request.campaign.number_of_videos %></li>
+      </div>
+      <div>
+        <%= request.status %>
+      </div>
+    </div>
+ <% end %>
 <% end %>
+</div>
+
