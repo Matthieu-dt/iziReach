@@ -1,7 +1,17 @@
-<%= @campaign.description %>
-<%= @campaign.name %>
-<%= @campaign.status %>
-<% @campaign.bookings.each do |booking| %>
-<%= booking.influencer.first_name %>
-<% end %>
-<%= link_to 'See influencers', campaign_influencers_path(@campaign) %>
+<div class="container">
+
+ <%= link_to "Back", campaigns_path(current_user.company) %>
+
+<h2>My campaign</h2>
+
+   <Li><%= @campaign.name %></Li>
+   <Li> <%= @campaign.description %></Li>
+   <li>Date: <%= @campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+   <Li> <%= @campaign.status %></Li>
+   <% @campaign.bookings.each do |booking| %>
+   <h3>My influencers requests</h3>
+   <Li> <%= booking.influencer.first_name %></Li>
+   <Li> <%= booking.status %></Li>
+        <% end %>
+   <Li> <%= link_to 'See influencers', campaign_influencers_path(@campaign) %></li>
+</div>
