@@ -43,6 +43,7 @@ class CampaignsController < ApplicationController
 
   def destroy
     @campaign = Campaign.find(params[:id])
+    authorize @campaign
     @campaign.destroy
     redirect_to campaigns_path
   end
