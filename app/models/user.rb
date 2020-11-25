@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_one :company, dependent: :destroy
   has_one :influencer, dependent: :destroy
+
+  def requests
+    self.influencer.bookings
+  end
+
 end
