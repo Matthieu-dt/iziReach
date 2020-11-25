@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     if current_user.company
-      redirect_to company_campaigns_path(current_user.company)
+      redirect_to campaigns_path
     else
       redirect_to solicitations_path
     end
