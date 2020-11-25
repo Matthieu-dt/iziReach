@@ -3,9 +3,9 @@
 
 <h2>My solicitations</h2>
 
+<h3>Pending</h3>
 <% current_user.requests.each do |request| %>
  <% if request.status == "pending" %>
-    <h3>Pending</h3>
     <div class="campaign-card">
       <div>
         <li>Company: <%= request.campaign.company.name %></li>
@@ -17,31 +17,26 @@
         <li>#of photos: <%= request.campaign.number_of_photos %></li>
         <li>#of videos: <%= request.campaign.number_of_videos %></li>
       </div>
-      <div>
-        <%= request.status %>
-      </div>
-    </div>
 
- <% elsif request.status == "accepted" %>
-    <h3>Accepted</h3>
-    <div class="campaign-card">
-      <div>
-        <li>Company: <%= request.campaign.company.name %></li>
-        <li>Campaign name: <%= request.campaign.name %></li>
-        <li>Description: <%= request.campaign.description %></li>
-        <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
-        <li># of stories: <%= request.campaign.number_of_stories %></li>
-        <li># of lives: <%= request.campaign.number_of_lives %></li>
-        <li>#of photos: <%= request.campaign.number_of_photos %></li>
-        <li>#of videos: <%= request.campaign.number_of_videos %></li>
-      </div>
-      <div>
-        <%= request.status %>
-      </div>
-    </div>
+      <%= link_to update_status_influencer_path(request, params:{status:"accepted"}), method: :patch do %>
+        <div class="btn">
+        Accept
+        </div>
+      <% end %>
 
- <% else request.status == "refused" %>
-    <h3>Refused solicitations</h3>
+      <%= link_to update_status_influencer_path(request, params:{status:"refused"}), method: :patch do %>    
+        <div class="btn">
+          Refuse
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+  <% end %>
+
+<h3>Accepted solicitations</h3>
+<% current_user.requests.each do |request| %>
+ <% if request.status == "accepted" %>
     <div class="campaign-card">
       <div>
         <li>Company: <%= request.campaign.company.name %></li>
@@ -53,9 +48,26 @@
         <li>#of photos: <%= request.campaign.number_of_photos %></li>
         <li>#of videos: <%= request.campaign.number_of_videos %></li>
       </div>
+
+    </div>
+ <% end %>
+<% end %>
+
+<h3>Refused solicitations</h3>
+<% current_user.requests.each do |request| %>
+ <% if request.status == "refused" %>
+    <div class="campaign-card">
       <div>
-        <%= request.status %>
+        <li>Company: <%= request.campaign.company.name %></li>
+        <li>Campaign name: <%= request.campaign.name %></li>
+        <li>Description: <%= request.campaign.description %></li>
+        <li>Date: <%= request.campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+        <li># of stories: <%= request.campaign.number_of_stories %></li>
+        <li># of lives: <%= request.campaign.number_of_lives %></li>
+        <li>#of photos: <%= request.campaign.number_of_photos %></li>
+        <li>#of videos: <%= request.campaign.number_of_videos %></li>
       </div>
+
     </div>
  <% end %>
 <% end %>
