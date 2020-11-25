@@ -10,12 +10,16 @@
    <Li> <%= @campaign.description %></Li>
    <li>Date: <%= @campaign.occurs_at.strftime("%m/%d/%Y") %></li>
    <Li> <%= @campaign.status %></Li>
-   <% @campaign.bookings.each do |booking| %>
+
    <h3>My influencers requests</h3>
-   <Li> <%= link_to booking.influencer.first_name, influencer_path(booking.influencer) %> 
-   <Li> <%= booking.status %></Li>
-   <%= link_to 'Put a review', new_booking_review_path(booking)%>
-        <% end %>
+   <% @campaign.bookings.each do |booking| %>
+     <div class="requests-card">
+     <%= booking.influencer.photos[0] %>
+       <Li> <%= link_to booking.influencer.user_name, influencer_path(booking.influencer) %> 
+       <Li> <%= booking.status %></Li>
+       <%= link_to 'Put a review', new_booking_review_path(booking)%>
+     </div>
+   <% end %>
    <Li> <%= link_to 'See influencers', campaign_influencers_path(@campaign) %></li>
 </div>
 
