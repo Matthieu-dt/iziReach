@@ -6,8 +6,10 @@ class PagesController < ApplicationController
   def dashboard
     if current_user.company
       redirect_to company_path(current_user.company)
+    elsif current_user.influencer
+      redirect_to redirect_to solicitations_path
     else
-      redirect_to solicitations_path
+      render :home
     end
   end
 end
