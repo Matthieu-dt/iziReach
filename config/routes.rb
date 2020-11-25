@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   end
 
   resources :influencers, only: [:new, :create, :update, :edit, :show] do
-      resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create]
+      member do 
+        patch "update_status", to: "bookings#update_status"
+      end
   end
 
   resources :bookings, only: [:index, :edit, :update, :destroy] do

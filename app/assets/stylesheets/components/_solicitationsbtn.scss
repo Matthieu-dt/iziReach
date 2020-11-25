@@ -1,0 +1,38 @@
+.accept-btn:hover {
+    background-color: rgba(2, 126, 53, 0.65);
+    width: 150px;
+    text-align: center;
+    color: white;
+}
+
+.accept-btn {
+    background-color: white;
+    width: 150px;
+    text-align: center;
+    color: rgba(2, 126, 53, 0.65);
+    border: 2px solid  rgba(2, 126, 53, 0.65);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.refuse-btn:hover {
+    background-color: rgba(126, 2, 19, 0.65);
+    width: 150px;
+    text-align: center;
+    color: white;
+}
+
+.refuse-btn {
+    background-color:white;
+    width: 150px;
+    text-align: center;
+    color: rgba(126, 2, 19, 0.65);
+    border: 2px solid rgba(126, 2, 19, 0.65);
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.text-request a {
+    color: white;
+    text-decoration: none;
+}

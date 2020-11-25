@@ -1,4 +1,4 @@
-<h3>My influencer profil</h3>
+<h3> Influencer profil</h3>
 <% @influencer.photos.each do |photo| %>
   <%= cl_image_tag photo.key[0], height: 300, width: 400, crop: :fill %>
 <% end %>
@@ -10,6 +10,7 @@
 <li><%= @influencer.price_per_video %>€ per video</li>
 <li><%= @influencer.price_per_live %>€ per live</li>
 </ul>
+<% if @influencer.user == current_user %>
 <%= link_to 'Edit my profile', edit_influencer_path(@influencer) %>
 <%= link_to 'See my prestations', solicitations_path(@influencer) %>
-
+<% end %>
