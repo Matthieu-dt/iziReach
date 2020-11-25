@@ -7,5 +7,9 @@ class ReviewPolicy < ApplicationPolicy
     def create?
       record.booking.campaign.coompany.user == user
     end
+
+    def destroy?
+      record.booking.campaign.coompany.user == user
+    end
   end
 end
