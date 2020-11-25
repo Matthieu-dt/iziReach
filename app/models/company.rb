@@ -5,6 +5,6 @@ class Company < ApplicationRecord
   has_one_attached :photo
 
 
-  validates :name, :description, :values, :url, presence: true
+  validates :name, :description, :values, :url, :photo, presence: true
   
 end
