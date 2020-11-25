@@ -1,10 +1,13 @@
+<div class="container">
 
   <%= simple_form_for [ @company ] do |f| %>
     <%= f.input :name%>
     <%= f.input :description%>
     <%= f.input :values%>
     <%= f.input :url%>
+    <%= f.input :photo, as: :file %>
     <%= f.submit "Edit", class: "btn btn-primary" %>
   <% end %>
   <%= link_to 'Back', company_path %>
 </div>
+

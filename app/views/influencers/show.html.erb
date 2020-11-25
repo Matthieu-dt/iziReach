@@ -1,6 +1,10 @@
+<h3>My influencer profil</h3>
+<% @influencer.photos.each do |photo| %>
+  <%= cl_image_tag photo.key[0], height: 300, width: 400, crop: :fill %>
+<% end %>
 <ul>
-<li><%= @influencer.first_name %></li>
-<li><%= @influencer.description %></li>
+<li>Username: <%= @influencer.user_name %></li>
+<li>Description: <%= @influencer.description %></li>
 <li><%= @influencer.price_per_story %>€ per story</li>
 <li><%= @influencer.price_per_photo %>€ per photo</li>
 <li><%= @influencer.price_per_video %>€ per video</li>
