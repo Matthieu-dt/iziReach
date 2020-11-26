@@ -1,5 +1,7 @@
 <h3> Influencer profil</h3>
+<p>Followers: <%= @influencer.followers %> </p>
 <p>Followings : <%= @following %></p>
+<img src="<%= @influencer.instagram_pp %>" alt="">
 <p>Uploads : <%= @uploads %> </p>
 <% if @verified == 1 %>
 <%= Verified %>
