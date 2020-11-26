@@ -17,9 +17,6 @@
 <%= pic[:likes] %>
 <%= pic[:comments] %>
 <% end %>
-<% @influencer.photos.each do |photo| %>
-  <%= cl_image_tag photo.key[0], height: 300, width: 400, crop: :fill %>
-<% end %>
 <ul>
 <li>Username: <%= @influencer.user_name %></li>
 <li>Description: <%= @influencer.description %></li>
