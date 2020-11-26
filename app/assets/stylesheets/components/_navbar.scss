@@ -47,9 +47,9 @@ ul.link {
     //   content: '';
     //   border-right: 1px solid black;
     // }
-    &:last-of-type {
-      border-right: none;
-    }
+    // &:last-of-type {
+    //   border-right: none;
+    // }
   }
 }
 
@@ -81,10 +81,7 @@ hr {
   transition: .2s ease-in-out;
 }
 
-
 //////
-
-
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -133,6 +130,12 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.current-user {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 

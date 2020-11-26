@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container-companies">
 
-
-<%= simple_form_for [ @company ] do |f| %>
-      <%= f.input :name, placeholder: "company's name"%>
-      <%= f.input :description, placeholder: "Company detailed description"%>
-      <%= f.input :values, placeholder: "Share your company vision and mission"%>
-      <%= f.input :url, placeholder: "company's website" %>
-      <%= f.input :photo, as: :file %>
-      <div class="btn btn-primary">
+  <%= simple_form_for [ @company ] do |f| %>
+        <%= f.input :name, placeholder: "company's name"%>
+        <%= f.input :description, placeholder: "Company detailed description"%>
+        <%= f.input :values, placeholder: "Share your company vision and mission"%>
+        <%= f.input :url, placeholder: "company's website" %>
+        <%= f.input :photo, as: :file %>
+        <div class="btn btn-primary">
         <%= f.submit "Create", class: "btn" %>
-<% end %>
+        </div>
+  <% end %>
 
 </div>
 
