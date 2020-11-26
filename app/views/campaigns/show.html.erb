@@ -4,21 +4,81 @@
  <%= link_to "Back", campaigns_path(current_user.company) %>
 
 <h2>My campaign</h2>
-
-<%= cl_image_tag @campaign.photo.key, height: 200, width: 200, crop: :fill %>
-   <Li><%= @campaign.name %></Li>
-   <Li> <%= @campaign.description %></Li>
-   <li>Date: <%= @campaign.occurs_at.strftime("%m/%d/%Y") %></li>
-   <Li> <%= @campaign.status %></Li>
+ <div class="campaign-show">
+    <div class="campaign-banner">
+      <div class="campaign-logo">
+        <%= cl_image_tag @campaign.photo.key, height: 150, width: 150, crop: :fill %> 
+        <li><%= @campaign.name %></li>
+      </div>
+    </div>
+    <div class="campaign-content">
+      <div class="campaign-information">
+      <li><i class="fas fa-bullseye"> Target: <%= @campaign.target %></i></li>
+      <li><i class="fas fa-clock"> Date: <%= @campaign.occurs_at.strftime("%m/%d/%Y") %></i></li>
+      <li><i class="fas fa-history"> # stories: <%= @campaign.number_of_stories %></i></li>
+      <li><i class="far fa-id-badge"> # lives: <%= @campaign.number_of_lives %></i></li>
+      <li><i class="fas fa-camera-retro"> # photos: <%= @campaign.number_of_photos %></i></li>
+      <li><i class="fas fa-video"> # videos: <%= @campaign.number_of_videos %></i></li>
+    <% if @campaign.status == "pending" %>
+      <div class="pdg" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
+      </div>
+    <% elsif @campaign.status == "ongoing" %>
+      <div class="acpp" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
+      </div>
+    <% else @campaign.status == "passed" %>
+      <div class="ref" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
+      </div>
+    <% end %>
+      </div>  
+    <%= @campaign.description %>
+  </div>
 
    <h3>My influencers requests</h3>
+
+   <div style="margin:30px 0px 40px 0px ">
+    <%= link_to campaign_influencers_path(@campaign) do %>
+      <div class="gradient-blue-button" style="padding:10px; font-size:18px; width:30%; margin:auto">
+        Find influencers
+      </div>
+    <% end %>
+   </div>
+
    <% @campaign.bookings.each do |booking| %>
-     <div class="requests-card">
-       <Li> <%= link_to booking.influencer.user_name, influencer_path(booking.influencer) %>
-       <Li> <%= booking.status %></Li>
-       <%= link_to 'Put a review', new_booking_review_path(booking)%>
+     <div class="requests-card" style="align-items:center">
+
+     <div class="request-col" style="width:150px; border-radius:50%">
+     <img src="<%= booking.influencer.instagram_pp %>" alt="">
+     </div>
+
+     <div class="request-col" style="width:150px; margin-left:-100px">
+     <li>@<%= booking.influencer.user_name %></li>
+     </div>
+    
+     <div class="request-col" style="width:150px">
+      <%= link_to influencer_path(booking.influencer) do %>
+         <div class="gradient-pink-button" style="width:auto; padding:5px; font-size:18px">
+           Profil
+         </div>
+      <% end %>
+     </div>
+
+     <div class="request-col" style="width:150px">
+      <% if booking.status == "pending" %>
+          <div class="pdg" style="height:28px; width:115px; text-align:center">  <%= booking.status%> </div>
+        <% elsif booking.status == "accepted" %>
+          <div class="accp" style="height:28px; width:115px; text-align:center"> <%= booking.status%> </div>
+        <% else booking.status == "refused" %>
+          <div class="ref" style="height:28px; width:115px; text-align:center" > <%= booking.status%> </div>
+        <% end %>
+      </div>
+
+    <div class="request-col" style="width:150px">
+      <%= link_to 'leave a review', new_booking_review_path(booking)%>
+    </div>
+
      </div>
    <% end %>
-   <Li> <%= link_to 'See influencers', campaign_influencers_path(@campaign) %></li>
+<h3>My dashboard</h3>
+
 </div>
 
