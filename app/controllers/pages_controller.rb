@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     if current_user.company
       redirect_to company_path(current_user.company)
     elsif current_user.influencer
-      redirect_to redirect_to solicitations_path
+      redirect_to solicitations_path
     else
       render :home
     end

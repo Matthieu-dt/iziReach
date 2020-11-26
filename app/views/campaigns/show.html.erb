@@ -14,8 +14,8 @@
    <h3>My influencers requests</h3>
    <% @campaign.bookings.each do |booking| %>
      <div class="requests-card">
-     <%= booking.influencer.photos[0] %>
-       <Li> <%= link_to booking.influencer.user_name, influencer_path(booking.influencer) %> 
+       <%= cl_image_tag booking.influencer.photos[0].key, height: 200, width: 200, crop: :fill %>
+       <Li> <%= link_to booking.influencer.user_name, influencer_path(booking.influencer) %>
        <Li> <%= booking.status %></Li>
        <%= link_to 'Put a review', new_booking_review_path(booking)%>
      </div>
