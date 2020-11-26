@@ -10,7 +10,7 @@
            <div style="margin: -16px 5px 0px -16px"> <%= cl_image_tag campaign.photo.key, height: 220, width: 200, crop: :fill %>
            </div>  
               <ul style="margin: -8px 0px 0px -35px; width: 300px">
-                <%= link_to campaign.name, campaign_path(campaign)  %>
+                <strong><%= link_to campaign.name, campaign_path(campaign)%></strong>
                   <li>Description: <%= campaign.description %></li>
                   <li>Target: <%= campaign.target %></li>
                   <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>

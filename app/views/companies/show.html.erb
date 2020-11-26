@@ -36,7 +36,7 @@
       <% end %>
     <% end %>
 
-    <% if policy(@company).edit? %>
+    <% if @company.user == current_user %>
     <%= link_to edit_company_path(@company), class: "box-3" do %>
       <div>
         My profile
