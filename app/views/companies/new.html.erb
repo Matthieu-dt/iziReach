@@ -1,15 +1,22 @@
-<div class="container-companies">
+<div class="container p-4">
 
-  <%= simple_form_for [ @company ] do |f| %>
-        <%= f.input :name, placeholder: "company's name"%>
-        <%= f.input :description, placeholder: "Company detailed description"%>
-        <%= f.input :values, placeholder: "Share your company vision and mission"%>
-        <%= f.input :url, placeholder: "company's website" %>
-        <%= f.input :photo, as: :file %>
-        <div class="btn btn-primary">
-        <%= f.submit "Create", class: "btn" %>
-        </div>
-  <% end %>
+  <div class="container-companies">
+    <%= simple_form_for [ @company ] do |f| %>
+          <%= f.input :name, placeholder: "company's name",
+                      input_html: { class:"input-comp"} %>
+          <%= f.input :description, placeholder: "Company detailed description",
+                      input_html: { class:"input-comp"}%>
+          <%= f.input :values, placeholder: "Share your company vision and mission",
+                      input_html: { class:"input-comp"} %>
+          <%= f.input :url, placeholder: "company's website",
+                      input_html: { class:"input-comp"} %>
+          <%= f.input :photo, as: :file,
+                      input_html: { class:""} %>
+          <div class="btn gradient-pink-button">
+          <%= f.submit "Create", class: "btn" %>
+          </div>
+    <% end %>
+  </div>
 
 </div>
 
