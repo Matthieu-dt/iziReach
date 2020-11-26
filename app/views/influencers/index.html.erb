@@ -1,24 +1,43 @@
-<% @influencers.each do |influencer| %>
-  <div class="influencer-card">
-    <div class="influencer-bio">
-      <div class="influencer-avatar">
-        <img src="<%= influencer.instagram_pp %>" alt="">
+<div class="container">
+  <div class="grid">
+    <% @influencers.each do |influencer| %>
+      <div class="influencer-card">
+        <div class="influencer-bio">
+          <div class="influencer-avatar">
+            <img src="<%= influencer.instagram_pp %>" alt="">
+          </div>
+          <div class="influencer-infos">
+            <%= link_to influencer.user_name, influencer_path(influencer)  %>
+            <% if @verifed == "1" %>
+              <i class="fas fa-certificate"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="influencer-stats">
+          <div class="stat-card-1">
+            <h3><%= influencer.followers %></h3>
+            <p>followers</p>
+          </div>
+          <div class="stat-card-2">
+            <h3><%= influencer.engagement %>%</h3>
+            <p>engagement</p>
+          </div>
+        </div>
+        <div class="filters">
+          <i class="far fa-check-square"><p> Lifestyle</p></i>
+          <i class="far fa-check-square"><p> Music</p></i>
+          <i class="far fa-check-square"><p> Food</p></i>
+        </div>
+
+        <div class="influencer-footer">
+          <% influencer.set_rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
+        <div class="book-btn">
+          <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
+        </div>
       </div>
-      <div class="influencer-infos">
-        <%= link_to influencer.user_name, influencer_path(influencer)  %>
-        <%= influencer.fullname %>
-      </div>
-    </div>
-    <div class="influencer-stats">
-        <%= influencer.followers %>
-        <%= influencer.engagement %>
-    </div>
-    <div class="influencer-footer">
-      <% influencer.set_rating.times do %>
-        <i class="fas fa-star"></i>
-      <% end %>
-    </div>
-        <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
     <% end %>
   </div>
-
+</div>
