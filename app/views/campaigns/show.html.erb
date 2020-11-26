@@ -1,8 +1,25 @@
-<%= @campaign.name %>
-<%= @campaign.description %>
-<%= @campaign.status %>
-<% @campaign.bookings.each do |booking| %>
-<%= booking.influencer.first_name %>
-<%= link_to 'Put a review', new_booking_review_path(booking)%>
-<% end %>
-<%= link_to 'See influencers', campaign_influencers_path(@campaign) %>
+
+<div class="container">
+
+ <%= link_to "Back", campaigns_path(current_user.company) %>
+
+<h2>My campaign</h2>
+
+<%= cl_image_tag @campaign.photo.key, height: 200, width: 200, crop: :fill %>
+   <Li><%= @campaign.name %></Li>
+   <Li> <%= @campaign.description %></Li>
+   <li>Date: <%= @campaign.occurs_at.strftime("%m/%d/%Y") %></li>
+   <Li> <%= @campaign.status %></Li>
+
+   <h3>My influencers requests</h3>
+   <% @campaign.bookings.each do |booking| %>
+     <div class="requests-card">
+       <%= cl_image_tag booking.influencer.photos[0].key, height: 200, width: 200, crop: :fill %>
+       <Li> <%= link_to booking.influencer.user_name, influencer_path(booking.influencer) %>
+       <Li> <%= booking.status %></Li>
+       <%= link_to 'Put a review', new_booking_review_path(booking)%>
+     </div>
+   <% end %>
+   <Li> <%= link_to 'See influencers', campaign_influencers_path(@campaign) %></li>
+</div>
+

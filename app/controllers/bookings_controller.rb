@@ -37,6 +37,13 @@ class BookingsController < ApplicationController
     @booking.delete
   end
 
+  def update_status
+    @booking = Booking.find(params[:id])
+    @booking.update(status:params[:status])
+    skip_authorization
+    redirect_to solicitations_path
+  end
+
   private
 
   def booking_params

@@ -1,7 +1,90 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.container-navbar {
+  display: flex;
 }
+
+.container-navbar-middle {
+  background-color: white;
+  height: 50px;
+  width: 70%;
+  margin: auto;
+  border-radius: 25px;
+  position: sticky;
+  margin-top: 10px;
+  box-shadow: 0px 2px 10px #9ab3f53b;
+  display: flex;
+}
+
+.list-links {
+  width: 60%;
+  margin: auto;
+}
+
+ul.link :hover {
+  text-decoration: none;
+}
+
+ul.link {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.link {
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  height: 100%;
+  margin: auto;
+  padding-left: 0;
+  li {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    > a {
+      width: 100%;
+      display: inline-block;
+    }
+    // &:after {
+    //   content: '';
+    //   border-right: 1px solid black;
+    // }
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+}
+
+.divider-vertical-second-menu{
+  height: 20px;
+  margin: 0 5px;
+  overflow: hidden;
+  border-right: 2px solid #dedede;
+}
+
+.two:hover ~ hr {
+  margin-left: 24%;
+}
+
+.three:hover ~ hr {
+  margin-left: 49%;
+}
+
+.four:hover ~ hr {
+  margin-left: 74%;
+}
+
+hr {
+  height: .25rem;
+  width: 24%;
+  margin: 0;
+  background: #a3d8f4;
+  border: none;
+  transition: .2s ease-in-out;
+}
+
+
+//////
+
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -10,3 +93,48 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dropdown-menu.dropdown-menu-right.show {
+  border-radius: 25px;
+  margin-top: 25px;
+  left: -98px;
+  a:hover {
+    color: #a3d8f4;
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+.border-bottom-nav {
+  border-bottom: solid 2px #8a8a8a;
+  width: 40px;
+  /* align-items: center; */
+  margin: auto;
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0px 2px 10px #9ab3f53b;
+}
+
+.burger-btn {
+  cursor: pointer;
+}
+
+.container-burger {
+  height: 50px;
+  width: 100px;
+  border-radius: 25px;
+  background-color: red;
+  margin-top: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 2px 10px #9ab3f53b;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
