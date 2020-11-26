@@ -1,11 +1,24 @@
 <% @influencers.each do |influencer| %>
-  <%= link_to influencer.user_name, influencer_path(influencer)  %>
-  <%= influencer.fullname %>
-  <%= influencer.followers %>
-  <%= influencer.engagement %>
-  <img src="<%= influencer.instagram_pp %>" alt="">
-  <% influencer.set_rating.times do %>
-  <i class="fas fa-star"></i>
-<% end %>
-<%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
-<% end %>
+  <div class="influencer-card">
+    <div class="influencer-bio">
+      <div class="influencer-avatar">
+        <img src="<%= influencer.instagram_pp %>" alt="">
+      </div>
+      <div class="influencer-infos">
+        <%= link_to influencer.user_name, influencer_path(influencer)  %>
+        <%= influencer.fullname %>
+      </div>
+    </div>
+    <div class="influencer-stats">
+        <%= influencer.followers %>
+        <%= influencer.engagement %>
+    </div>
+    <div class="influencer-footer">
+      <% influencer.set_rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    </div>
+        <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
+    <% end %>
+  </div>
+
