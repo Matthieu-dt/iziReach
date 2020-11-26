@@ -8,16 +8,19 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :companies, only: [:show, :new, :create, :update, :edit] do
+    member do
+      resources :campaigns, only: [:index]
+    end
     resources :campaigns, only: [:new, :create]
   end
 
-  resources :campaigns, only: [:show, :edit, :update, :destroy, :index] do
+  resources :campaigns, only: [:show, :edit, :update, :destroy] do
     resources :influencers, only: [:index]
   end
 
   resources :influencers, only: [:new, :create, :update, :edit, :show] do
     resources :bookings, only: [:new, :create]
-      member do 
+      member do
         patch "update_status", to: "bookings#update_status"
       end
   end

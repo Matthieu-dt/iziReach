@@ -1,7 +1,11 @@
 <% @influencers.each do |influencer| %>
-<%= influencer.first_name %>
-<% influencer.set_rating.times do %>
-<i class="fas fa-star"></i>
+  <%= link_to influencer.user_name, influencer_path(influencer)  %>
+  <%= influencer.fullname %>
+  <%= influencer.followers %>
+  <%= influencer.engagement %>
+  <img src="<%= influencer.instagram_pp %>" alt="">
+  <% influencer.set_rating.times do %>
+  <i class="fas fa-star"></i>
 <% end %>
 <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
 <% end %>

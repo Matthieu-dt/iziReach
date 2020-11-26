@@ -1,4 +1,20 @@
 <h3> Influencer profil</h3>
+<p>Followings : <%= @following %></p>
+<p>Uploads : <%= @uploads %> </p>
+<% if @verified == 1 %>
+<%= Verified %>
+<% end %>
+<p>Av likes : <%= @av_likes %> </p>
+<p>Av comments : <%= @av_comments %> </p>
+<p>Enagement on top posts :</p>
+<% @top_posts.each do |post| %>
+<%= post %>
+<% end %>
+<% @last_9_pics.each do |pic| %>
+<img src="<%= pic[:url] %>" alt="">
+<%= pic[:likes] %>
+<%= pic[:comments] %>
+<% end %>
 <% @influencer.photos.each do |photo| %>
   <%= cl_image_tag photo.key[0], height: 300, width: 400, crop: :fill %>
 <% end %>
