@@ -41,10 +41,15 @@
 }
 
 .campaign-content {
-display: flex;
-justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .campaign-information {
-margin-left:20px;
+  margin-left:20px;
+}
+
+.request-col img {
+  border-radius: 50%;
+  height:65px; 
 }
