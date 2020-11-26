@@ -1,0 +1,50 @@
+.site-footer{
+  background-image: linear-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+  padding:30px 0 30px;
+  font-size:35px;
+  line-height:24px;
+  text-align:center;
+  border-radius:5px;
+  max-height: 110px;
+  position:relative;
+}
+.social-links li {
+  display:inline;
+  padding:10px;
+}
+.twitter{
+  color:#484B86;
+  padding:2px 0 1px;
+}
+.twitter:hover{
+  font-size:50px;
+  color:#F1F1F1;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.facebook{
+  color:#484B86;
+  padding:2px 0 1px;
+}
+.facebook:hover{
+  font-size:50px;
+  color:#F1F1F1;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.instagram{
+  color:#484B86;
+  padding:2px 0 1px;
+}
+.instagram:hover{
+  color:#F1F1F1;
+  font-size:50px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.linkedin{
+  color:#484B86;
+  padding:2px 0 1px;
+}
+.linkedin:hover{
+  color:#F1F1F1;
+  font-size:50px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
