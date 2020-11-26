@@ -1,0 +1,21 @@
+.input-comp {
+  // background-color: #f28abc61;
+  border-radius: 50px !important;
+  padding: 12px 15px 12px 15px !important;
+  width: 100%;
+  box-sizing: border-box;
+  border: none !important;
+  border: 1px solid #f28abc61 !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  font-weight: 400;
+}
+
+.input-comp:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #e05297 !important;
+  outline-width: 0;
+  font-weight: 400;
+}
