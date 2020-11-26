@@ -74,9 +74,17 @@
         <% end %>
       </div>
 
+<% if booking.status == "pending" || booking.status == "refused" %>
+    <div class="request-col" style="width:150px">
+      <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' }%>
+    </div>
+<% end %>
+
+<% if booking.status == "accepted" %>
     <div class="request-col" style="width:150px">
       <%= link_to 'leave a review', new_booking_review_path(booking)%>
     </div>
+<% end %>
 
      </div>
    <% end %>
