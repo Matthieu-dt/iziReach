@@ -1,4 +1,4 @@
-<div class="container p-4">
+<div class="container p-5">
 
   <div class="container-companies">
     <%= simple_form_for [ @company ] do |f| %>
@@ -12,8 +12,10 @@
                       input_html: { class:"input-comp"} %>
           <%= f.input :photo, as: :file,
                       input_html: { class:""} %>
-          <div class="btn gradient-pink-button">
-          <%= f.submit "Create", class: "btn" %>
+          <div class="d-flex justify-content-center">
+            <div class="btn gradient-pink-button mt-1">
+            <%= f.submit "Create", class: "btn" %>
+            </div>
           </div>
     <% end %>
   </div>
