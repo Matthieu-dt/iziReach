@@ -34,7 +34,7 @@ class InfluencersController < ApplicationController
     data = JSON.parse(data_serialized)
     @following = data["following"]
     @uploads = data["uploads"]
-    @verified = data["verified"]
+    @verified = data["is_verified"]
     @av_comments = data["details"]["average_comments"]
     @av_likes = data["details"]["average_likes"]
     @top_posts = data["details"]["top_posts"].values
