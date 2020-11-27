@@ -8,8 +8,6 @@
                     input_html: { class:"input-comp"} %>
         <%= f.input :user_name, placeholder: "Use your Instagram username",
                     input_html: { class:"input-comp"} %>
-        <%= f.input :description, placeholder: "Tell us more about you",
-                    input_html: { class:"input-comp"} %>
         <%= f.input :price_per_story,
                     input_html: { class:"input-comp"} %>
         <%= f.input :price_per_photo,
@@ -18,7 +16,6 @@
                     input_html: { class:"input-comp"} %>
         <%= f.input :price_per_live,
                     input_html: { class:"input-comp"} %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <div class="d-flex justify-content-center">
           <div class="btn gradient-pink-button mt-1">
           <%= f.submit "Create", class: "btn" %>

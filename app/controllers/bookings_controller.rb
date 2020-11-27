@@ -33,8 +33,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @campaign = Campaign.find(params[:id])
     @booking = Booking.find(params[:id])
-    @booking.delete
+    authorize @booking
+    @booking.destroy
+    redirect_to campaign_path(@campaign)
+
   end
 
   def update_status

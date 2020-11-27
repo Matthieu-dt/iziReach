@@ -1,10 +1,7 @@
  <%= simple_form_for [ @influencer ] do |f| %>
-     
-      <%= f.input :description, placeholder: "Tell us more about you"%>
       <%= f.input :price_per_story%>
       <%= f.input :price_per_photo%>
       <%= f.input :price_per_video%>
       <%= f.input :price_per_live%>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit "Edit", class: "btn" %>
       <% end %>
