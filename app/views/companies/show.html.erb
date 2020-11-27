@@ -41,9 +41,32 @@
       <div class="gradient-blue-button px-5 py-2">
         Edit
       </div>
-      <% end %>
-    <% end %>
-</div>
+    </div>
 
+    <div class="box-2">
+        <% if @company.user == current_user %>
+          <%= link_to new_company_campaign_path(@company), class: "box-3" do %>
+            <div>
+               New campaign
+            </div>
+          <% end %>
+        <% end %>
 
+        <% if @company.user == current_user %>
+         <%= link_to company_campaigns_path(current_user.company), class: "box-3" do %>
+            <div>
+               My campaigns
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if @company.user == current_user %>
+        <%= link_to edit_company_path(@company), class: "box-3" do %>
+          <div>
+            My profile
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
 </div>
