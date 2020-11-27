@@ -3,6 +3,7 @@
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>
+
 <!--         <%= action_name %>
         <%= controller_name %> -->
           <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>"><%= link_to "home", root_path%></div>
