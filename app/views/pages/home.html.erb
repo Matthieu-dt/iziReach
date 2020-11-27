@@ -1,20 +1,33 @@
-<div>
-  <h1>Izireach</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="banner-content">
+    <h1>IZIREACH</h1>
+    <p>Helping brands & influencers find the perfect match!<br>
+    The marketing tool that will change your life. </p>
+  </div>
+</div>
 
-  <% if current_user && current_user.company == nil && current_user.influencer == nil%>
-    <div class="btn">
-      <%= link_to "Create Company", new_company_path%>
-    </div>
-    <div class="btn">
-      <%= link_to "Create influencer profil", new_influencer_path%>
-    </div>
-  <% end %>
-s
 
-  <% if current_user %>
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Log in', new_user_session_path %>
-  <% end %>
+</div>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" alt="First slide">
+      <div class="centered">"We got the best selection of influencers within seconds!<br> I never thought digital makeketing was easier and more convenenient"</div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://images.unsplash.com/photo-1577481759269-f01ade4b3256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://images.unsplash.com/photo-1496147195884-6ab7f7c0a027?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 </div>
