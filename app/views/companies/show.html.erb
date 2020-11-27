@@ -1,21 +1,45 @@
-<div class="container">
-  <div class="container-show-company">
-    <div class="box-1">
-      <div class="box-1-header">
-        <div class="img-company-show">
-          <%= cl_image_tag @company.photo.key, height: 200, width: 200, crop: :fill, class: 'img-company-show' %>
-        </div>
-          <h2><%= @company.name %></h2>
+<div class="container p-5">
+
+<div class="container-show-influencer"  style="margin-bottom: 30px; background:#7a80e912">
+  <div class="container-info-account-influencer" style="padding-top:10px">
+    <div class="img-company-show">
+      <%= cl_image_tag @company.photo.key, height: 200, width: 200, crop: :fill, class: 'img-company-show' %>
+    </div>
+      <h2><%= @company.name %></h2>
+  </div>
+  <div class="box-1-body">
+    <div class="box-1-description">
+      <h4>Who we are</h4>
+      <p><%= @company.description %></p>
+    </div>
+    <div class="box-1-description">
+      <h4>Our values</h4>
+      <p><%= @company.values %></p>
+    </div>
+  </div>
+</div>
+
+<div class="box-2">
+    <% if @company.user == current_user %>
+      <%= link_to new_company_campaign_path(@company) do %>
+      <div class="gradient-blue-button px-5 py-2">
+        I am a company
       </div>
-      <div class="box-1-body">
-        <div class="box-1-description">
-          <h4>Who we are</h4>
-          <p><%= @company.description %></p>
+      <% end %>
+    <% end %>
+
+    <% if @company.user == current_user %>
+     <%= link_to company_campaigns_path(current_user.company) do %>
+      <div class="gradient-blue-button px-5 py-2">
+           My campaigns
         </div>
-        <div class="box-1-description">
-          <h4>Our values</h4>
-          <p><%= @company.values %></p>
-        </div>
+      <% end %>
+    <% end %>
+
+    <% if @company.user == current_user %>
+    <%= link_to edit_company_path(@company) do %>
+      <div class="gradient-blue-button px-5 py-2">
+        Edit
       </div>
     </div>
 
