@@ -19,6 +19,9 @@
       <li><i class="far fa-id-badge"> # lives: <%= @campaign.number_of_lives %></i></li>
       <li><i class="fas fa-camera-retro"> # photos: <%= @campaign.number_of_photos %></i></li>
       <li><i class="fas fa-video"> # videos: <%= @campaign.number_of_videos %></i></li>
+      <li><%= link_to "Remove", company_campaign_path(@company, @campaign), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to "Edit", edit_campaign_path(@campaign)%></li>
+
     <% if @campaign.status == "pending" %>
       <div class="pdg" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
       </div>
@@ -33,7 +36,7 @@
     <div> 
     <%= @campaign.description %>
     </div>
-    <%= link_to "Remove", company_campaign_path(@company, @campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+  
   </div>
 
    <h3>My influencers requests</h3>

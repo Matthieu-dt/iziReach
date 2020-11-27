@@ -11,7 +11,6 @@
            </div>  
               <ul style="margin: -8px 0px 0px -35px; width: 300px">
                 <strong><%= link_to campaign.name, campaign_path(campaign)%></strong>
-                  <li>Description: <%= campaign.description %></li>
                   <li>Target: <%= campaign.target %></li>
                   <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
                   <li># of stories: <%= campaign.number_of_stories %></li>

@@ -1,4 +1,13 @@
 <div class="container">
+
+<% if @campaign.company.user == current_user %>
+  <%= link_to campaign_path(@campaign) do %>
+    <div>
+      Back to my campaign
+    </div>
+  <% end %>
+  <% end %>
+
   <div class="grid">
     <% @influencers.each do |influencer| %>
       <div class="influencer-card">
