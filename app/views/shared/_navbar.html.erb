@@ -1,9 +1,8 @@
 <div class="container-navbar">
   <div class="container-navbar-middle">
-    <div class="list-links">  
+    <div class="list-links">
       <ul class="link">
         <% if current_user && current_user.company.present? %>
-          <li>Welcome <%= current_user.company.name %> !</li>
           <li class="one"><%= link_to "home", root_path%></li>
           <li class="two"><%= link_to "My campaigns", campaigns_path(current_user)%></li>
           <li class="three"><%= link_to "New campaign", new_company_campaign_path(current_user.company)%></li>
