@@ -1,17 +1,19 @@
 class CampaignsController < ApplicationController
-  before_action :find_company, only: [:new, :create, :update, :update]
+  before_action :find_company, only: [:index, :new, :create, :destroy]
 
   # def index
   #   @campaigns = policy_scope(Campaign)
   # end
 
   def index
-    @campaigns = policy_scope(Campaign).where(company: Company.find(params[:id]))
+  
+    @campaigns = policy_scope(Campaign).where(company: @company)
     # authorize @campaigns
   end
 
   def show
     @campaign = Campaign.find(params[:id])
+    @company = @campaign.company
     authorize @campaign
   end
 
@@ -36,12 +38,13 @@ class CampaignsController < ApplicationController
 
   def edit
     @campaign = Campaign.find(params[:id])
+    authorize @campaign
   end
 
   def update
     # @company = Company.find(params[:company_id])
     @campaign = Campaign.find(params[:id])
-    authorize @compaign
+    authorize @campaign
     @campaign.update(campaign_params)
     redirect_to campaign_path(@campaign)
   end
@@ -50,7 +53,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     authorize @campaign
     @campaign.destroy
-    redirect_to campaigns_path
+    redirect_to company_campaigns_path(@company)
   end
 
   private

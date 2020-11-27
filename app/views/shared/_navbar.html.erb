@@ -3,10 +3,11 @@
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>
+
 <!--         <%= action_name %>
         <%= controller_name %> -->
           <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>"><%= link_to "home", root_path%></div>
-          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>"><%= link_to "My campaigns", campaigns_path(current_user)%></div>
+          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>"><%= link_to "My campaigns", company_campaigns_path(current_user.company)%></div>
           <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>"><%= link_to "New campaign", new_company_campaign_path(current_user.company)%></div>
           <!-- <hr /> -->
         <% elsif current_user && current_user.influencer.present? %>
