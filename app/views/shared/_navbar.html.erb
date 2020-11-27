@@ -11,11 +11,20 @@
           <li>Welcome <%= current_user.influencer.user_name %> !</li>
           <li class="one"><%= link_to "home", root_path%></li>
           <li class="two"><%= link_to "My profil", influencer_path(current_user.influencer)%></li>
+<<<<<<< HEAD
           <hr />
         <% else%>
           <li>Welcome on Izireach !</li>
           <hr />
           <% end %>
+=======
+          <!-- <hr /> -->
+        <% else%>
+          <li>Welcome on Izireach !</li>
+          <hr />
+        <% end %>
+          <!-- <hr /> -->
+>>>>>>> show_influencer
       </ul>
     </div>
   </div>
