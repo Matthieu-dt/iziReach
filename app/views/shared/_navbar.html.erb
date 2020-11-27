@@ -1,23 +1,26 @@
 <div class="container-navbar">
   <div class="container-navbar-middle">
-    <div class="list-links">  
-      <ul class="link">
+    <div class="list-links">
+      <div class="link">
         <% if current_user && current_user.company.present? %>
-          <li>Welcome <%= current_user.company.name %> !</li>
-          <li class="one"><%= link_to "home", root_path%></li>
-          <li class="two"><%= link_to "My campaigns", company_campaigns_path(current_user.company)%></li>
-          <li class="three"><%= link_to "New campaign", new_company_campaign_path(current_user.company)%></li>
-          <hr />
+
+<!--         <%= action_name %>
+        <%= controller_name %> -->
+          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>"><%= link_to "home", root_path%></div>
+          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>"><%= link_to "My campaigns", campaigns_path(current_user)%></div>
+          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>"><%= link_to "New campaign", new_company_campaign_path(current_user.company)%></div>
+          <!-- <hr /> -->
         <% elsif current_user && current_user.influencer.present? %>
-          <li class="ml-auto mr-auto">Welcome <%= current_user.influencer.user_name %> !</li>
-          <li class="ml-auto mr-auto one"><%= link_to "home", root_path%></li>
-          <li class="ml-auto mr-auto two"><%= link_to "My profil", influencer_path(current_user.influencer)%></li>
-          <hr />
-        <% else%>
-          <li>Welcome on Izireach !</li>
-          <hr />
-          <% end %>
-      </ul>
+
+          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>"><%= link_to "home", root_path%></div>
+          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>"><%= link_to "My profil", influencer_path(current_user.influencer)%></div>
+          <!-- <hr /> -->
+        <% else %>
+          <div class="nav_link">Welcome on Izireach !</div>
+          <!-- <hr /> -->
+        <% end %>
+          <!-- <hr /> -->
+      </div>
     </div>
   </div>
 
