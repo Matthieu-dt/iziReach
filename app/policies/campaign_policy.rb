@@ -13,6 +13,7 @@ class CampaignPolicy < ApplicationPolicy
   #   true
   # end
 
+
   def create?
     record.company.user == user
   end

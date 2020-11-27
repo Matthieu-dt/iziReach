@@ -8,13 +8,10 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :companies, only: [:show, :new, :create, :update, :edit] do
-    member do
-      resources :campaigns, only: [:index]
-    end
-    resources :campaigns, only: [:new, :create]
+    resources :campaigns, only: [:index, :new, :create, :destroy]
   end
 
-  resources :campaigns, only: [:show, :edit, :update, :destroy] do
+  resources :campaigns, only: [:show, :edit, :update] do
     resources :influencers, only: [:index]
   end
 

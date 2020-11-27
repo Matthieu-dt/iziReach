@@ -1,8 +1,10 @@
 class BookingsController < ApplicationController
   def new
-    @influencer = Influencer.find(params[:influencer_id])
-    @campaign = Campaign.find(params[:campaign_id])
+    # @influencer = Influencer.find(params[:influencer_id])
+    # @campaign = Campaign.find(params[:campaign_id])
     @booking = Booking.new
+    @booking.campaign = @campaign
+    @booking.influencer = @influencer
     authorize @booking
   end
 
@@ -10,9 +12,9 @@ class BookingsController < ApplicationController
     @influencer = Influencer.find(params[:influencer_id])
     @campaign = Campaign.find(params[:campaign_id])
     @booking = Booking.new
-    authorize @booking
     @booking.influencer = @influencer
     @booking.campaign = @campaign
+    authorize @booking
     if @booking.save
       redirect_to campaign_path(@campaign)
     else
@@ -33,9 +35,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
     @booking = Booking.find(params[:id])
     authorize @booking
+    @campaign = @booking.campaign
     @booking.destroy
     redirect_to campaign_path(@campaign)
 

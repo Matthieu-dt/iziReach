@@ -1,7 +1,7 @@
 
 <div class="container">
 
- <%= link_to "Back", campaigns_path(current_user.company) %>
+ <%= link_to "Back", company_campaigns_path(current_user.company) %>
 
 <h2>My campaign</h2>
  <div class="campaign-show">
@@ -33,6 +33,7 @@
     <div> 
     <%= @campaign.description %>
     </div>
+    <%= link_to "Remove", company_campaign_path(@company, @campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 
    <h3>My influencers requests</h3>

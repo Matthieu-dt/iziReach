@@ -4,6 +4,33 @@
     <p>Helping brands & influencers find the perfect match!<br>
     The marketing tool that will change your life. </p>
   </div>
+
+<% if current_user %>
+  <% if current_user.company== nil && current_user.influencer == nil %> 
+    <%= link_to new_company_path, class:"mx-1" do %>
+      <div class="gradient-blue-button px-5 py-2">
+        I am a company
+      </div>
+    <% end %>
+      <%= link_to new_influencer_path, class:"mx-1" do %>
+      <div class="gradient-blue-button px-5 py-2">
+        I am an influencer
+      </div>
+    <% end %>  
+  <% end %>
+
+<% else %>
+    <%= link_to new_user_session_path, class:"mx-1" do %>
+      <div class="gradient-blue-button px-5 py-2">
+       Sign in
+      </div>
+    <% end %>
+        <%= link_to new_user_registration_path, class:"mx-1" do %>
+      <div class="gradient-blue-button px-5 py-2">
+       Sign up
+      </div>
+    <% end %>
+<% end %>
 </div>
 
 

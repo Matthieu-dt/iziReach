@@ -33,7 +33,7 @@
                   </div>
                 <% end %>
 
-                <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
           </div>
          <% end %>
@@ -106,7 +106,7 @@
                   </div>
                 <% end %>
 
-                <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
 
           </div>
