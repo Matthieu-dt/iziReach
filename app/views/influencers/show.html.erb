@@ -1,31 +1,65 @@
-<h3> Influencer profil</h3>
-<p>Followers: <%= @influencer.followers %> </p>
-<p>Followings : <%= @following %></p>
-<img src="<%= @influencer.instagram_pp %>" alt="">
-<p>Uploads : <%= @uploads %> </p>
-<% if @verified == 1 %>
-<%= Verified %>
-<% end %>
-<p>Av likes : <%= @av_likes %> </p>
-<p>Av comments : <%= @av_comments %> </p>
-<p>Enagement on top posts :</p>
-<% @top_posts.each do |post| %>
-<%= post %>
-<% end %>
-<% @last_9_pics.each do |pic| %>
-<img src="<%= pic[:url] %>" alt="">
-<%= pic[:likes] %>
-<%= pic[:comments] %>
-<% end %>
-<ul>
-<li>Username: <%= @influencer.user_name %></li>
-<li>Description: <%= @influencer.description %></li>
-<li><%= @influencer.price_per_story %>€ per story</li>
-<li><%= @influencer.price_per_photo %>€ per photo</li>
-<li><%= @influencer.price_per_video %>€ per video</li>
-<li><%= @influencer.price_per_live %>€ per live</li>
-</ul>
-<% if @influencer.user == current_user %>
-<%= link_to 'Edit my profile', edit_influencer_path(@influencer) %>
-<%= link_to 'See my prestations', solicitations_path(@influencer) %>
-<% end %>
+
+<div class="container p-5">
+  <div class="container-show-influencer">
+    <img id="img-background" src="https://images.pexels.com/photos/4549414/pexels-photo-4549414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+
+    <div class="infos-show-influencer">
+      <img id="img-influencer" src="<%= @influencer.instagram_pp %>" alt="photo profil">
+      <h2><%= @influencer.fullname %></h2>
+      <p>Washington, États-Unis</p>
+    </div>
+
+    <div class="container-info-account-influencer">
+      <div class="card-info"><p><%= @uploads %> <br> Posts</p></div>
+      <div class="card-info"><p><%= @following %> <br> Following</p></div>
+      <div class="card-info"><p><%= @influencer.followers %> <br> Followers</p></div>
+      <div class="card-info"><p><%= @influencer.engagement %>% <br> Engagement</p></div>
+    </div>
+
+    <div>
+      <ul>
+        <li>Username: <%= @influencer.user_name %></li>
+        <li>Description: <%= @influencer.description %></li>
+        <li><%= @influencer.price_per_story %>€ per story</li>
+        <li><%= @influencer.price_per_photo %>€ per photo</li>
+        <li><%= @influencer.price_per_video %>€ per video</li>
+        <li><%= @influencer.price_per_live %>€ per live</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      <h3> Influencer profil</h3>
+      <% if @verified == 1 %>
+      <%= Verified %>
+      <% end %>
+      <p>Av likes : <%= @av_likes %> </p>
+      <p>Av comments : <%= @av_comments %> </p>
+      <p>Enagement on top posts :</p>
+      <% @top_posts.each do |post| %>
+      <%= post %>
+      <% end %>
+      <% @last_9_pics.each do |pic| %>
+      <img src="<%= pic[:url] %>" alt="">
+      <%= pic[:likes] %>
+      <%= pic[:comments] %>
+      <% end %>
+      <ul>
+      <li>Username: <%= @influencer.user_name %></li>
+      <li>Description: <%= @influencer.description %></li>
+      <li><%= @influencer.price_per_story %>€ per story</li>
+      <li><%= @influencer.price_per_photo %>€ per photo</li>
+      <li><%= @influencer.price_per_video %>€ per video</li>
+      <li><%= @influencer.price_per_live %>€ per live</li>
+      </ul>
+      <% if @influencer.user == current_user %>
+      <%= link_to 'Edit my profile', edit_influencer_path(@influencer) %>
+      <%= link_to 'See my prestations', solicitations_path(@influencer) %>
+      <% end %>
+
+
+
+    <%# @influencer.photos.each do |photo| %>
+      <%#= cl_image_tag photo.key[0], height: 300, width: 400, crop: :fill %>
+    <%# end %>
