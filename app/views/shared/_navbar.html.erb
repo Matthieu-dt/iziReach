@@ -1,6 +1,8 @@
 <div class="container-navbar fixed-top <%= @home ? '' : 'bg-white' %>">
   <div class="container-navbar-middle">
+    <% if !@home %>
     <div class="logo_color">IZIREACH</span></div>
+    <% end %>
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>

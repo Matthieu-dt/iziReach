@@ -2,14 +2,15 @@ body {
   // background-color: #f7f7f7cc;
   background-color: white;
   font-family: 'Mukta', sans-serif;
+  color: $blue_new;
 }
 
 a {
-  color: #000;
+  color: $blue_new;
 }
 
 a:hover {
-  color: #000;
+  color: $blue_new;
   text-decoration: none;
 }
 
@@ -33,7 +34,7 @@ input.btn {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 10vh 50px;
+  padding: 10vh 50px 2vh 50px;
 }
 
 label {

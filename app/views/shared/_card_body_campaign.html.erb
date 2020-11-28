@@ -1,0 +1,28 @@
+<div class="card_gray">
+  <div class="d-flex flex-wrap justify-content-left w-100">
+    <div class="w-25 border_radius_img_left">
+      <%= cl_image_tag campaign.photo.key, crop: :fill, class: 'img_left_company' %>
+    </div>
+    <div class="w-75 d-flex flex-wrap flex-row justify-content-center align-items-left">
+      <div class="w-50 p-3">
+        <div><%= link_to campaign.name, campaign_path(campaign)%></div>
+        <div>Target: <%= campaign.target %></div>
+        <div>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
+        <div># of stories: <%= campaign.number_of_stories %></div>
+        <div># of lives: <%= campaign.number_of_lives %></div>
+        <div>#of photos: <%= campaign.number_of_photos %></div>
+        <div>#of videos: <%= campaign.number_of_videos %></div>
+        <div>Description: <%= campaign.description %></div>
+      </div>
+      <div class="w-50 p-3">
+        <div class="pdg"><%= campaign.status %></div>
+        <%= link_to campaign_path(campaign) do %>
+          <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
+            Campaign details
+          </div>
+        <% end %>
+        <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>
+</div>

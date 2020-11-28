@@ -1,112 +1,23 @@
-<div class="container">
-<h2 class="text-blue font-weight-bold">All <span class="text-gradient font-weight-bold">my campaigns</span></h2>
-<%= link_to "Back", company_path(@current_user.company) %>
-      <h3>Pending</h3>
-        <%current_user.company.campaigns.each do |campaign| %>
-          <% if campaign.status == "pending" %>
-          <div class="campaign-card">
-           <div style="margin: -16px 5px 0px -16px"> <%= cl_image_tag campaign.photo.key, height: 220, width: 200, crop: :fill %>
-           </div>
-              <ul style="margin: -8px 0px 0px -35px; width: 300px">
-                <strong><%= link_to campaign.name, campaign_path(campaign)%></strong>
-                  <li>Target: <%= campaign.target %></li>
-                  <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
-                  <li># of stories: <%= campaign.number_of_stories %></li>
-                  <li># of lives: <%= campaign.number_of_lives %></li>
-                  <li>#of photos: <%= campaign.number_of_photos %></li>
-                  <li>#of videos: <%= campaign.number_of_videos %></li>
-              </ul>
-
-            <div class="description_card" style="list-style-type:none;">
-              <li>Description: <%= campaign.description %></li>
-            </div>
-
-              <div style="text-align:center">
-                 <div class="pdg"><%= campaign.status %></div>
-
-                <%= link_to campaign_path(campaign) do %>
-                  <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
-                    Campaign details
-                  </div>
-                <% end %>
-
-                <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-          </div>
-         <% end %>
-       <% end %>
-
-       <h3>Ongoing</h3>
-        <%current_user.company.campaigns.each do |campaign| %>
-          <% if campaign.status == "ongoing" %>
-          <div class="campaign-card">
-            <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
-              <ul>
-                <%= link_to campaign.name, campaign_path(campaign)  %>
-                  <li>Target: <%= campaign.target %></li>
-                  <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
-                  <li># of stories: <%= campaign.number_of_stories %></li>
-                  <li># of lives: <%= campaign.number_of_lives %></li>
-                  <li>#of photos: <%= campaign.number_of_photos %></li>
-                  <li>#of videos: <%= campaign.number_of_videos %></li>
-              </ul>
-
-            <div class="description_card" style="list-style-type:none;">
-              <li>Description: <%= campaign.description %></li>
-            </div>
-
-              <div style="text-align:center">
-                 <div class="accp"><%= campaign.status %></div>
-
-                <%= link_to campaign_path(campaign) do %>
-                  <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
-                    Campaign details
-                  </div>
-                <% end %>
-
-                <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-          </div>
-         <% end %>
-       <% end %>
-
-       <h3>Passed</h3>
-        <%current_user.company.campaigns.each do |campaign| %>
-          <% if campaign.status == "passed" %>
-          <div class="campaign-card">
-            <%= cl_image_tag campaign.photo.key, height: 200, width: 200, crop: :fill %>
-              <ul>
-                <%= link_to campaign.name, campaign_path(campaign)  %>
-                  <li>Description: <%= campaign.description %></li>
-                  <li>Target: <%= campaign.target %></li>
-                  <li>Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></li>
-                  <li># of stories: <%= campaign.number_of_stories %></li>
-                  <li># of lives: <%= campaign.number_of_lives %></li>
-                  <li>#of photos: <%= campaign.number_of_photos %></li>
-                  <li>#of videos: <%= campaign.number_of_videos %></li>
-              </ul>
-              <div>
-                <div class="ref"> <%= campaign.status %></div>
-                 <%= link_to "Remove", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-
-            <div class="description_card" style="list-style-type:none;">
-              <li>Description: <%= campaign.description %></li>
-            </div>
-
-            <div style="text-align:center">
-              <div class="ref"><%= campaign.status %></div>
-
-                <%= link_to campaign_path(campaign) do %>
-                  <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
-                    Campaign details
-                  </div>
-                <% end %>
-
-                <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-
-          </div>
-         <% end %>
-       <% end %>
+<div>
+  <h2 class="text-blue font-weight-bold">All <span class="text-gradient font-weight-bold">my campaigns</span></h2>
+  <%= link_to "Back", company_path(@current_user.company) %>
+  <% @campaigns = current_user.company.campaigns %>
+      <% @campaigns.each do |campaign| %>
+        <% if campaign.status == "pending" %>
+        <h3>Pending <%= pluralize(@campaigns.where(status: "pending").count, "campaign") %></h3>
+        <%= render 'shared/card_body_campaign', campaign: campaign %>
+        <% end %>
+      <% end %>
+    <% current_user.company.campaigns.each do |campaign| %>
+      <% if campaign.status == "ongoing" %>
+        <h3>Ongoing <%= pluralize(@campaigns.where(status: "ongoing").count, "campaign") %></h3>
+        <%= render 'shared/card_body_campaign', campaign: campaign %>
+      <% end %>
+    <% end %>
+    <% current_user.company.campaigns.each do |campaign| %>
+      <% if campaign.status == "passed" %>
+      <h3>Passed <%= pluralize(@campaigns.where(status: "passed").count, "campaign") %></h3>
+      <%= render 'shared/card_body_campaign', campaign: campaign %>
+    <% end %>
+  <% end %>
 </div>
