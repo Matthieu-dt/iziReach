@@ -16,7 +16,9 @@
   <body>
     <div style="min-height: 100vh;">
     <%= render 'shared/navbar' %>
+    <div class="<%= @home ? 'small-container' : 'large-container' %>">
       <%= yield %>
+    </div>
     <%= render 'shared/footer_white' if @home %>
     <%= render 'shared/footer' if !@home %>
     </div>

@@ -9,24 +9,24 @@
       <% if current_user %>
         <% if current_user.company== nil && current_user.influencer == nil %>
           <%= link_to new_company_path, class:"mx-1 d-flex" do %>
-            <div class="px-5 mb-1 py-2 bg-white text-center hover-btn-white" style="font-size: 24px; border: 2px solid white; border-radius: 30px;">
+            <div class="px-5 mb-3 py-2 bg-white text-center hover-btn-white" style="font-size: 24px; border: 2px solid white; border-radius: 30px; box-shadow: rgba(255, 105, 135, 0.3) 0px 3px 5px 2px;">
               I am a company
             </div>
           <% end %>
             <%= link_to new_influencer_path, class:"mx-1 d-flex" do %>
-            <div class="px-5 mb-1 py-2 bg-white text-center hover-btn-white" style="font-size: 24px; border: 2px solid white; border-radius: 30px;">
+            <div class="px-5 mb-3 py-2 bg-white text-center hover-btn-white" style="font-size: 24px; border: 2px solid white; border-radius: 30px; box-shadow: rgba(255, 105, 135, 0.3) 0px 3px 5px 2px;">
               I am an influencer
             </div>
           <% end %>
         <% end %>
       <% else %>
         <%= link_to new_user_session_path, class:"mx-1 d-flex" do %>
-          <div class="px-5 mb-1 py-2 bg-white text-center hover-btn-white" style="font-size: 24px; border: 2px solid white; border-radius: 30px;">
+          <div class="px-5 mb-3 py-2 bg-white text-center hover-btn-white" style="font-size: 24px; border: 2px solid white; border-radius: 30px; box-shadow: rgba(255, 105, 135, 0.3) 0px 3px 5px 2px;">
            Sign in
           </div>
         <% end %>
             <%= link_to new_user_registration_path, class:"mx-1 d-flex" do %>
-          <div class="px-5 mb-1 py-2 text-center hover-btn-transparent" style="font-size: 20px; border: 2px solid white; border-radius: 30px; color: white;">
+          <div class="px-5 mb-3 py-2 text-center hover-btn-transparent" style="font-size: 20px; border: 2px solid white; border-radius: 30px; color: white;">
            Sign up
           </div>
         <% end %>

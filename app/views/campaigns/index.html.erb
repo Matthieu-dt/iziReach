@@ -1,8 +1,6 @@
 <div class="container">
 <h2 class="text-blue font-weight-bold">All <span class="text-gradient font-weight-bold">my campaigns</span></h2>
 <%= link_to "Back", company_path(@current_user.company) %>
-
-
       <h3>Pending</h3>
         <%current_user.company.campaigns.each do |campaign| %>
           <% if campaign.status == "pending" %>

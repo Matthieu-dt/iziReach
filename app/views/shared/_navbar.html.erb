@@ -1,14 +1,25 @@
-<div class="container-navbar fixed-top">
+<div class="container-navbar fixed-top <%= @home ? '' : 'bg-white' %>">
   <div class="container-navbar-middle">
+    <div class="logo_color">IZIREACH</span></div>
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>
-          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>"><%= link_to "home", root_path%></div>
-          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>"><%= link_to "My campaigns", company_campaigns_path(current_user.company)%></div>
-          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>"><%= link_to "New campaign", new_company_campaign_path(current_user.company)%></div>
+          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
+            <%= link_to "home", root_path%>
+          </div>
+          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
+            <%= link_to "All my campaigns", company_campaigns_path(current_user.company)%>
+          </div>
+          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>">
+            <%= link_to "Create a campaign", new_company_campaign_path(current_user.company)%>
+          </div>
         <% elsif current_user && current_user.influencer.present? %>
-          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>"><%= link_to "home", root_path%></div>
-          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>"><%= link_to "My profil", influencer_path(current_user.influencer)%></div>
+          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>">
+            <%= link_to "home", root_path%>
+          </div>
+          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>">
+            <%= link_to "My profile", influencer_path(current_user.influencer)%>
+          </div>
         <% else %>
         <% end %>
       </div>

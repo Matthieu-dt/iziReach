@@ -1,48 +1,49 @@
 <div class="container p-5">
 
-<div class="container-show-influencer"  style="margin-bottom: 30px; background:#7a80e912">
-  <div class="container-info-account-influencer" style="padding-top:10px">
-    <div class="img-company-show">
-      <%= cl_image_tag @company.photo.key, height: 200, width: 200, crop: :fill, class: 'img-company-show' %>
-    </div>
-      <h2><%= @company.name %></h2>
-  </div>
-  <div class="box-1-body">
-    <div class="box-1-description">
-      <h4>Who we are</h4>
-      <p><%= @company.description %></p>
-    </div>
-    <div class="box-1-description">
-      <h4>Our values</h4>
-      <p><%= @company.values %></p>
-    </div>
-  </div>
-</div>
-
-<div class="box-2">
-    <% if @company.user == current_user %>
-      <%= link_to new_company_campaign_path(@company) do %>
-      <div class="gradient-blue-button px-5 py-2">
-        New campaign
+  <div class="card_gray mb-5">
+    <div class="d-flex flex-wrap justify-content-left w-100">
+      <div class="w-50 border_radius_img_left">
+        <%= cl_image_tag @company.photo.key, crop: :fill, class: 'img_left_company' %>
       </div>
-      <% end %>
-    <% end %>
-
-    <% if @company.user == current_user %>
-     <%= link_to company_campaigns_path(current_user.company) do %>
-      <div class="gradient-blue-button px-5 py-2">
-           My campaigns
+      <div class="w-50 px-3 py-3 d-flex flex-column justify-content-center">
+        <h2 class="text-uppercase"><%= @company.name %></h2>
+        <div class='d-flex justify-content-left align-items-left flex-column py-2'>
+          <div class="d-flex justify-content-left align-items-center">
+            <%= image_tag "question.png", style: "width: 30px; height: 30px;"%>
+            <h4 class="pl-3 py-2 my-0">Who we are</h4>
+          </div>
+          <div>
+            <p class="mb-0"><%= @company.description %></p>
+          </div>
         </div>
-      <% end %>
-    <% end %>
-
-    <% if @company.user == current_user %>
-    <%= link_to edit_company_path(@company) do %>
-      <div class="gradient-blue-button px-5 py-2">
-        Edit
+        <div class='d-flex justify-content-left align-items-left flex-column py-2'>
+          <div class="d-flex justify-content-left align-items-center">
+            <%= image_tag "heart.png", style: "width: 30px; height: 30px;"%>
+            <h4 class="pl-3 py-2 my-0">Our values</h4>
+          </div>
+          <div>
+            <p class="mb-0"><%= @company.values %></p>
+          </div>
+        </div>
+        <div class="box-2">
+          <%# if @company.user == current_user %>
+            <%#= link_to new_company_campaign_path(@company), class: 'button_blue shadow_button_blue my-3' do %>
+              <!-- Create a campaign -->
+            <%# end %>
+          <%# end %>
+          <% if @company.user == current_user %>
+           <%= link_to company_campaigns_path(current_user.company), class: 'button_blue shadow_button_blue my-3' do %>
+              All my campaigns
+            <% end %>
+          <% end %>
+          <% if @company.user == current_user %>
+            <%= link_to edit_company_path(@company), class: 'button_blue shadow_button_blue my-3' do %>
+              Edit my profile
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-    <% end %>
-    <% end %>
   </div>
+
 </div>

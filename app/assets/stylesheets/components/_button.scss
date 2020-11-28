@@ -9,7 +9,47 @@
   transition: all 0.3s cubic-bezier(.25,.8,.25,1)
 }
 
+.remove_submit_style {
+  background: none;
+  border: none;
+  color: unset !important;
+}
 
+.shadow_button_blue::before {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 90%;
+  padding: 5px;
+  background-size: 100% 100%;
+  background-clip: content-box;
+  background-position: center center;
+  background-image: linear-gradient(90deg, rgb(155, 110, 210) 0%, rgb(221, 99, 147) 25%, rgb(249, 161, 85) 50%, rgb(234, 112, 207) 75%, rgb(98, 218, 251) 100%);
+  z-index: -1;
+  display: block;
+  filter: blur(20px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.button_blue {
+  position: relative;
+  width: max-content;
+  min-height: 48px;
+  border-radius: 100px;
+  border: 1px solid $blue_new;
+  font-size: 16px;
+  padding: 12px 24px;
+  line-height: 24px;
+  text-align: center;
+  background-color: $blue_new;
+  color: rgb(255, 255, 255) !important;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  &:hover {
+    color: $blue_new !important;
+    background-color: white;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+}
 
 .gradient-blue-button {
   font-family: "Roboto", sans-serif;

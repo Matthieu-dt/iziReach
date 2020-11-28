@@ -1,16 +1,39 @@
-<div class="container">
-<%= simple_form_for [ @company, @campaign ] do |f| %>
-      <%= f.input :name, placeholder: "campaign's name"%>
-      <%= f.input :description, placeholder: "detailed information about your campaign"%>
-      <%= f.input :target, placeholder: "campaign target" %>
-      <%= f.input :occurs_at, placeholder: "date"%>
-      <%= f.input :number_of_stories, placeholder: "# of stories"%>
-      <%= f.input :number_of_photos, placeholder: "# of photos"%>
-       <%= f.input :number_of_videos, placeholder: "# of videos"%>
-      <%= f.input :number_of_lives, placeholder: "# of lives"%>
-      <%= f.input :photo, as: :file %>
-      <div class="btn">
-        <%= f.submit "Create", class: "btn" %>
+<div class="card_gray p-3">
+  <h2 class="text-blue font-weight-bold">Describe <span class="text-gradient font-weight-bold">your campaign</span></h2>
+  <%= simple_form_for [ @company, @campaign ] do |f| %>
+    <div class="d-flex flex-wrap justify-content-center align-items-center w-100">
+      <div class="w-50 px-2">
+        <%= f.input :name, placeholder: "campaign's name", class: 'w-100' %>
       </div>
-    <% end %>
+      <div class="w-50 px-2">
+        <%= f.input :target, placeholder: "campaign target", class: 'w-100' %>
+      </div>
+    </div>
+    <div class="px-2">
+      <%= f.input :description, placeholder: "detailed information about your campaign"%>
+    </div>
+    <div class="px-2 mx-0">
+      <%= f.input :occurs_at, placeholder: "date", class: 'mx-0' %>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center align-items-center w-100">
+      <div class="w-25 px-2">
+        <%= f.input :number_of_stories, placeholder: "# of stories", class: 'w-100'%>
+      </div>
+      <div class="w-25 px-2">
+        <%= f.input :number_of_photos, placeholder: "# of photos", class: 'w-100'%>
+      </div>
+      <div class="w-25 px-2">
+        <%= f.input :number_of_videos, placeholder: "# of videos", class: 'w-100'%>
+      </div>
+      <div class="w-25 px-2">
+        <%= f.input :number_of_lives, placeholder: "# of lives", class: 'w-100'%>
+      </div>
+    </div>
+    <div class="px-2">
+      <%= f.input :photo, as: :file %>
+    </div>
+    <div class="button_blue mx-auto my-3">
+      <%= f.submit "Create", class: "remove_submit_style" %>
+    </div>
+  <% end %>
 </div>
