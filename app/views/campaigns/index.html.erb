@@ -1,5 +1,5 @@
 <div class="container">
-<h2>My campaigns</h2>
+<h2 class="text-blue font-weight-bold">All <span class="text-gradient font-weight-bold">my campaigns</span></h2>
 <%= link_to "Back", company_path(@current_user.company) %>
 
 
@@ -8,7 +8,7 @@
           <% if campaign.status == "pending" %>
           <div class="campaign-card">
            <div style="margin: -16px 5px 0px -16px"> <%= cl_image_tag campaign.photo.key, height: 220, width: 200, crop: :fill %>
-           </div>  
+           </div>
               <ul style="margin: -8px 0px 0px -35px; width: 300px">
                 <strong><%= link_to campaign.name, campaign_path(campaign)%></strong>
                   <li>Target: <%= campaign.target %></li>
@@ -25,7 +25,7 @@
 
               <div style="text-align:center">
                  <div class="pdg"><%= campaign.status %></div>
-              
+
                 <%= link_to campaign_path(campaign) do %>
                   <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
                     Campaign details
@@ -59,7 +59,7 @@
 
               <div style="text-align:center">
                  <div class="accp"><%= campaign.status %></div>
-              
+
                 <%= link_to campaign_path(campaign) do %>
                   <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
                     Campaign details
@@ -98,7 +98,7 @@
 
             <div style="text-align:center">
               <div class="ref"><%= campaign.status %></div>
-              
+
                 <%= link_to campaign_path(campaign) do %>
                   <div class="gradient-blue-button" style="margin-top:25px; font-size:18px">
                     Campaign details

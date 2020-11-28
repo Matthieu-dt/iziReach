@@ -1,27 +1,40 @@
+.hover-btn-white:hover {
+  opacity: 0.8;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1)
+}
+
+.hover-btn-transparent:hover {
+  background: white;
+  color: $blue_new !important;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1)
+}
+
+
+
 .gradient-blue-button {
-    // margin: 10px;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    // padding: 15px;
-    text-align: center;
-    transition: 0.5s;
-    color: #FFF;
-    box-shadow: 0 0 20px #eee;
-    width: 100%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    border-radius: 25px;
-    background-image: linear-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  transition: 0.5s;
+  color: #FFF;
+  box-shadow: 0 0 20px #eee;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border-radius: 25px;
+  background-image: linear-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
 }
+
 .gradient-blue-button:hover{
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    margin: 5px 0px;
-    background-image: linear-gradient(to right, #9ab3f5 0%, #a3d8f4 50%, #b9fffc 100% );
-    background-position: right center;
-    text-decoration: none;
-    color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 5px 0px;
+  background-image: linear-gradient(to right, #9ab3f5 0%, #a3d8f4 50%, #b9fffc 100% );
+  background-position: right center;
+  text-decoration: none;
+  color: white;
 }
+
 .gradient-pink-button{
   // margin: 10px;
   font-family: "Roboto", sans-serif;

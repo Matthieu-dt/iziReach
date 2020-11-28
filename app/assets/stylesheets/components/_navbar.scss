@@ -1,17 +1,19 @@
 .container-navbar {
   display: flex;
-  margin-bottom: 40px;
+  height: 10vh;
+  // margin-bottom: 40px;
 }
 
 .container-navbar-middle {
-  background-color: white;
+  // background-color: white;
   height: 50px;
   width: 70%;
-  margin: auto;
-  border-radius: 25px;
-  position: sticky;
+  margin-left: 10vw;
+  color: white;
+  // border-radius: 25px;
+  // position: sticky;
   margin-top: 10px;
-  box-shadow: 0px 2px 10px #9ab3f53b;
+  // box-shadow: 0px 2px 10px #9ab3f53b;
   display: flex;
 }
 

@@ -14,10 +14,11 @@
   </head>
 
   <body>
+    <div style="min-height: 100vh;">
     <%= render 'shared/navbar' %>
-    <div style="min-height: 70vh;">
       <%= yield %>
+    <%= render 'shared/footer_white' if @home %>
+    <%= render 'shared/footer' if !@home %>
     </div>
-    <%= render 'shared/footer' %>
   </body>
 </html>
