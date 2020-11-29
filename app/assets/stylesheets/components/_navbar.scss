@@ -87,27 +87,27 @@
 }
 
 .one:hover {
-  border-bottom: 4px solid #a3d8f4;
+  border-bottom: 4px solid $blue_new;
   transition: .2s ease-in-out;
 }
 
 .two:hover {
-  border-bottom: 4px solid #a3d8f4;
+  border-bottom: 4px solid $blue_new;
   transition: .2s ease-in-out;
 }
 
 .three:hover {
-  border-bottom: 4px solid #a3d8f4;
+  border-bottom: 4px solid $blue_new;
   transition: .2s ease-in-out;
 }
 
 .four:hover {
-  border-bottom: 4px solid #a3d8f4;
+  border-bottom: 4px solid $blue_new;
   transition: .2s ease-in-out;
 }
 
 .active_link {
-  border-bottom: 4px solid #a3d8f4;
+  border-bottom: 4px solid $blue_new;
   transition: .2s ease-in-out;
 }
 
@@ -127,7 +127,7 @@
 //   height: .25rem;
 //   width: 24%;
 //   margin: 0;
-//   background: #a3d8f4;
+//   background: $blue_new;
 //   border: none;
 //   transition: .2s ease-in-out;
 // }
@@ -147,7 +147,7 @@
   margin-top: 25px;
   left: -98px;
   a:hover {
-    color: #a3d8f4;
+    color: $blue_new;
     text-decoration: none;
     background-color: transparent;
   }

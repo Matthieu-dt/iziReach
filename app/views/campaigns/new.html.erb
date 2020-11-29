@@ -1,7 +1,7 @@
 <div class="card_gray p-3 my-5">
   <h2 class="text-blue font-weight-bold">Describe <span class="text-gradient font-weight-bold">your campaign</span></h2>
   <%= simple_form_for [ @company, @campaign ] do |f| %>
-    <div class="d-flex flex-wrap justify-content-center align-items-center w-100">
+    <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5">
       <div class="w-50 px-2">
         <%= f.input :name, placeholder: "campaign's name", class: 'w-100' %>
       </div>

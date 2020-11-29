@@ -1,23 +1,33 @@
-<div>
-  <h2 class="text-blue font-weight-bold">All <span class="text-gradient font-weight-bold">my campaigns</span></h2>
-  <%= link_to "Back", company_path(@current_user.company) %>
+<div style="padding-top: 10vh;">
+  <h2 class="text-blue font-weight-bold text-center">All <span class="text-gradient font-weight-bold">my campaigns</span></h2>
+  <%= link_to "Back to my campany's profile", company_path(@current_user.company), style: "text-decoration: underline;", class: "mx-3" %>
   <% @campaigns = current_user.company.campaigns %>
-      <% @campaigns.each do |campaign| %>
-        <% if campaign.status == "pending" %>
-        <h3>Pending <%= pluralize(@campaigns.where(status: "pending").count, "campaign") %></h3>
-        <%= render 'shared/card_body_campaign', campaign: campaign %>
+  <h6 class="mx-3">Pending <%= pluralize(@campaigns.where(status: "pending").count, "campaign") %> / Ongoing <%= pluralize(@campaigns.where(status: "ongoing").count, "campaign") %> / Passed <%= pluralize(@campaigns.where(status: "passed").count, "campaign") %></h6>
+    <% if @campaigns.where(status: "pending").count > 0 %>
+      <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
+        <% @campaigns.each do |campaign| %>
+          <% if campaign.status == "pending" %>
+            <%= render 'shared/card_body_campaign', campaign: campaign %>
+          <% end %>
         <% end %>
-      <% end %>
-    <% current_user.company.campaigns.each do |campaign| %>
-      <% if campaign.status == "ongoing" %>
-        <h3>Ongoing <%= pluralize(@campaigns.where(status: "ongoing").count, "campaign") %></h3>
-        <%= render 'shared/card_body_campaign', campaign: campaign %>
-      <% end %>
+      </div>
     <% end %>
-    <% current_user.company.campaigns.each do |campaign| %>
-      <% if campaign.status == "passed" %>
-      <h3>Passed <%= pluralize(@campaigns.where(status: "passed").count, "campaign") %></h3>
-      <%= render 'shared/card_body_campaign', campaign: campaign %>
+    <% if @campaigns.where(status: "ongoing").count > 0 %>
+      <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
+        <% @campaigns.each do |campaign| %>
+          <% if campaign.status == "ongoing" %>
+              <%= render 'shared/card_body_campaign', campaign: campaign %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+    <% if @campaigns.where(status: "passed").count > 0 %>
+      <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
+        <% @campaigns.each do |campaign| %>
+          <% if campaign.status == "passed" %>
+            <%= render 'shared/card_body_campaign', campaign: campaign %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
 </div>

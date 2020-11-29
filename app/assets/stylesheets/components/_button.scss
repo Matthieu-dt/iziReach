@@ -15,6 +15,10 @@
   color: unset !important;
 }
 
+.box_shadow_gray {
+  box-shadow: rgba(29, 17, 72, 0.15) 0px 4px 40px;
+}
+
 .shadow_button_blue::before {
   content: "";
   position: absolute;
