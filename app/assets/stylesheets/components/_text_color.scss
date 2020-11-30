@@ -1,0 +1,20 @@
+.text-gradient {
+  background: -webkit-linear-gradient(180deg, rgb(155, 110, 210) 0%, rgb(221, 99, 147) 25%, rgb(249, 161, 85) 50%, rgb(234, 112, 207) 75%, rgb(98, 218, 251) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-blue {
+  color: $blue_new;
+}
+
+.logo_color {
+  font-size: 32px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(180deg, rgb(155, 110, 210) 0%, rgb(221, 99, 147) 25%, rgb(249, 161, 85) 50%, rgb(234, 112, 207) 75%, rgb(98, 218, 251) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  color: white;
+}
+
+// linear-gradient(90deg, rgb(155, 110, 210) 0%, rgb(221, 99, 147) 25%, rgb(249, 161, 85) 50%, rgb(234, 112, 207) 75%, rgb(98, 218, 251) 100%) center center / cover text;

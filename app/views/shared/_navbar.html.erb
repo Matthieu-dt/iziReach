@@ -1,29 +1,34 @@
-<div class="container-navbar">
+<div class="container-navbar fixed-top <%= @home ? '' : 'bg-white' %>">
   <div class="container-navbar-middle">
+    <% if !@home %>
+    <div class="logo_color">IZIREACH</span></div>
+    <% end %>
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>
-
-<!--         <%= action_name %>
-        <%= controller_name %> -->
-          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>"><%= link_to "home", root_path%></div>
-          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>"><%= link_to "My campaigns", company_campaigns_path(current_user.company)%></div>
-          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>"><%= link_to "New campaign", new_company_campaign_path(current_user.company)%></div>
-          <!-- <hr /> -->
+          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
+            <%= link_to "home", root_path%>
+          </div>
+          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
+            <%= link_to "All my campaigns", company_campaigns_path(current_user.company)%>
+          </div>
+          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>">
+            <%= link_to "Create a campaign", new_company_campaign_path(current_user.company)%>
+          </div>
         <% elsif current_user && current_user.influencer.present? %>
-
-          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>"><%= link_to "home", root_path%></div>
-          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>"><%= link_to "My profil", influencer_path(current_user.influencer)%></div>
-          <!-- <hr /> -->
+          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>">
+            <%= link_to "home", root_path%>
+          </div>
+          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>">
+            <%= link_to "My profile", influencer_path(current_user.influencer)%>
+          </div>
         <% else %>
-          <div class="nav_link">Welcome on Izireach !</div>
-          <!-- <hr /> -->
         <% end %>
-          <!-- <hr /> -->
       </div>
     </div>
   </div>
 
+  <% if !@home %>
   <div class="container-burger">
     <div class="navbar justify-content-center">
       <% if user_signed_in? %>
@@ -53,11 +58,8 @@
           <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
         </div>
       <% end %>
-<!--         </ul>
-      </div> -->
     </div>
-
   </div>
-
+  <% end %>
 </div>
 

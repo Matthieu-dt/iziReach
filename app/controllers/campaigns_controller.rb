@@ -6,7 +6,7 @@ class CampaignsController < ApplicationController
   # end
 
   def index
-  
+
     @campaigns = policy_scope(Campaign).where(company: @company)
     # authorize @campaigns
   end
@@ -15,6 +15,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @company = @campaign.company
     authorize @campaign
+    @show_campaign = true
   end
 
   def new

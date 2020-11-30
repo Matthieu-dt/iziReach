@@ -1,49 +1,88 @@
-.site-footer{
-  background-image: linear-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
-  padding:30px 0 30px;
-  font-size:35px;
-  line-height:24px;
-  text-align:center;
-  border-radius:5px;
-  max-height: 110px;
-  position:relative;
+.site-footer {
+  // background-image: linear-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+  padding: 60px 30px 20px 30px;
+  font-size: 35px;
+  line-height: 24px;
+  text-align: center;
+  // border-radius:5px;
+  // max-height: 110px;
+  position: relative;
 }
+
+.footer {
+  min-height: 23vh;
+  background-image: image-url('blue_svg.svg');
+  background-size: cover;
+}
+
+.social-links {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .social-links li {
   display:inline;
   padding:10px;
 }
-.twitter{
-  color:#484B86;
+
+.white_footer_fab {
+  font-size: 32px;
+  color: white;
   padding:2px 0 1px;
 }
-.twitter:hover{
+
+.black_footer_fab {
+  font-size: 32px;
+  color: $blue_new;
+  padding:2px 0 1px;
+}
+
+// .twitter {
+//   // -webkit-background-clip: text;
+//   // -webkit-text-fill-color: transparent;
+//   // background: -webkit-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+//   padding:2px 0 1px;
+// }
+
+.twitter:hover {
   font-size:50px;
   color:#F1F1F1;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-.facebook{
-  color:#484B86;
-  padding:2px 0 1px;
-}
-.facebook:hover{
+
+// .facebook {
+//   // -webkit-background-clip: text;
+//   // -webkit-text-fill-color: transparent;
+//   // background: -webkit-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+// }
+
+.facebook:hover {
   font-size:50px;
   color:#F1F1F1;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-.instagram{
-  color:#484B86;
-  padding:2px 0 1px;
-}
-.instagram:hover{
+
+// .instagram {
+//   // -webkit-background-clip: text;
+//   // -webkit-text-fill-color: transparent;
+//   // background: -webkit-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+//   padding:2px 0 1px;
+// }
+
+.instagram:hover {
   color:#F1F1F1;
   font-size:50px;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-.linkedin{
-  color:#484B86;
-  padding:2px 0 1px;
-}
-.linkedin:hover{
+
+// .linkedin {
+//   // -webkit-background-clip: text;
+//   // -webkit-text-fill-color: transparent;
+//   // background: -webkit-gradient(to right, #7579e7 0%, #9ab3f5 51%, #b9fffc 100% );
+//   padding:2px 0 1px;
+// }
+
+.linkedin:hover {
   color:#F1F1F1;
   font-size:50px;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
