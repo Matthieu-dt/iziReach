@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_26_105520) do
+ActiveRecord::Schema.define(version: 2020_11_30_093954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2020_11_26_105520) do
     t.integer "number_of_lives"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "lifestyle"
+    t.boolean "sport"
+    t.boolean "food"
+    t.boolean "gaming"
+    t.boolean "healthy"
+    t.boolean "travel"
+    t.boolean "music"
+    t.boolean "fashion"
+    t.boolean "art"
+    t.boolean "technology"
+    t.boolean "humour"
+    t.boolean "beauty"
     t.index ["company_id"], name: "index_campaigns_on_company_id"
   end
 
@@ -92,6 +104,18 @@ ActiveRecord::Schema.define(version: 2020_11_26_105520) do
     t.string "followers"
     t.string "engagement"
     t.string "instagram_pp"
+    t.boolean "lifestyle"
+    t.boolean "sport"
+    t.boolean "food"
+    t.boolean "gaming"
+    t.boolean "healthy"
+    t.boolean "travel"
+    t.boolean "music"
+    t.boolean "fashion"
+    t.boolean "art"
+    t.boolean "technology"
+    t.boolean "humour"
+    t.boolean "beauty"
     t.index ["user_id"], name: "index_influencers_on_user_id"
   end
 

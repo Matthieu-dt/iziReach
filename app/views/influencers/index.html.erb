@@ -5,9 +5,22 @@
       Back to my campaign
     <% end %>
   <% end %>
+
+     <%= form_tag campaign_influencers_path, method: :get do %>
+     <div class="searchinfluencers">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "What are you looking for ?"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+   
   <div class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-3  mt-5">
-    <% @influencers.each do |influencer| %>
-      <div class="card_gray mb-4 p-3 h-100" style="width: 30%;">
+    <% @sorted_influencers.each do |influencer| %>
+      <div class="card_gray mb-4 p-3" style="width: 30%;">
+
         <img src="<%= influencer.instagram_pp ? influencer.instagram_pp : "https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" %>" alt="" class="influencer-avatar">
         <div class="influencer-infos">
           <%= link_to influencer.user_name, influencer_path(influencer)  %>
@@ -26,15 +39,48 @@
           </div>
         </div>
         <div class="filters">
+        <% if influencer.lifestyle == true %>
           <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
-          <i class="far fa-check-square mr-2"><p> Music</p></i>
+        <% end %>
+        <% if influencer.sport == true %>
+          <i class="far fa-check-square mr-2"><p> Sport</p></i>
+        <% end %>
+        <% if influencer.food == true %>
           <i class="far fa-check-square mr-2"><p> Food</p></i>
+        <% end %>
+        <% if influencer.gaming == true %>
+          <i class="far fa-check-square mr-2"><p> Gaming</p></i>
+        <% end %>
+        <% if influencer.healthy == true %>
+          <i class="far fa-check-square mr-2"><p> Healthy</p></i>
+        <% end %>
+        <% if influencer.travel == true %>
+          <i class="far fa-check-square mr-2"><p> Travel</p></i>
+        <% end %>
+        <% if influencer.music == true %>
+          <i class="far fa-check-square mr-2"><p> Music</p></i>
+        <% end %>
+        <% if influencer.fashion == true %>
+          <i class="far fa-check-square mr-2"><p> Fashion</p></i>
+        <% end %>
+        <% if influencer.art == true %>
+          <i class="far fa-check-square mr-2"><p> Art</p></i>
+        <% end %>
+        <% if influencer.technology == true %>
+          <i class="far fa-check-square mr-2"><p> Technology</p></i>
+        <% end %>
+        <% if influencer.humour == true %>
+          <i class="far fa-check-square mr-2"><p> Humor</p></i>
+        <% end %>
+        <% if influencer.beauty == true %>
+          <i class="far fa-check-square mr-2"><p> Beauty</p></i>
+        <% end %>
         </div>
         <div class="influencer-footer">
           <% influencer.set_rating.times do %>
             <i class="fas fa-star"></i>
           <% end %>
-        </div>
+        </div>	
         <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post, class: 'button_blue shadow_button_blue my-3' %>
       </div>
     <% end %>
