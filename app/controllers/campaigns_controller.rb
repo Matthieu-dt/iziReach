@@ -64,6 +64,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:name, :description, :target, :occurs_at, :status, :number_of_stories, :number_of_photos, :number_of_videos, :number_of_lives, :photo)
+    params.require(:campaign).permit(:name, :description, :target, :occurs_at, :status, :number_of_stories, :number_of_photos, :number_of_videos, :number_of_lives, :lifestyle, :sport, :food, :gaming, :healthy, :travel, :music, :fashion, :art, :technology, :humour, :beauty, :photo)
   end
 end
