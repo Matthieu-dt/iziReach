@@ -24,3 +24,26 @@
   font-weight: bold;
   padding-top: 3px;
 }
+
+.badge_request {
+  text-align: center;
+  color: $blue_new;
+  border-radius: 10px;
+  padding-top: 3px;
+  background-color: transparent;
+}
+
+.pdg_badge_request {
+  background-color: rgba(255, 141, 61, 0.2);
+  color: $izireach_orange;
+}
+
+.accp_badge_request {
+  background-color: rgba(2, 222, 176, 0.1);
+  color: $izireach_green;
+}
+
+.ref_badge_request {
+  background-color: rgba(222, 44, 112, 0.2);
+  color: $izireach_red;
+}
