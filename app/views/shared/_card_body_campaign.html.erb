@@ -57,7 +57,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center w-100">
           <% if !@show_campaign %>
             <%= link_to campaign_path(campaign) do %>
-              <div class="button_blue shadow_button_blue my-3">
+              <div class="button_blue shadow_button_blue my-5">
                 Campaign details
               </div>
             <% end %>
@@ -66,7 +66,7 @@
             <%= link_to company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure ?' } do %>
               <i class="fas fa-trash" style="font-size: 20px;"></i>
             <% end %>
-            <%= link_to edit_campaign_path(@campaign) do %>
+            <%= link_to edit_campaign_path(campaign) do %>
               <i class="fas fa-edit" style="font-size: 20px;"></i>
             <% end %>
           </div>
