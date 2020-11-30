@@ -21,20 +21,23 @@
               <%= link_to "Influencer's profile", influencer_path(booking.influencer), style: "text-decoration: underline;", class: "mx-3" %>
             </div>
 
-            <div class="<%= "pdg" if booking.status == "pending" %><%= "accp" if booking.status == "accepted" %><%= "ref" if booking.status == "refused" %> px-3"><%= booking.status %></div>
+            <div class="d-flex flex-row">
+              <div class="<%= "pdg" if booking.status == "pending" %><%= "accp" if booking.status == "accepted" %><%= "ref" if booking.status == "refused" %> px-4 mx-5"><%= booking.status %></div>
 
-            <% if booking.status == "pending" || booking.status == "refused" %>
-                <%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' } do %>
-                  <i class="fas fa-trash"></i>
-                <% end %>
-            <% end %>
+              <% if booking.status == "pending" || booking.status == "refused" %>
+                  <%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' } do %>
+                    <i class="fas fa-trash" style="font-size: 25px;"></i>
+                  <% end %>
+              <% end %>
 
-            <% if booking.status == "accepted" %>
-              <div class="request-col" style="width:150px">
-                <%= link_to 'leave a review', new_booking_review_path(booking)%>
-                <%= link_to 'Contract', booking_path(booking, format: :pdf), target: '_blank' %>
-              </div>
-            <% end %>
+              <% if booking.status == "accepted" %>
+                <div class="request-col" style="width:150px">
+                  <%= link_to 'leave a review', new_booking_review_path(booking)%>
+                  <%= link_to 'Contract', booking_path(booking, format: :pdf), target: '_blank' %>
+                </div>
+              <% end %>
+            </div>
+
           </div>
 
 
@@ -49,46 +52,11 @@
       </div>
     </div>
 
-  <div class="w-100 card_gray mx-3 mb-5 text-left py-5 px-3">
-    <div class="w-100 text-left">
-      <h3>My dashboard</h3>
+    <div class="w-100 card_gray mx-3 mb-5 text-left py-5 px-3">
+      <div class="w-100 text-left">
+        <h3>My dashboard</h3>
+      </div>
     </div>
+
   </div>
-
 </div>
-
-  <!-- <div class="campaign-show"> -->
- <!--    <div class="campaign-banner">
-      <div class="campaign-logo">
-        <%#= cl_image_tag @campaign.photo.key, height: 150, width: 150, crop: :fill %>
-        <li><%#= @campaign.name %></li>
-      </div>
-    </div>
-    <div class="campaign-content">
-      <div class="campaign-information">
-        <li><i class="fas fa-bullseye"> Target: <%#= @campaign.target %></i></li>
-        <li><i class="fas fa-clock"> Date: <%#= @campaign.occurs_at.strftime("%m/%d/%Y") %></i></li>
-        <li><i class="fas fa-history"> # stories: <%#= @campaign.number_of_stories %></i></li>
-        <li><i class="far fa-id-badge"> # lives: <%#= @campaign.number_of_lives %></i></li>
-        <li><i class="fas fa-camera-retro"> # photos: <%#= @campaign.number_of_photos %></i></li>
-        <li><i class="fas fa-video"> # videos: <%#= @campaign.number_of_videos %></i></li>
-        <li><%#= link_to "Remove", company_campaign_path(@company, @campaign), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        <li><%#= link_to "Edit", edit_campaign_path(@campaign)%></li>
-        <%# if @campaign.status == "pending" %>
-          <div class="pdg" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%#= @campaign.status %></div>
-          </div>
-        <%# elsif @campaign.status == "ongoing" %>
-          <div class="acpp" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%#= @campaign.status %></div>
-          </div>
-        <%# else @campaign.status == "passed" %>
-          <div class="ref" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%#= @campaign.status %></div>
-          </div>
-        <%# end %>
-      </div>
-      <div style="width:50%; margin-left:5px">
-      <%#= @campaign.description %>
-      </div>
-    </div> -->
-  <!-- </div> -->
-</div>
-
