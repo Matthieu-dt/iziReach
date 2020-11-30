@@ -34,6 +34,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'pundit'
 gem 'faker'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'pry-byebug'

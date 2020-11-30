@@ -1,0 +1,52 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<h1>Contrat de Partenariat</h1>
+<h3>Entre les soussignés</h3>
+<p>La société <%= @booking.campaign.company.name %>, située au [...], représentée
+  par M.
+<%= @booking.campaign.company.user %></p>
+<p>L’influenceur Instagram <%= @booking.influencer.first_name.capitalize
+@booking.influencer.last_name.capitalize %> représenté par [NOM
+PRENOM ou NOM DE SOCIETE] à l’adresse [ADRESSE]</p>
+<h3>- Il a été convenu et arrêté ce qui suit -</h3>
+<h2>1 LE CONTRAT</h2>
+<p>Ce contrat a pour but de cadrer et régir la collaboration conclue entre
+  l’influenceur instagram <%= @booking.influencer.user_name %>
+  et la société <%= @booking.campaign.company.name %> dans l’objectif de mener
+  à bien les obligations du contrat.
+  Ce contrat précise les droits et obligations des deux parties précédemment
+  évoquées.</p>
+<h2>2 Descriptif de la prestation</h2>
+<p><%= @booking.campaign.description %> </p>
+<h2>3 LES OBLIGATIONS DU PARTENARIAT</h2>
+<p>L’influenceur instagram s’engage à poster : </p>
+  <ul>
+    <li><%= @booking.campaign.number_of_stories %> stories</li>
+    <li><%= @booking.campaign.number_of_photos %></li>
+    <li><%= @booking.campaign.number_of_videos %></li>
+    <li><%= @booking.campaign.number_of_lives %></li>
+  </ul>
+<p>La société s’engage en contrepartie à verser la somme de <%= @booking.total_price %></p>
+<h2>4 DUREE DU CONTRAT</h2>
+<p>La collaboration conclue entre l’influenceur et la société est définie selon les dates suivantes :
+<%= @booking.campaign.occurs_at %>
+Et s’achèvera à la réalisation intégrale des obligations sans formalités supplémentaires.</p>
+<h2>5 DROIT DE MODIFICATION</h2>
+<p>Des modifications peuvent être apportées à ce contrat à la demande de l’une ou l’autre partie suite
+à un accord écrit et signé. Il faudra alors éditer un nouveau contrat OU déclarer par mail que ces
+nouvelles données sont des éléments complémentaires du présent contrat.</p>
+<h2>6 CONFIDENTIALITE</h2>
+<p>Toutes les informations contenues dans ce contrat ne peuvent être communiquées sans l’accord
+écrit des deux parties.</p>
+<h2>7 RÉSILIATION</h2>
+<p>Chaque partie pourra résilier la convention, de plein droit, à tout moment et sans préavis, au cas
+où l’un manquerait à ses obligations évoquées dans ce contrat. L’annonce de la résiliation devra
+être effectuée directement par mail avant la réalisation des obligations.</p>
+<h2>8 LITIGES</h2>
+<p>La société et l’influenceur s’engagent à régler à l’amiable tout problème qui pourrait survenir dans
+le présent contrat. En cas d’impossibilité de régler ces éléments à l’amiable, les tribunaux de la
+ville de [NOM VILLE] seront déclarés comme compétents pour intervenir et résoudre la situation.</p>
+<p>Fait à [VILLE] le [DATE] en deux exemplaires originaux</p>
+<p>La société</p>
+<p>L’influenceur</p>
