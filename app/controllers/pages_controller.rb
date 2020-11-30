@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
+    @home = true
   end
 
   def dashboard
@@ -9,6 +10,7 @@ class PagesController < ApplicationController
     elsif current_user.influencer
       redirect_to solicitations_path
     else
+      @home = true
       render :home
     end
   end
