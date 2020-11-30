@@ -14,7 +14,7 @@
         <div class="w-50"># of photos: <%= campaign.number_of_photos %></div>
         <div class="w-50"># of videos: <%= campaign.number_of_videos %></div>
         <div class="w-100"><%= campaign.description %></div>
-                <div class="filters">
+        <div class="filters w-100 mt-3">
         <% if campaign.lifestyle == true %>
           <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
         <% end %>
@@ -57,7 +57,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center w-100">
           <% if !@show_campaign %>
             <%= link_to campaign_path(campaign) do %>
-              <div class="button_blue shadow_button_blue my-5">
+              <div class="button_blue shadow_button_blue mt-2 mb-5">
                 Campaign details
               </div>
             <% end %>
