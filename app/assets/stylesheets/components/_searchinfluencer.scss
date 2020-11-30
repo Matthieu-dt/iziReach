@@ -1,0 +1,20 @@
+.searchinfluencers .form-control{
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    width: 700px;
+}
+
+.btn-search {
+    color: white;
+    border: 1px solid #1d1148;
+    text-align: center;
+    background-color: #1d1148;
+    width: 150px;
+}
+
+.btn-search:hover {
+    color: #1d1148;
+    border: 1px solid #1d1148;
+    text-align: center;
+    background-color: white;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)
+}
