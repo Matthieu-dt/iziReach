@@ -1,4 +1,4 @@
-<div style="padding-top: 10vh;">
+<div style="padding-top: 10vh; width: 100%;">
   <h2 class="text-blue font-weight-bold text-center">Let's find <span class="text-gradient font-weight-bold">influencers !</span></h2>
   <% if @campaign.company.user == current_user %>
     <%= link_to campaign_path(@campaign), style: 'text-decoration: underline;', class: "mx-3" do %>
@@ -18,9 +18,9 @@
     </div>
    
   <div class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-3  mt-5">
-    
     <% @sorted_influencers.each do |influencer| %>
       <div class="card_gray mb-4 p-3" style="width: 30%;">
+
         <img src="<%= influencer.instagram_pp ? influencer.instagram_pp : "https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" %>" alt="" class="influencer-avatar">
         <div class="influencer-infos">
           <%= link_to influencer.user_name, influencer_path(influencer)  %>
