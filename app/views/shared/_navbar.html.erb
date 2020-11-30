@@ -7,7 +7,7 @@
       <div class="link">
         <% if current_user && current_user.company.present? %>
           <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
-            <%= link_to "home", root_path%>
+            <%= link_to "Home", root_path%>
           </div>
           <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
             <%= link_to "All my campaigns", company_campaigns_path(current_user.company)%>
