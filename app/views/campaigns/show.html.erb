@@ -43,6 +43,7 @@
             <% if booking.status == "accepted" %>
               <div class="request-col" style="width:150px">
                 <%= link_to 'leave a review', new_booking_review_path(booking)%>
+                <%= link_to 'Contract', booking_path(booking, format: :pdf), target: '_blank' %>
               </div>
             <% end %>
           </div>
