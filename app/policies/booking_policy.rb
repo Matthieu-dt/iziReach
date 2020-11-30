@@ -16,7 +16,12 @@ class BookingPolicy < ApplicationPolicy
     def update?
       record.influencer.user == user
     end
+
     def destroy?
       record.campaign.company.user == user
+    end
+
+    def show?
+      record.campaign.company.user == user || record.influencer.user == user
     end
 end

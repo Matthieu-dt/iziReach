@@ -34,6 +34,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'pundit'
 gem 'faker'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -67,3 +69,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
+gem 'pg_search', '~> 2.3.0'
+

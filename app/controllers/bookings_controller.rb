@@ -40,7 +40,6 @@ class BookingsController < ApplicationController
     @campaign = @booking.campaign
     @booking.destroy
     redirect_to campaign_path(@campaign)
-
   end
 
   def update_status
@@ -48,6 +47,17 @@ class BookingsController < ApplicationController
     @booking.update(status:params[:status])
     skip_authorization
     redirect_to solicitations_path
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    respond_to do |format|
+    format.html
+    format.pdf do
+      render pdf: "Contract"
+      end
+    end
   end
 
   private

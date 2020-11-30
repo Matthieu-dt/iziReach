@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     elsif current_user.influencer
       redirect_to solicitations_path
     else
+      @home = true
       render :home
     end
   end

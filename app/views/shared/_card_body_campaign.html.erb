@@ -1,4 +1,4 @@
-<div class="card_gray mx-3" style="width: 30%;">
+<div class="card_gray mx-3 h-100" style="width: 30%;">
   <div class="d-flex flex-wrap flex-column justify-content-left">
     <div class="w-100 border_radius_img_left position-relative">
       <%= cl_image_tag campaign.photo.key, crop: :fill, class: 'img_left_company small_img_height' %>
@@ -7,24 +7,69 @@
     <div class="w-100 d-flex flex-wrap flex-row justify-content-left align-items-left">
       <div class="w-100 p-3 d-flex flex-wrap flex-row justify-content-left align-items-left" style="color: rgb(145, 139, 166);">
         <div class="w-100"><h2><%= link_to campaign.name, campaign_path(campaign)%></h2></div>
-        <div class="w-100"><%= campaign.target %></div>
         <div class="w-100">Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
+        <div class="w-100"><%= campaign.target %></div>
         <div class="w-50"># of stories: <%= campaign.number_of_stories %></div>
         <div class="w-50"># of lives: <%= campaign.number_of_lives %></div>
         <div class="w-50"># of photos: <%= campaign.number_of_photos %></div>
         <div class="w-50"># of videos: <%= campaign.number_of_videos %></div>
         <div class="w-100"><%= campaign.description %></div>
+        <div class="filters w-100 mt-3">
+        <% if campaign.lifestyle == true %>
+          <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
+        <% end %>
+        <% if campaign.sport == true %>
+          <i class="far fa-check-square mr-2"><p> Sport</p></i>
+        <% end %>
+        <% if campaign.food == true %>
+          <i class="far fa-check-square mr-2"><p> Food</p></i>
+        <% end %>
+        <% if campaign.gaming == true %>
+          <i class="far fa-check-square mr-2"><p> Gaming</p></i>
+        <% end %>
+        <% if campaign.healthy == true %>
+          <i class="far fa-check-square mr-2"><p> Healthy</p></i>
+        <% end %>
+        <% if campaign.travel == true %>
+          <i class="far fa-check-square mr-2"><p> Travel</p></i>
+        <% end %>
+        <% if campaign.music == true %>
+          <i class="far fa-check-square mr-2"><p> Music</p></i>
+        <% end %>
+        <% if campaign.fashion == true %>
+          <i class="far fa-check-square mr-2"><p> Fashion</p></i>
+        <% end %>
+        <% if campaign.art == true %>
+          <i class="far fa-check-square mr-2"><p> Art</p></i>
+        <% end %>
+        <% if campaign.technology == true %>
+          <i class="far fa-check-square mr-2"><p> Technology</p></i>
+        <% end %>
+        <% if campaign.humour == true %>
+          <i class="far fa-check-square mr-2"><p> Humor</p></i>
+        <% end %>
+        <% if campaign.beauty == true %>
+          <i class="far fa-check-square mr-2"><p> Beauty</p></i>
+        <% end %>
+        </div>
       </div>
       <div class="w-100 px-3 pt-1 pb-3 d-flex align-items-end flex-column">
         <div class="d-flex flex-column align-items-center justify-content-center w-100">
           <% if !@show_campaign %>
             <%= link_to campaign_path(campaign) do %>
-              <div class="button_blue shadow_button_blue my-3">
+              <div class="button_blue shadow_button_blue mt-2 mb-5">
                 Campaign details
               </div>
+            <% end %>
           <% end %>
-          <% end %>
-          <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' }, style: "text-decoration: underline;" %>
+          <div class="d-flex justify-content-between w-25">
+            <%= link_to company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure ?' } do %>
+              <i class="fas fa-trash" style="font-size: 20px;"></i>
+            <% end %>
+            <%= link_to edit_campaign_path(campaign) do %>
+              <i class="fas fa-edit" style="font-size: 20px;"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

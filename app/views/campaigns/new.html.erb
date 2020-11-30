@@ -1,4 +1,4 @@
-<div class="card_gray p-3 my-5">
+<div class="card_gray p-3 my-5 h-100">
   <h2 class="text-blue font-weight-bold">Describe <span class="text-gradient font-weight-bold">your campaign</span></h2>
   <%= simple_form_for [ @company, @campaign ] do |f| %>
     <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5">
@@ -9,6 +9,54 @@
         <%= f.input :target, placeholder: "campaign target", class: 'w-100' %>
       </div>
     </div>
+
+    <div class="w-50 px-2" style="margin-top:15px; margin-bottom:-80px">
+    Choose your topic(s):
+    </div>
+    
+    <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5">
+
+    <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5" style="margin-bottom:15px">
+      <div class="w-50 px-2">
+        <%= f.input :lifestyle %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :sport %>
+      </div>    
+      <div class="w-50 px-2">
+        <%= f.input :food %>
+      </div>          
+      <div class="w-50 px-2">
+        <%= f.input :gaming %>
+      </div>      
+      <div class="w-50 px-2">
+        <%= f.input :healthy %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :travel %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :music %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :fashion %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :art %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :technology %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :humour %>
+      </div>
+      <div class="w-50 px-2">
+        <%= f.input :beauty %>
+      </div>
+    </div>
+  </div>
+
+
     <div class="px-2">
       <%= f.input :description, placeholder: "detailed information about your campaign"%>
     </div>
