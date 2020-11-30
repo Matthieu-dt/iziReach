@@ -1,7 +1,6 @@
 <div style="padding-top: 10vh;">
   <h2 class="text-blue font-weight-bold text-center"><span class="text-gradient font-weight-bold">My campaign</span></h2>
   <%= link_to "Back to my campaign's list", company_campaigns_path(current_user.company), style: "text-decoration: underline;", class: "mx-3" %>
-
   <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
     <%= render 'shared/card_body_campaign', campaign: @campaign %>
     <div class="d-flex flex-column justify-content-start align-items-left pl-4">

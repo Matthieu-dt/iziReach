@@ -17,10 +17,12 @@
       </div>
       <div class="w-100 px-3 pt-1 pb-3 d-flex align-items-end flex-column">
         <div class="d-flex flex-column align-items-center justify-content-center w-100">
-          <%= link_to campaign_path(campaign) do %>
-            <div class="button_blue shadow_button_blue my-3">
-              Campaign details
-            </div>
+          <% if !@show_campaign %>
+            <%= link_to campaign_path(campaign) do %>
+              <div class="button_blue shadow_button_blue my-3">
+                Campaign details
+              </div>
+          <% end %>
           <% end %>
           <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' }, style: "text-decoration: underline;" %>
         </div>
