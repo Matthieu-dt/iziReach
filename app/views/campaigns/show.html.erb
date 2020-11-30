@@ -21,12 +21,12 @@
               <%= link_to "Influencer's profile", influencer_path(booking.influencer), style: "text-decoration: underline;", class: "mx-3" %>
             </div>
 
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row align-items-center">
               <div class="<%= "pdg" if booking.status == "pending" %><%= "accp" if booking.status == "accepted" %><%= "ref" if booking.status == "refused" %> px-4 mx-5"><%= booking.status %></div>
 
               <% if booking.status == "pending" || booking.status == "refused" %>
                   <%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' } do %>
-                    <i class="fas fa-trash" style="font-size: 25px;"></i>
+                    <i class="fas fa-trash" style="font-size: 20px;"></i>
                   <% end %>
               <% end %>
 
