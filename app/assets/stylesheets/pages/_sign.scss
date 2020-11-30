@@ -1,5 +1,28 @@
+// .form-control {
+//   font-size: 15px;
+//   color: rgb(29, 17, 72);
+//   height: 20px;
+//   padding-bottom: 15px;
+// }
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  color: rgb(145, 139, 166) !important;
+  padding: 0.375rem 0rem;
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid $blue_new;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+}
+
+
 .container-signin {
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

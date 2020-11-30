@@ -1,98 +1,91 @@
+<div style="padding-top: 10vh;">
+  <h2 class="text-blue font-weight-bold text-center"><span class="text-gradient font-weight-bold">My campaign</span></h2>
+  <%= link_to "Back to my campaign's list", company_campaigns_path(current_user.company), style: "text-decoration: underline;", class: "mx-3" %>
+  <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
+    <%= render 'shared/card_body_campaign', campaign: @campaign %>
+    <div class="d-flex flex-column justify-content-start align-items-left pl-4">
+      <div class="w-100">
+        <h3>My influencers requests</h3>
+        <%= link_to campaign_influencers_path(@campaign) do %>
+          <div class="button_blue shadow_button_blue my-3">
+            Find influencers
+          </div>
+        <% end %>
+        <% @campaign.bookings.each do |booking| %>
+          <div class="requests-card" style="align-items:center">
+            <div class="request-col" style="width:150px; border-radius:50%">
+              <img src="<%= booking.influencer.instagram_pp %>" alt="">
+            </div>
+            <div class="request-col" style="width:150px; margin-left:-100px">
+              <li>@<%= booking.influencer.user_name %></li>
+            </div>
+            <div class="request-col" style="width:150px">
+              <%= link_to influencer_path(booking.influencer) do %>
+                <div class="gradient-pink-button" style="width:auto; padding:5px; font-size:18px">
+                 Profil
+                </div>
+              <% end %>
+            </div>
+            <div class="request-col" style="width:150px">
+              <% if booking.status == "pending" %>
+                <div class="pdg" style="height:28px; width:115px; text-align:center">  <%= booking.status%> </div>
+              <% elsif booking.status == "accepted" %>
+                <div class="accp" style="height:28px; width:115px; text-align:center"> <%= booking.status%> </div>
+              <% else booking.status == "refused" %>
+                <div class="ref" style="height:28px; width:115px; text-align:center" > <%= booking.status%> </div>
+              <% end %>
+            </div>
+            <% if booking.status == "pending" || booking.status == "refused" %>
+              <div class="request-col" style="width:150px">
+                <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' }%>
+              </div>
+            <% end %>
+            <% if booking.status == "accepted" %>
+              <div class="request-col" style="width:150px">
+                <%= link_to 'leave a review', new_booking_review_path(booking)%>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="w-100">
+        <h3>My dashboard</h3>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
-
- <%= link_to "Back", company_campaigns_path(current_user.company) %>
-
-<h2>My campaign</h2>
- <div class="campaign-show">
-    <div class="campaign-banner">
+  <!-- <div class="campaign-show"> -->
+ <!--    <div class="campaign-banner">
       <div class="campaign-logo">
-        <%= cl_image_tag @campaign.photo.key, height: 150, width: 150, crop: :fill %> 
-        <li><%= @campaign.name %></li>
+        <%#= cl_image_tag @campaign.photo.key, height: 150, width: 150, crop: :fill %>
+        <li><%#= @campaign.name %></li>
       </div>
     </div>
     <div class="campaign-content">
       <div class="campaign-information">
-      <li><i class="fas fa-bullseye"> Target: <%= @campaign.target %></i></li>
-      <li><i class="fas fa-clock"> Date: <%= @campaign.occurs_at.strftime("%m/%d/%Y") %></i></li>
-      <li><i class="fas fa-history"> # stories: <%= @campaign.number_of_stories %></i></li>
-      <li><i class="far fa-id-badge"> # lives: <%= @campaign.number_of_lives %></i></li>
-      <li><i class="fas fa-camera-retro"> # photos: <%= @campaign.number_of_photos %></i></li>
-      <li><i class="fas fa-video"> # videos: <%= @campaign.number_of_videos %></i></li>
-      <li><%= link_to "Remove", company_campaign_path(@company, @campaign), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <li><%= link_to "Edit", edit_campaign_path(@campaign)%></li>
-
-    <% if @campaign.status == "pending" %>
-      <div class="pdg" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
+        <li><i class="fas fa-bullseye"> Target: <%#= @campaign.target %></i></li>
+        <li><i class="fas fa-clock"> Date: <%#= @campaign.occurs_at.strftime("%m/%d/%Y") %></i></li>
+        <li><i class="fas fa-history"> # stories: <%#= @campaign.number_of_stories %></i></li>
+        <li><i class="far fa-id-badge"> # lives: <%#= @campaign.number_of_lives %></i></li>
+        <li><i class="fas fa-camera-retro"> # photos: <%#= @campaign.number_of_photos %></i></li>
+        <li><i class="fas fa-video"> # videos: <%#= @campaign.number_of_videos %></i></li>
+        <li><%#= link_to "Remove", company_campaign_path(@company, @campaign), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li><%#= link_to "Edit", edit_campaign_path(@campaign)%></li>
+        <%# if @campaign.status == "pending" %>
+          <div class="pdg" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%#= @campaign.status %></div>
+          </div>
+        <%# elsif @campaign.status == "ongoing" %>
+          <div class="acpp" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%#= @campaign.status %></div>
+          </div>
+        <%# else @campaign.status == "passed" %>
+          <div class="ref" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%#= @campaign.status %></div>
+          </div>
+        <%# end %>
       </div>
-    <% elsif @campaign.status == "ongoing" %>
-      <div class="acpp" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
+      <div style="width:50%; margin-left:5px">
+      <%#= @campaign.description %>
       </div>
-    <% else @campaign.status == "passed" %>
-      <div class="ref" style="height:28px; width:115px; text-align: center; margin:50px 50px 0px 0px"><%= @campaign.status %></div>
-      </div>
-    <% end %>
-      </div>
-    <div> 
-    <%= @campaign.description %>
-    </div>
-  
-  </div>
-
-   <h3>My influencers requests</h3>
-
-   <div style="margin:30px 0px 40px 0px ">
-    <%= link_to campaign_influencers_path(@campaign) do %>
-      <div class="gradient-blue-button" style="padding:10px; font-size:18px; width:30%; margin:auto">
-        Find influencers
-      </div>
-    <% end %>
-   </div>
-
-   <% @campaign.bookings.each do |booking| %>
-     <div class="requests-card" style="align-items:center">
-
-     <div class="request-col" style="width:150px; border-radius:50%">
-     <img src="<%= booking.influencer.instagram_pp %>" alt="">
-     </div>
-
-     <div class="request-col" style="width:150px; margin-left:-100px">
-     <li>@<%= booking.influencer.user_name %></li>
-     </div>
-    
-     <div class="request-col" style="width:150px">
-      <%= link_to influencer_path(booking.influencer) do %>
-         <div class="gradient-pink-button" style="width:auto; padding:5px; font-size:18px">
-           Profil
-         </div>
-      <% end %>
-     </div>
-
-     <div class="request-col" style="width:150px">
-      <% if booking.status == "pending" %>
-          <div class="pdg" style="height:28px; width:115px; text-align:center">  <%= booking.status%> </div>
-        <% elsif booking.status == "accepted" %>
-          <div class="accp" style="height:28px; width:115px; text-align:center"> <%= booking.status%> </div>
-        <% else booking.status == "refused" %>
-          <div class="ref" style="height:28px; width:115px; text-align:center" > <%= booking.status%> </div>
-        <% end %>
-      </div>
-
-<% if booking.status == "pending" || booking.status == "refused" %>
-    <div class="request-col" style="width:150px">
-      <%= link_to 'Delete', booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' }%>
-    </div>
-<% end %>
-
-<% if booking.status == "accepted" %>
-    <div class="request-col" style="width:150px">
-      <%= link_to 'leave a review', new_booking_review_path(booking)%>
-    </div>
-<% end %>
-
-     </div>
-   <% end %>
-<h3>My dashboard</h3>
-
+    </div> -->
+  <!-- </div> -->
 </div>
 

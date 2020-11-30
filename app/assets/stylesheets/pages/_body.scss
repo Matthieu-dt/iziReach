@@ -1,15 +1,21 @@
 body {
-  background-color: #f7f7f7cc;
+  // background-color: #f7f7f7cc;
+  background-color: white;
   font-family: 'Mukta', sans-serif;
+  color: $blue_new;
 }
 
 a {
-  color: #000;
+  color: $blue_new;
 }
 
 a:hover {
-  color: #000;
+  color: $blue_new;
   text-decoration: none;
+}
+
+p {
+  color: rgb(145, 139, 166);
 }
 
 li {
@@ -19,4 +25,29 @@ li {
 
 input.btn {
   width: 100%;
+}
+
+.large-container {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 100vh;
+  padding: 10vh 50px 2vh 50px;
+}
+
+label {
+  font-size: 14px;
+  color: rgb(145, 139, 166);
+  margin-bottom: 0px;
+}
+
+select.form-control {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+input {
+  color: rgb(145, 139, 166);
 }

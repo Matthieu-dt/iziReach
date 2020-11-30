@@ -1,51 +1,41 @@
-<div class="container">
-
-<% if @campaign.company.user == current_user %>
-  <%= link_to campaign_path(@campaign) do %>
-    <div>
+<div style="padding-top: 10vh;">
+  <h2 class="text-blue font-weight-bold text-center">Let's find <span class="text-gradient font-weight-bold">influencers !</span></h2>
+  <% if @campaign.company.user == current_user %>
+    <%= link_to campaign_path(@campaign), style: 'text-decoration: underline;', class: "mx-3" do %>
       Back to my campaign
-    </div>
+    <% end %>
   <% end %>
-  <% end %>
-
-  <div class="grid">
+  <div class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-3  mt-5">
     <% @influencers.each do |influencer| %>
-      <div class="influencer-card">
-        <div class="influencer-bio">
-          <div class="influencer-avatar">
-            <img src="<%= influencer.instagram_pp %>" alt="">
-          </div>
-          <div class="influencer-infos">
-            <%= link_to influencer.user_name, influencer_path(influencer)  %>
-            <% if @verifed == "1" %>
-              <i class="fas fa-certificate"></i>
-            <% end %>
-          </div>
+      <div class="card_gray mb-4 p-3" style="width: 30%;">
+        <img src="<%= influencer.instagram_pp ? influencer.instagram_pp : "https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" %>" alt="" class="influencer-avatar">
+        <div class="influencer-infos">
+          <%= link_to influencer.user_name, influencer_path(influencer)  %>
+          <% if @verifed == "1" %>
+            <i class="fas fa-certificate"></i>
+          <% end %>
         </div>
         <div class="influencer-stats">
           <div class="stat-card-1">
             <h3><%= influencer.followers %></h3>
-            <p>followers</p>
+            <p style="color: white;">followers</p>
           </div>
           <div class="stat-card-2">
             <h3><%= influencer.engagement %>%</h3>
-            <p>engagement</p>
+            <p style="color: white;">engagement</p>
           </div>
         </div>
         <div class="filters">
-          <i class="far fa-check-square"><p> Lifestyle</p></i>
-          <i class="far fa-check-square"><p> Music</p></i>
-          <i class="far fa-check-square"><p> Food</p></i>
+          <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
+          <i class="far fa-check-square mr-2"><p> Music</p></i>
+          <i class="far fa-check-square mr-2"><p> Food</p></i>
         </div>
-
         <div class="influencer-footer">
           <% influencer.set_rating.times do %>
             <i class="fas fa-star"></i>
           <% end %>
         </div>
-        <div class="book-btn">
-          <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post %>
-        </div>
+        <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post, class: 'button_blue shadow_button_blue my-3' %>
       </div>
     <% end %>
   </div>

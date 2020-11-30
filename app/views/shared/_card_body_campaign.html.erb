@@ -1,0 +1,32 @@
+<div class="card_gray mx-3" style="width: 30%;">
+  <div class="d-flex flex-wrap flex-column justify-content-left">
+    <div class="w-100 border_radius_img_left position-relative">
+      <%= cl_image_tag campaign.photo.key, crop: :fill, class: 'img_left_company small_img_height' %>
+      <div class="<%= "pdg" if campaign.status == "pending" %><%= "accp" if campaign.status == "ongoing" %><%= "ref" if campaign.status == "passed" %> px-3 position-absolute" style="top: 10px; right: 10px;"><%= campaign.status %></div>
+    </div>
+    <div class="w-100 d-flex flex-wrap flex-row justify-content-left align-items-left">
+      <div class="w-100 p-3 d-flex flex-wrap flex-row justify-content-left align-items-left" style="color: rgb(145, 139, 166);">
+        <div class="w-100"><h2><%= link_to campaign.name, campaign_path(campaign)%></h2></div>
+        <div class="w-100"><%= campaign.target %></div>
+        <div class="w-100">Date: <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
+        <div class="w-50"># of stories: <%= campaign.number_of_stories %></div>
+        <div class="w-50"># of lives: <%= campaign.number_of_lives %></div>
+        <div class="w-50"># of photos: <%= campaign.number_of_photos %></div>
+        <div class="w-50"># of videos: <%= campaign.number_of_videos %></div>
+        <div class="w-100"><%= campaign.description %></div>
+      </div>
+      <div class="w-100 px-3 pt-1 pb-3 d-flex align-items-end flex-column">
+        <div class="d-flex flex-column align-items-center justify-content-center w-100">
+          <% if !@show_campaign %>
+            <%= link_to campaign_path(campaign) do %>
+              <div class="button_blue shadow_button_blue my-3">
+                Campaign details
+              </div>
+          <% end %>
+          <% end %>
+          <%= link_to "Remove", company_campaign_path(@company, campaign), method: :delete, data: { confirm: 'Are you sure?' }, style: "text-decoration: underline;" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
