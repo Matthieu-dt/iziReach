@@ -1,8 +1,8 @@
 <div style="padding-top: 10vh;">
   <h2 class="text-blue font-weight-bold text-center pb-5">All <span class="text-gradient font-weight-bold">MY CAMPAIGNS</span></h2>
-  <%= link_to "Back to my campany's profile", company_path(@current_user.company), style: "text-decoration: underline;", class: "mx-3" %>
+  <%= link_to "Back to my campany's profile", company_path(@current_user.company), style: "text-decoration: underline; background:white", class: "mx-3" %>
   <% @campaigns = current_user.company.campaigns %>
-  <h6 class="mx-3">Pending <%= pluralize(@campaigns.where(status: "pending").count, "campaign") %> / Ongoing <%= pluralize(@campaigns.where(status: "ongoing").count, "campaign") %> / Passed <%= pluralize(@campaigns.where(status: "passed").count, "campaign") %></h6>
+  <h6 class="mx-3" style="background:white; width:490px">Pending <%= pluralize(@campaigns.where(status: "pending").count, "campaign") %> / Ongoing <%= pluralize(@campaigns.where(status: "ongoing").count, "campaign") %> / Passed <%= pluralize(@campaigns.where(status: "passed").count, "campaign") %></h6>
     <% if @campaigns.where(status: "pending").count > 0 %>
       <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
         <% @campaigns.each do |campaign| %>
