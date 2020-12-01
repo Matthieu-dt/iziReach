@@ -9,14 +9,15 @@
 require 'faker'
 require "open-uri"
 
+Booking.destroy_all
 Influencer.destroy_all
 
-usernames = ["matthieu_dt", "travelingpetitegirl", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "lewagonparis"]
+usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "lewagonparis"]
 prices = [20, 25, 30, 35, 40]
 # article = Article.new(title: 'NES', body: "A great console")
 
 
-puts "Creating 7 fake influencers"
+puts "Creating 6 fake influencers"
 usernames.each do |username|
   influencer = Influencer.new(
     first_name:       Faker::Name.first_name,
@@ -26,16 +27,19 @@ usernames.each do |username|
     price_per_video:  prices.sample,
     price_per_story:  prices.sample,
     price_per_live:   prices.sample,
-    photos:
     user:             user = User.new(
-      email:              Faker::Internet.email,
-      password: "password1234"      )
-    )
-    9.times do
+        email:              Faker::Internet.email,
+        password:           "password1234"
+        ),
+  )
+  user.save!
+  influencer.save!
+  puts "Influencer created"
+end
+
+Influencer.all.each do |influencer|
+      9.times do
       file = URI.open('https://source.unsplash.com/random')
       influencer.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     end
-    user.save!
-    influencer.save!
-  puts "Influencer created"
-end
+  end
