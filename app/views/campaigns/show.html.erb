@@ -1,44 +1,44 @@
 <div style="padding-top: 10vh;">
   <h2 class="text-blue font-weight-bold text-center"><span class="text-gradient font-weight-bold">My campaign</span></h2>
   <%= link_to "Back to my campaign's list", company_campaigns_path(current_user.company), style: "text-decoration: underline;", class: "mx-3" %>
+
+
+
   <div class="d-flex justify-content-between flex-row mt-5">
     <%= render 'shared/card_body_campaign', campaign: @campaign, card_width: "w-48-percent" %>
-    <div class="card_gray mx-3 mb-5 text-left py-5 px-3 w-48-percent justify-content-start">
+    <div class="card_gray mx-3 text-left py-4 px-3 w-48-percent justify-content-start">
       <div class="w-100 text-left">
         <h3>My influencers requests</h3>
       </div>
       <% @campaign.bookings.each do |booking| %>
+        <div class="d-flex flex-row justify-content-between align-items-center w-100 border-bottom py-1">
+          <div class="d-flex align-items-center justify-content-left">
+            <img src="<%= booking.influencer.instagram_pp %>" alt="" style="width: 60px; height: 60px;" class="rounded-circle mr-2">
+            <%= link_to influencer_path(booking.influencer), style: "text-decoration: underline;", class: "mx-3 d-flex align-items-center justify-content-left" do %>
+              <div>@<%= booking.influencer.user_name %></div>
+              <i class="fas fa-external-link-alt ml-2"></i>
+            <% end %>
+          </div>
+          <div class="d-flex align-items-center justify-content-right">
+            <div class="badge_request <%= "pdg_badge_request" if booking.status == "pending" %><%= "accp_badge_request" if booking.status == "accepted" %><%= "ref_badge_request" if booking.status == "refused" %> px-3 mx-3">
+              <%= "Waiting for an answer" if booking.status == "pending" %>
+              <%= "Accepted" if booking.status == "accepted" %>
+              <%= "Denied" if booking.status == "refused" %>
 
-        <div class="d-flex flex-row justify-content-between align-items-center w-100 border-bottom px-3 py-1">
-
-          <div class="d-flex flex-column align-items-center justify-content-between">
-            <div class="d-flex flex-row align-items-center">
-              <img src="<%= booking.influencer.instagram_pp %>" alt="" style="width: 80px; height: 80px;">
-              <li>@<%= booking.influencer.user_name %></li>
             </div>
-
-            <%= link_to "Influencer's profile", influencer_path(booking.influencer), style: "text-decoration: underline;", class: "mx-3" %>
-          </div>
-
-          <div class="d-flex flex-row align-items-center">
-            <div class="<%= "pdg" if booking.status == "pending" %><%= "accp" if booking.status == "accepted" %><%= "ref" if booking.status == "refused" %> px-4 mx-5"><%= booking.status %></div>
-
             <% if booking.status == "pending" || booking.status == "refused" %>
-                <%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' } do %>
-                  <i class="fas fa-trash" style="font-size: 20px;"></i>
-                <% end %>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure ?' }, class: 'd-flex align-items-center' do %>
+                <i class="fas fa-trash" style="font-size: 20px;"></i>
+              <% end %>
             <% end %>
-
             <% if booking.status == "accepted" %>
-              <div class="request-col" style="width:150px">
-                <%= link_to 'leave a review', new_booking_review_path(booking)%>
-                <%= link_to 'Contract', booking_path(booking, format: :pdf), target: '_blank' %>
-              </div>
+            <div class="d-flex flex-column justify-content-end align-items-end">
+              <%= link_to 'leave a review', new_booking_review_path(booking)%>
+              <%= link_to 'Contract', booking_path(booking, format: :pdf), target: '_blank' %>
+            </div>
             <% end %>
           </div>
-
           </div>
-
         <% end %>
           <%= link_to campaign_influencers_path(@campaign) do %>
             <div class="button_blue shadow_button_blue mt-5 mb-3">
@@ -46,9 +46,7 @@
             </div>
           <% end %>
         </div>
-
     </div>
-
     <div class="w-100 card_gray mx-3 my-5 text-left py-5 px-3 justify-content-start">
       <div class="w-100 text-left">
         <h3>My dashboard</h3>
