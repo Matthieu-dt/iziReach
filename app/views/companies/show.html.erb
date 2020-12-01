@@ -2,7 +2,7 @@
   <h2 class="text-blue font-weight-bold text-center pb-4"><span class="text-gradient font-weight-bold text-uppercase"> <%=@company.name%>'s profile</span></h2>
 
   <div class="d-flex justify-content-between align-items-start">
-    <div class="card_gray w-30-percent mx-3 mt-5 h-100" style="position: sticky; top: 15%;">
+    <div class="card_gray w-30-percent mx-3 mt-5 h-100 pb-3" style="position: sticky; top: 15%;">
       <div class="d-flex justify-content-left w-100 ">
         <div class="d-flex flex-column">
           <div class="border_radius_img_left">
@@ -27,80 +27,24 @@
     </div>
 
     <div class="w-75 px-5 py-5 d-flex flex-column justify-content-center" style="background: white">
-      <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
+      <div class='d-flex justify-content-left align-items-left flex-column py-2 w-75'>
+        <div class="d-flex justify-content-left pb-3 align-items-center">
           <%= image_tag "question.png", style: "width: 30px; height: 30px;"%>
           <h4 class="pl-3 py-2 my-0">Who we are</h4>
         </div>
         <div>
-          <p class="mb-0"><%= @company.description %></p>
+          <p style="text-align: justify; " class="mb-0 text-capitalize"><%= @company.description %></p>
         </div>
       </div>
-      <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
+      <div class='d-flex justify-content-left align-items-left flex-column py-2 w-75'>
+        <div class="d-flex justify-content-left pb-3 pt-3 align-items-center">
           <%= image_tag "heart.png", style: "width: 30px; height: 30px;"%>
           <h4 class="pl-3 py-2 my-0">Our values</h4>
         </div>
         <div>
-          <p class="mb-0"><%= @company.values %></p>
+          <p style="text-align: justify;" class="mb-0 text-capitalize"><%= @company.values %></p>
         </div>
       </div>
-      <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
-          <%= image_tag "question.png", style: "width: 30px; height: 30px;"%>
-          <h4 class="pl-3 py-2 my-0">Who we are</h4>
-        </div>
-        <div>
-          <p class="mb-0"><%= @company.description %></p>
-        </div>
-      </div>
-      <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
-          <%= image_tag "heart.png", style: "width: 30px; height: 30px;"%>
-          <h4 class="pl-3 py-2 my-0">Our values</h4>
-        </div>
-        <div>
-          <p class="mb-0"><%= @company.values %></p>
-        </div>
-      </div>
-       <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
-          <%= image_tag "question.png", style: "width: 30px; height: 30px;"%>
-          <h4 class="pl-3 py-2 my-0">Who we are</h4>
-        </div>
-        <div>
-          <p class="mb-0"><%= @company.description %></p>
-        </div>
-      </div>
-      <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
-          <%= image_tag "heart.png", style: "width: 30px; height: 30px;"%>
-          <h4 class="pl-3 py-2 my-0">Our values</h4>
-        </div>
-        <div>
-          <p class="mb-0"><%= @company.values %></p>
-        </div>
-      </div>
-       <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
-          <%= image_tag "question.png", style: "width: 30px; height: 30px;"%>
-          <h4 class="pl-3 py-2 my-0">Who we are</h4>
-        </div>
-        <div>
-          <p class="mb-0"><%= @company.description %></p>
-        </div>
-      </div>
-      <div class='d-flex justify-content-left align-items-left flex-column py-2'>
-        <div class="d-flex justify-content-left align-items-center">
-          <%= image_tag "heart.png", style: "width: 30px; height: 30px;"%>
-          <h4 class="pl-3 py-2 my-0">Our values</h4>
-        </div>
-        <div>
-          <p class="mb-0"><%= @company.values %></p>
-        </div>
-      </div>
-
-
 
     </div>
   </div>
