@@ -8,7 +8,7 @@
     </div>
     <div class="w-100 d-flex flex-wrap flex-row justify-content-left align-items-left">
       <div class="w-100 p-3 d-flex flex-wrap flex-row justify-content-left align-items-left" style="color: rgb(145, 139, 166);">
-        <div class="w-100 " style="text-align:center"><h2><%= link_to campaign.name, campaign_path(campaign)%></h2></div>
+        <div class="w-100 " style="text-align:center"><h4 style="font-size: 30px;"><%= link_to campaign.name, campaign_path(campaign)%></h4></div>
         <div class="w-100 mb-10"><strong>🕑 Date:</strong> <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
         <div class="w-100 mb-10"><strong>🎯 Target:</strong> <%= campaign.target %></div>
         <div class="w-50 mb-10"><strong>👁‍🗨 # of stories:</strong> <%= campaign.number_of_stories %></div>

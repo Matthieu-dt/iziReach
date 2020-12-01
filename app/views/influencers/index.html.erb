@@ -25,25 +25,25 @@
          <li><i class="fi-xnsusl-star-solid" style="color:yellow;"></i></li>
          <li style="color:yellow; text-shadow: 10px 10px 10px 0px black">Best match</li>
          </div>
-         <% end %>         
+         <% end %>
       <div class="flex-rox justify-content-center;" style="text-align:center; width: 100%; height:226px; background:-webkit-linear-gradient(130deg, #ea70cf 0%, #62dafb 100%)">
           <img src="<%= influencer.instagram_pp ? influencer.instagram_pp : "https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" %>" alt="" class="influencer-avatar" style="margin-top:20px">
           <div class="influencer-infos">
-            <%= link_to influencer.user_name, influencer_path(influencer)  %>
+            <h4 style="text-transform: capitalize;"><%= link_to influencer.user_name, influencer_path(influencer)%></h4>
             <% if @verifed == "1" %>
               <i class="fas fa-certificate"></i>
             <% end %>
           </div>
 
-        
-        <div class="influencer-stats" style="position:absolute; top:175px; left:1px">
+
+        <div class="influencer-stats" style="position:absolute; top:175px; left:15px">
 
           <div class="stat-card-1">
-            <h4><%= influencer.followers %></h4>
+            <h4 style="margin-bottom: 0;"><%= influencer.followers %></h4>
             <p style="color:$blue_new;">followers</p>
           </div>
           <div class="stat-card-2">
-            <h4><%= influencer.engagement %>%</h4>
+            <h4 style="margin-bottom: 0;"><%= influencer.engagement %>%</h4>
             <p style="color:$blue_new;">engagement</p>
           </div>
         </div>
