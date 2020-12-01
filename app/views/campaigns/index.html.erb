@@ -7,7 +7,7 @@
       <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
         <% @campaigns.each do |campaign| %>
           <% if campaign.status == "pending" %>
-            <%= render 'shared/card_body_campaign', campaign: campaign, card_width: "w-30-percent" %>
+            <%= render 'shared/card_body_campaign', campaign: campaign, card_width: "w-30-percent", card_height: "400px" %>
           <% end %>
         <% end %>
       </div>
@@ -16,7 +16,7 @@
       <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
         <% @campaigns.each do |campaign| %>
           <% if campaign.status == "ongoing" %>
-              <%= render 'shared/card_body_campaign', campaign: campaign, card_width: "w-30-percent" %>
+              <%= render 'shared/card_body_campaign', campaign: campaign, card_width: "w-30-percent", card_height: "400px" %>
           <% end %>
         <% end %>
       </div>
@@ -25,7 +25,7 @@
       <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
         <% @campaigns.each do |campaign| %>
           <% if campaign.status == "passed" %>
-            <%= render 'shared/card_body_campaign', campaign: campaign, card_width: "w-30-percent" %>
+            <%= render 'shared/card_body_campaign', campaign: campaign, card_width: "w-30-percent", card_height: "400px" %>
           <% end %>
         <% end %>
       </div>

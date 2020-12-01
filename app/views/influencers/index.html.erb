@@ -18,10 +18,16 @@
     </div>
 
   <div class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-3  mt-5">
-    <% @sorted_influencers.each do |influencer| %>
-      <div class="card_gray justify-content-center mb-4 " style="width: 30%;">
-      <div class="flex-rox justify-content-center;" style="text-align:center; width: 100%; background:-webkit-linear-gradient(130deg, #ea70cf 0%, #62dafb 100%)">
-          <img src="<%= influencer.instagram_pp ? influencer.instagram_pp : "https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" %>" alt="" class="influencer-avatar">
+    <% @sorted_influencers.each_with_index do |influencer, index| %>
+      <div class="card_gray justify-content-center mb-4 " style="width: 30%; position:relative;">
+         <% if index < 3 %>
+         <div style="position:absolute; top:22px; left:30px; text-align:center;">
+         <li><i class="fi-xnsus3-star-solid" style="color:yellow;"></i></li>
+         <li style="color:yellow; text-shadow: 10px 10px 10px 0px black">Best matching</li>
+         </div>
+         <% end %>         
+      <div class="flex-rox justify-content-center;" style="text-align:center; width: 100%; height:226px; background:-webkit-linear-gradient(130deg, #ea70cf 0%, #62dafb 100%)">
+          <img src="<%= influencer.instagram_pp ? influencer.instagram_pp : "https://images.unsplash.com/photo-1573483204500-c18954bd33bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" %>" alt="" class="influencer-avatar" style="margin-top:20px">
           <div class="influencer-infos">
             <%= link_to influencer.user_name, influencer_path(influencer)  %>
             <% if @verifed == "1" %>
@@ -29,7 +35,9 @@
             <% end %>
           </div>
 
-        <div class="influencer-stats">
+        
+        <div class="influencer-stats" style="position:absolute; top:175px; left:1px">
+
           <div class="stat-card-1">
             <h4><%= influencer.followers %></h4>
             <p style="color:$blue_new;">followers</p>
@@ -41,7 +49,7 @@
         </div>
         </div>
 
-        <div class="filters">
+        <div class="filters" style="margin-top:30px">
         <% if influencer.lifestyle == true %>
           <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
         <% end %>
