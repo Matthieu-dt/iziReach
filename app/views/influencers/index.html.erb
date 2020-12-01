@@ -31,7 +31,7 @@
 
         <div class="influencer-stats">
           <div class="stat-card-1">
-            <h4><%= influencer.followers %></h4>
+            <h4><%= number_with_delimiter(influencer.followers.to_i, locale: :fr) %></h4>
             <p style="color:$blue_new;">followers</p>
           </div>
           <div class="stat-card-2">
