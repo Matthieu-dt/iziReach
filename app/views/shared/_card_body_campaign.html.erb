@@ -8,13 +8,13 @@
     </div>
     <div class="w-100 d-flex flex-wrap flex-row justify-content-left align-items-left">
       <div class="w-100 p-3 d-flex flex-wrap flex-row justify-content-left align-items-left" style="color: rgb(145, 139, 166);">
-        <div class="w-100"><h2><%= link_to campaign.name, campaign_path(campaign)%></h2></div>
-        <div class="w-100"><strong>Date:</strong> <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
-        <div class="w-100"><strong>Target:</strong> <%= campaign.target %></div>
-        <div class="w-50"><strong># of stories:</strong> <%= campaign.number_of_stories %></div>
-        <div class="w-50"><strong># of lives: </strong><%= campaign.number_of_lives %></div>
-        <div class="w-50"><strong># of photos:</strong> <%= campaign.number_of_photos %></div>
-        <div class="w-50"><strong># of videos:</strong> <%= campaign.number_of_videos %></div>
+        <div class="w-100 " style="text-align:center"><h2><%= link_to campaign.name, campaign_path(campaign)%></h2></div>
+        <div class="w-100 mb-10"><strong>🕑 Date:</strong> <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
+        <div class="w-100 mb-10"><strong>🎯 Target:</strong> <%= campaign.target %></div>
+        <div class="w-50 mb-10"><strong>👁‍🗨 # of stories:</strong> <%= campaign.number_of_stories %></div>
+        <div class="w-50 mb-10"><strong>🤳 # of lives: </strong><%= campaign.number_of_lives %></div>
+        <div class="w-50 mb-10"><strong>📸 # of photos:</strong> <%= campaign.number_of_photos %></div>
+        <div class="w-50 mb-10"><strong>🎥 # of videos:</strong> <%= campaign.number_of_videos %></div>
         <div class="filters d-flex justify-content-center w-100 mt-3">
         <% if campaign.lifestyle == true %><i class="far fa-check-square mr-2"><p> Lifestyle</p></i><% end %>
         <% if campaign.sport == true %><i class="far fa-check-square mr-2"><p> Sport</p></i><% end %>
