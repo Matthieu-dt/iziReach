@@ -1,4 +1,4 @@
-<div class="card_gray justify-content-center mx-3 h-100 <%= card_width %>">
+<div class="card_gray justify-content-center mx-3 h-100 mb-2 <%= card_width %>">
   <div class="d-flex flex-wrap flex-column justify-content-left">
     <div class="w-100 border_radius_img_left position-relative">
       <%= cl_image_tag campaign.photo.key, crop: :fill, class: 'img_left_company small_img_height' %>
@@ -13,7 +13,7 @@
         <div class="w-50"># of lives: <%= campaign.number_of_lives %></div>
         <div class="w-50"># of photos: <%= campaign.number_of_photos %></div>
         <div class="w-50"># of videos: <%= campaign.number_of_videos %></div>
-        <div class="filters w-100 mt-3">
+        <div class="filters d-flex justify-content-center w-100 mt-3">
         <% if campaign.lifestyle == true %><i class="far fa-check-square mr-2"><p> Lifestyle</p></i><% end %>
         <% if campaign.sport == true %><i class="far fa-check-square mr-2"><p> Sport</p></i><% end %>
         <% if campaign.food == true %><i class="far fa-check-square mr-2"><p> Food</p></i><% end %>
