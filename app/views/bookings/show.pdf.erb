@@ -1,15 +1,15 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<h1>Contrat de Partenariat</h1>
-<h3>Entre les soussignés</h3>
+<h1 style="text-emphasis: right">IziReach</h1>
+<h1 style="text-align: center">Contrat de Partenariat</h1>
+<h3 style="text-align: center">Entre les soussignés</h3>
 <p>La société <%= @booking.campaign.company.name %>, située au [...], représentée
-  par M.
-<%= @booking.campaign.company.user %></p>
+  par M.<%= @booking.campaign.company.user %></p>
 <p>L’influenceur Instagram <%= @booking.influencer.first_name.capitalize
 @booking.influencer.last_name.capitalize %> représenté par [NOM
 PRENOM ou NOM DE SOCIETE] à l’adresse [ADRESSE]</p>
-<h3>- Il a été convenu et arrêté ce qui suit -</h3>
+<h3 style="text-align: center">- Il a été convenu et arrêté ce qui suit -</h3>
 <h2>1 LE CONTRAT</h2>
 <p>Ce contrat a pour but de cadrer et régir la collaboration conclue entre
   l’influenceur instagram <%= @booking.influencer.user_name %>
@@ -27,7 +27,7 @@ PRENOM ou NOM DE SOCIETE] à l’adresse [ADRESSE]</p>
     <li><%= @booking.campaign.number_of_videos %></li>
     <li><%= @booking.campaign.number_of_lives %></li>
   </ul>
-<p>La société s’engage en contrepartie à verser la somme de <%= @booking.total_price %></p>
+<p>La société s’engage en contrepartie à verser la somme de <%= @booking.total_price %>€</p>
 <h2>4 DUREE DU CONTRAT</h2>
 <p>La collaboration conclue entre l’influenceur et la société est définie selon les dates suivantes :
 <%= @booking.campaign.occurs_at %>
@@ -48,5 +48,7 @@ où l’un manquerait à ses obligations évoquées dans ce contrat. L’annonce
 le présent contrat. En cas d’impossibilité de régler ces éléments à l’amiable, les tribunaux de la
 ville de [NOM VILLE] seront déclarés comme compétents pour intervenir et résoudre la situation.</p>
 <p>Fait à [VILLE] le [DATE] en deux exemplaires originaux</p>
-<p>La société</p>
-<p>L’influenceur</p>
+<div style="display: flex; justify-content: space-around;">
+  <p>La société</p>
+  <p>L’influenceur</p>
+</div>
