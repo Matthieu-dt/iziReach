@@ -7,7 +7,7 @@
         The marketing tool that will change your life. </p>
       </div>
 
-      <%= action_name %>
+
       <% if current_user %>
         <% if current_user.company== nil && current_user.influencer == nil %>
           <%= link_to new_company_path, class:"mx-1 d-flex" do %>

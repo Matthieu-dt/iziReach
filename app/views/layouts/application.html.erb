@@ -17,6 +17,17 @@
     <div style="min-height: 100vh;">
     <%= render 'shared/navbar' %>
     <div class="<%= @home ? 'small-container' : 'large-container' %>">
+      <% unless @home %>
+      <div style="position: fixed; height: 100vh; width: 100vw; z-index: -1;">
+        <div style="width: 100vw; height: 100vh; position: relative;">
+          <div style="position: absolute; top: 12vh; left: 8vw; font-size: 20px; transform: rotate(320deg);">💙🌏💙</div>
+          <div style="position: absolute; bottom: 10vh; left: 5vw; font-size: 20px;">🌸🛍</div>
+          <div style="position: absolute; top: 30vh; right: 45vw; font-size: 20px; transform: rotate(60deg);">🌈✈️🏝</div>
+          <div style="position: absolute; top: 18vh; right: 21vw; font-size: 20px; transform: rotate(10deg);">🎮💫</div>
+          <div style="position: absolute; bottom: 22vh; right: 2vw; font-size: 20px; transform: rotate(40deg);">🍭</div>
+        </div>
+      </div>
+      <% end %>
       <%= yield %>
     </div>
     <%= render 'shared/footer_white' if @home %>

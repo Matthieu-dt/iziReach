@@ -1,11 +1,11 @@
-<div style="padding-top: 10vh;">
-  <h2 class="text-blue font-weight-bold text-center"><span class="text-gradient font-weight-bold">My company</span></h2>
+<div style="padding-top: 10vh; z-index: 10;">
+  <h2 class="text-blue font-weight-bold text-center"><span class="text-gradient font-weight-bold">MY COMPANY</span></h2>
   <div class="card_gray mx-3 mt-5 h-100">
     <div class="d-flex justify-content-left w-100" style="height: 400px;">
       <div class="w-50 border_radius_img_left">
         <%= cl_image_tag @company.photo.key, crop: :fill, class: 'img_left_company' %>
       </div>
-      <div class="w-50 px-3 py-3 d-flex flex-column justify-content-center">
+      <div class="w-50 px-3 py-3 d-flex flex-column justify-content-center" style="background: white">
         <h2 class="text-uppercase"><%= @company.name %></h2>
         <div class='d-flex justify-content-left align-items-left flex-column py-2'>
           <div class="d-flex justify-content-left align-items-center">
