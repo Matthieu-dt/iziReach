@@ -1,88 +1,158 @@
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
+<div class="container">
+    <div class="wrapper">
+      <div class="element-1">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card user-card">
+                    <div class="card-header">
+                        <h5>Profile</h5>
+                    </div>
+                    <div class="card-block">
+                        <div class="user-image">
+                            <img src="<%= @influencer.instagram_pp %>" class="img-radius" alt="User-Profile-Image">
+                        </div>
+                        <h6 class="f-w-600 m-t-25 m-b-10"><%= @influencer.user_name %></h6>
+                                <div class="filters-show">
+                                  <% if @influencer.lifestyle == true %>
+                                    <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
+                                  <% end %>
+                                  <% if @influencer.sport == true %>
+                                    <i class="far fa-check-square mr-2"><p> Sport</p></i>
+                                  <% end %>
+                                  <% if @influencer.food == true %>
+                                    <i class="far fa-check-square mr-2"><p> Food</p></i>
+                                  <% end %>
+                                  <% if @influencer.gaming == true %>
+                                    <i class="far fa-check-square mr-2"><p> Gaming</p></i>
+                                  <% end %>
+                                  <% if @influencer.healthy == true %>
+                                    <i class="far fa-check-square mr-2"><p> Healthy</p></i>
+                                  <% end %>
+                                  <% if @influencer.travel == true %>
+                                    <i class="far fa-check-square mr-2"><p> Travel</p></i>
+                                  <% end %>
+                                  <% if @influencer.music == true %>
+                                    <i class="far fa-check-square mr-2"><p> Music</p></i>
+                                  <% end %>
+                                  <% if @influencer.fashion == true %>
+                                    <i class="far fa-check-square mr-2"><p> Fashion</p></i>
+                                  <% end %>
+                                  <% if @influencer.art == true %>
+                                    <i class="far fa-check-square mr-2"><p> Art</p></i>
+                                  <% end %>
+                                  <% if @influencer.technology == true %>
+                                    <i class="far fa-check-square mr-2"><p> Technology</p></i>
+                                  <% end %>
+                                  <% if @influencer.humour == true %>
+                                    <i class="far fa-check-square mr-2"><p> Humor</p></i>
+                                  <% end %>
+                                  <% if @influencer.beauty == true %>
+                                    <i class="far fa-check-square mr-2"><p> Beauty</p></i>
+                                  <% end %>
+                                </div>
 
-<div class="container p-5">
-
-
-  <div class="container-show-influencer">
-    <div class="p-5">
-      <img id="img-background" src="https://images.pexels.com/photos/4549414/pexels-photo-4549414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-
-      <div class="infos-show-influencer">
-        <img id="img-influencer" src="<%= @influencer.instagram_pp %>" alt="photo profil">
-        <h2><%= @influencer.fullname %></h2>
-        <p>Washington, États-Unis</p>
-      </div>
-
-      <div class="container-info-account-influencer">
-        <div class="card-info"><p><%= @uploads %> <br> Posts</p></div>
-        <div class="card-info"><p><%= @following %> <br> Following</p></div>
-        <div class="card-info"><p><%= @influencer.followers %> <br> Followers</p></div>
-        <div class="card-info"><p><%= @influencer.engagement %>% <br> Engagement</p></div>
-      </div>
-
-      <div class="d-flex py-3 justify-content-center text-align-center">
-        <button type="button" class="gradient-pink-button">Book me!</button>
-      </div>
+                        <hr>
+                        <p class="text-muted m-t-15">Activity Level: 87%</p>
+                        <ul class="list-unstyled activity-leval">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="bg-c-green counter-block m-t-10 p-20">
+                            <div class="row">
+                                <div class="col-4 stats">
+                                    <p class="p-stats">following</p>
+                                    <p><%= number_with_delimiter(@following.to_i, locale: :fr) %></p>
+                                </div>
+                                <div class="col-4 stats">
+                                    <p class="p-stats">followers</p>
+                                    <p><%= number_with_delimiter(@influencer.followers.to_i, locale: :fr) %></p>
+                                </div>
+                                <div class="col-4 stats">
+                                    <p class="p-stats">posts</p>
+                                    <p><%= number_with_delimiter(@uploads.to_i, locale: :fr) %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="m-t-15 text-muted"><%= @influencer.description %></p>
+                        <hr>
+                        <div class="row justify-content-center user-social-link">
+                            <div class="col-auto"><a href="#!"><i class="fa fa-facebook text-facebook"></i></a></div>
+                            <div class="col-auto"><a href="#!"><i class="fa fa-twitter text-twitter"></i></a></div>
+                            <div class="col-auto"><a href="<%= "https://www.instagram.com/#{@influencer.user_name}/" %>" target="blank"><i class="fab fa-instagram text-insta"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="element-2 col-md-8">
+              <div class="row">
+                <div class="col-md-6 p-3">
+                    <div class="panel metric-card card_gray">
+                        <div class="panel-body w-100 d-flex align-items-center">
+                            <div class="bio-chart text-center">
+                              <div>54</div>
+                            </div>
+                            <div class="bio-desk">
+                                <h4 class="red">Envato Website</h4>
+                                <p>Started : 15 July</p>
+                                <p>Deadline : 15 August</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 p-3 ">
+                    <div class="panel metric-card card_gray">
+                        <div class="panel-body w-100 d-flex align-items-center">
+                            <div class="bio-chart text-center">
+                              <div>54</div>
+                            </div>
+                            <div class="bio-desk">
+                                <h4 class="terques">ThemeForest CMS </h4>
+                                <p>Started : 15 July</p>
+                                <p>Deadline : 15 August</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 p-3 ">
+                    <div class="panel metric-card card_gray">
+                        <div class="panel-body w-100 d-flex align-items-center">
+                            <div class="bio-chart text-center">
+                            <div>54</div>
+                            </div>
+                            <div class="bio-desk">
+                                <h4 class="green">VectorLab Portfolio</h4>
+                                <p>Started : 15 July</p>
+                                <p>Deadline : 15 August</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 p-3 ">
+                    <div class="panel metric-card card_gray">
+                        <div class="panel-body w-100 d-flex align-items-center">
+                            <div class="bio-chart text-center">
+                             <div>54</div>
+                            </div>
+                            <div class="bio-desk">
+                                <h4 class="purple">Adobe Muse Template</h4>
+                                <p>Started : 15 July</p>
+                                <p>Deadline : 15 August</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
-    <div class="d-flex py-3 justify-content-center">
-      <button type="button" class="gradient-pink-button">Book me!</button>
-    </div>
 
-  <button type="button" class="collapsible">More informations</button>
-    <div class="content">
-      <ul>
-        <!-- <li>Username: <%= @influencer.user_name %></li> -->
-        <li>Description: <%= @influencer.description %></li>
-        <li><%= @influencer.price_per_story %>€ per story</li>
-        <li><%= @influencer.price_per_photo %>€ per photo</li>
-        <li><%= @influencer.price_per_video %>€ per video</li>
-        <li><%= @influencer.price_per_live %>€ per live</li>
-      </ul>
-    </div>
-  </div>
+
 
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-      <h3> Influencer profil</h3>
-      <% if @verified == 1 %>
-      <%= Verified %>
-      <% end %>
-      <p>Av likes : <%= @av_likes %> </p>
-      <p>Av comments : <%= @av_comments %> </p>
-      <p>Enagement on top posts :</p>
-      <% @top_posts.each do |post| %>
-      <%= post %>
-      <% end %>
-      <% @last_9_pics.each do |pic| %>
-      <img src="<%= pic[:url] %>" alt="">
-      <%= pic[:likes] %>
-      <%= pic[:comments] %>
-      <% end %>
-      <ul>
-      <li>Username: <%= @influencer.user_name %></li>
-      <li>Description: <%= @influencer.description %></li>
-      <li><%= @influencer.price_per_story %>€ per story</li>
-      <li><%= @influencer.price_per_photo %>€ per photo</li>
-      <li><%= @influencer.price_per_video %>€ per video</li>
-      <li><%= @influencer.price_per_live %>€ per live</li>
-      </ul>
-      <% if @influencer.user == current_user %>
-      <%= link_to 'Edit my profile', edit_influencer_path(@influencer) %>
-      <%= link_to 'See my prestations', solicitations_path(@influencer) %>
-      <% end %>
-
-
-
-    <%# @influencer.photos.each do |photo| %>
-      <%#= cl_image_tag photo.key[0], height: 300, width: 400, crop: :fill %>
-    <%# end %>
