@@ -1,1 +1,42 @@
 // Specific CSS for your home-page
+// #moving_heart{
+//   animation: bounce 0.7s ease infinite;
+// }
+// @keyframes bounce{
+//   from {top: 76px;}
+//   50%  {top: 56px;}
+//   to   {top: 76px;}
+// }
+#moving_heart1{
+  animation: shake 0.35s ease infinite alternate;
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+#moving_heart3{
+  animation: bouncee 0.35s ease infinite alternate;
+}
+@keyframes bouncee{
+  from {transform: translateX(0) translateY(0);}
+   to   {transform: translateX(-20px) translateY(-30px);}
+}
+#moving_heart2{
+  animation: bounce 0.35s ease infinite alternate;
+}
+@keyframes bounce{
+  from {top: 206px;}
+  50%  {top: 196px;}
+  to   {top: 206px;}
+}
