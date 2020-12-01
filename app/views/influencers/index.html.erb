@@ -1,5 +1,5 @@
 <div style="padding-top: 10vh; width: 100%;">
-  <h2 class="text-blue font-weight-bold text-center">Let's find <span class="text-gradient font-weight-bold">influencers !</span></h2>
+  <h2 class="text-blue font-weight-bold text-center">Let's find <span class="text-gradient font-weight-bold">INFLUENCERS !</span></h2>
   <% if @campaign.company.user == current_user %>
     <%= link_to campaign_path(@campaign), style: 'text-decoration: underline;', class: "mx-3" do %>
       Back to my campaign
@@ -7,16 +7,16 @@
   <% end %>
 
      <%= form_tag campaign_influencers_path, method: :get do %>
-     <div class="searchinfluencers d-flex" style="margin-top: 15px; margin-left:16px">
+     <div class="searchinfluencers d-flex justify-content-center" style="margin-top: 15px; margin-left:16px">
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-control p-2 rounded",
         placeholder: "What are you looking for ?"
       %>
-      <%= submit_tag "Search", class: "btn-search" %>
+      <%= submit_tag "FIND ME", class: "btn-search rounded-right" %>
     <% end %>
     </div>
-   
+
   <div class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-3  mt-5">
     <% @sorted_influencers.each do |influencer| %>
       <div class="card_gray justify-content-center mb-4 " style="width: 30%;">
@@ -28,7 +28,7 @@
               <i class="fas fa-certificate"></i>
             <% end %>
           </div>
-        
+
         <div class="influencer-stats">
           <div class="stat-card-1">
             <h4><%= influencer.followers %></h4>
@@ -83,7 +83,7 @@
           <% influencer.set_rating.times do %>
             <i class="fas fa-star"></i>
           <% end %>
-        </div>	
+        </div>
         <%= link_to 'Book', influencer_bookings_path(influencer, campaign_id: @campaign.id), method: :post, class: 'button_blue shadow_button_blue my-3' %>
       </div>
     <% end %>
