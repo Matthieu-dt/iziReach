@@ -1,6 +1,8 @@
 body{
     margin-top:20px;
+
     background:white;
+
 }
 
 .card.user-card {
@@ -245,6 +247,8 @@ body{
 
 .bio-chart {
     width: 40%;
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .bio-desk {
@@ -275,4 +279,6 @@ body{
 .metric-card {
   box-shadow: rgba(0, 0, 0, 0.04) 0px 12px 16px, rgba(0, 0, 0, 0.04) 0px 0px 8px;
 }
-
+.margin-photo {
+  margin-bottom: 3px;
+}

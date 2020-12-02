@@ -63,15 +63,15 @@
                         </ul>
                         <div class="bg-c-green counter-block m-t-10 p-20">
                             <div class="row">
-                                <div class="col-4 stats">
+                                <div class="col-4 p-0">
                                     <p class="p-stats">following</p>
                                     <p><%= number_with_delimiter(@following.to_i, locale: :fr) %></p>
                                 </div>
-                                <div class="col-4 stats">
+                                <div class="col-4 p-0">
                                     <p class="p-stats">followers</p>
                                     <p><%= number_with_delimiter(@influencer.followers.to_i, locale: :fr) %></p>
                                 </div>
-                                <div class="col-4 stats">
+                                <div class="col-4 p-0">
                                     <p class="p-stats">posts</p>
                                     <p><%= number_with_delimiter(@uploads.to_i, locale: :fr) %></p>
                                 </div>
@@ -80,8 +80,8 @@
                         <p class="m-t-15 text-muted"><%= @influencer.description %></p>
                         <hr>
                         <div class="row justify-content-center user-social-link">
-                            <div class="col-auto"><a href="#!"><i class="fa fa-facebook text-facebook"></i></a></div>
-                            <div class="col-auto"><a href="#!"><i class="fa fa-twitter text-twitter"></i></a></div>
+                            <div class="col-auto"><a href="#!"><i class="fab fa-facebook text-facebook"></i></a></div>
+                            <div class="col-auto"><a href="#!"><i class="fab fa-twitter text-twitter"></i></i></a></div>
                             <div class="col-auto"><a href="<%= "https://www.instagram.com/#{@influencer.user_name}/" %>" target="blank"><i class="fab fa-instagram text-insta"></i></a></div>
                         </div>
                     </div>
@@ -93,12 +93,11 @@
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                              <div>54</div>
+                              <div><%= @influencer.engagement %>%</div>
                             </div>
                             <div class="bio-desk">
-                                <h4 class="red">Envato Website</h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
+                                <h4 class="red">Average engagement</h4>
+                                <p>Engagement shows how actively involved with your content your audience is.</p>
                             </div>
                         </div>
                     </div>
@@ -107,12 +106,11 @@
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                              <div>54</div>
+                              <div><%= @av_likes %></div>
                             </div>
                             <div class="bio-desk">
-                                <h4 class="terques">ThemeForest CMS </h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
+                                <h4 class="terques">Average likes</h4>
+                                <p>Engaged consumers interact with brands through likes</p>
                             </div>
                         </div>
                     </div>
@@ -121,12 +119,11 @@
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                            <div>54</div>
+                            <div><%= @av_comments %></div>
                             </div>
                             <div class="bio-desk">
-                                <h4 class="green">VectorLab Portfolio</h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
+                                <h4 class="green">Average comments</h4>
+                                <p>Engaged consumers interact with brands through comments</p>
                             </div>
                         </div>
                     </div>
@@ -135,24 +132,25 @@
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                             <div>54</div>
+                            <div><%= @top_posts[0] %>%</div>
                             </div>
                             <div class="bio-desk">
-                                <h4 class="purple">Adobe Muse Template</h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
+                                <h4 class="green">Engagement on top post</h4>
+                                <p>Engagement rate on most permormant post for <%= @influencer.user_name %></p>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
               </div>
+              <div class="feed">
+                <% @influencer.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, crop: :fill, height: 270, width: 240, class: "margin-photo"  %>
+                <% end %>
+              </div>
             </div>
-        </div>
-    </div>
-
-
-
+          </div>
+      </div>
+  </div>
 </div>
 
 
