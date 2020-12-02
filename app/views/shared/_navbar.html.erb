@@ -6,40 +6,38 @@
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>
-          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
-            <%= link_to "Home", root_path%>
+          <div class="one nav_link px-3 <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
+            <%= link_to "My profile", root_path%>
           </div>
-          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
+          <div class="two nav_link px-3 <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
             <%= link_to "All my campaigns", company_campaigns_path(current_user.company)%>
           </div>
-          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>">
+          <div class="three nav_link px-3 <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>">
             <%= link_to "Create a campaign", new_company_campaign_path(current_user.company)%>
           </div>
         <% elsif current_user && current_user.influencer.present? %>
-          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>">
+          <div class="one nav_link px-3 <%= "active_link" if controller_name == "solicitations" %>">
             <%= link_to "home", root_path%>
           </div>
-          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>">
+          <div class="two nav_link px-3 <%= "active_link" if action_name == "show" && controller_name == "influencers" %>">
             <%= link_to "My profile", influencer_path(current_user.influencer)%>
           </div>
         <% else %>
         <% end %>
+          <% if !@home %>
+              <% if user_signed_in? %>
+                <div class="two nav_link px-3 <%= "active_link" if action_name == "destroy" && controller_name == "sessions" %>">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                </div>
+              <% else %>
+                 <div class="two nav_link px-3 <%= "active_link" if action_name == "new" && controller_name == "sessions" %>">
+                  <%= link_to "Login", new_user_session_path %>
+                </div>
+              <% end %>
+          <% end %>
       </div>
     </div>
   </div>
 
-  <% if !@home %>
-  <div class="container-burger">
-    <div class="navbar justify-content-center">
-      <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      <% else %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
 </div>
 
