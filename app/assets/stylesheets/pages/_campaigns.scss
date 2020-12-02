@@ -6,3 +6,25 @@
 input#campaign_photo {
   overflow: hidden;
 }
+
+.tab-campaign .nav-link {
+  position: relative;
+  width: max-content;
+  min-height: 48px;
+  border-radius: 100px;
+  border: 1px solid $blue_new;
+  font-size: 16px;
+  padding: 12px 24px;
+  line-height: 24px;
+  text-align: center;
+  background-color: $blue_new;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+a.nav-item.nav-link.active {
+  color: $blue_new ;
+  background-color: white;
+  border: 1px solid $blue_new;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
