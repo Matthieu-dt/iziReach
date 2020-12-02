@@ -24,11 +24,20 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import flatpickr from "flatpickr";
+import 'flatpickr/dist/themes/airbnb.css'
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+
+  flatpickr(".datepicker", {
+    altInput: true,
+    minDate: "today"
+
+  });
 
   var coll = document.getElementsByClassName("collapsible");
 var i;
