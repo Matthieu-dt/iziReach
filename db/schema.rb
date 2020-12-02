@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_093954) do
+ActiveRecord::Schema.define(version: 2020_12_02_134232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_093954) do
     t.text "description"
     t.string "target"
     t.datetime "occurs_at"
-    t.string "status", default: "pending"
+    t.string "status", default: "ongoing"
     t.integer "number_of_stories"
     t.integer "number_of_photos"
     t.integer "number_of_videos"
