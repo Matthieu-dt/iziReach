@@ -12,8 +12,9 @@ require "open-uri"
 Booking.destroy_all
 Influencer.destroy_all
 
-usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "lewagonparis"]
+usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "bk_blog"]
 prices = [20, 25, 30, 35, 40]
+boolean = [true, false, false, false]
 # article = Article.new(title: 'NES', body: "A great console")
 
 
@@ -27,6 +28,18 @@ usernames.each do |username|
     price_per_video:  prices.sample,
     price_per_story:  prices.sample,
     price_per_live:   prices.sample,
+    lifestyle:        boolean.sample,
+    sport:            boolean.sample,
+    food:             boolean.sample,
+    gaming:           boolean.sample,
+    healthy:          boolean.sample,
+    travel:           boolean.sample,
+    music:            boolean.sample,
+    fashion:          boolean.sample,
+    art:              boolean.sample,
+    technology:       boolean.sample,
+    humour:           boolean.sample,
+    beauty:           boolean.sample,
     user:             user = User.new(
         email:              Faker::Internet.email,
         password:           "password1234"
