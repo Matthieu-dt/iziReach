@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import flatpickr from "flatpickr";
-import 'flatpickr/dist/themes/airbnb.css'
+// import 'flatpickr/dist/themes/airbnb.css'
 
 
 // Internal imports, e.g:
