@@ -53,13 +53,18 @@
                                 </div>
 
                         <hr>
-                        <p class="text-muted m-t-15">Activity Level: 87%</p>
+                        <p class="text-muted m-t-15">Reference prices</p>
+                        <div class="prices d-flex">
+                          <li><%= @influencer.price_per_photo %>€</li>
+                          <li><%= @influencer.price_per_video %>€</li>
+                          <li><%= @influencer.price_per_live %>€</li>
+                          <li><%= @influencer.price_per_story %>€</li>
+                        </div>
                         <ul class="list-unstyled activity-leval">
-                            <li class="active"></li>
-                            <li class="active"></li>
-                            <li class="active"></li>
-                            <li></li>
-                            <li></li>
+                              <li class="active">Photo</li>
+                              <li class="active">Video</li>
+                              <li class="active">Live</li>
+                              <li class="active">Story</li>
                         </ul>
                         <div class="bg-c-green counter-block m-t-10 p-20">
                             <div class="row">
