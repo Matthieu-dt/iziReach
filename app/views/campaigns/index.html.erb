@@ -3,6 +3,13 @@
   <%= link_to "Back to my campany's profile", company_path(@current_user.company), style: "text-decoration: underline; background:white", class: "mx-3" %>
   <% @campaigns = current_user.company.campaigns %>
   <h6 class="mx-3" style="background:white; width:490px">Ongoing <%= pluralize(@campaigns.where(status: "ongoing").count, "campaign") %> / Passed <%= pluralize(@campaigns.where(status: "passed").count, "campaign") %></h6>
+    
+  <div class="tab">
+    <button class="tablinks" onclick="clickHandle(event, 'ongoing')">Ongoing</button>
+    <button class="tablinks" onclick="clickHandle(event, 'finished')">Finished</button>
+  </div>
+
+  <div id="ongoing" class="tabcontent">
     <% if @campaigns.where(status: "ongoing").count > 0 %>
       <div class="d-flex justify-content-left flex-wrap flex-row mt-5 align-items-start">
         <% @campaigns.each do |campaign| %>
@@ -12,7 +19,9 @@
         <% end %>
       </div>
     <% end %>
+  </div>
 
+  <div id="finished" class="tabcontent">
     <% if @campaigns.where(status: "finished").count > 0 %>
       <div class="d-flex justify-content-left flex-wrap flex-row mt-5">
         <% @campaigns.each do |campaign| %>
@@ -22,4 +31,24 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+
+<script>
+function clickStatus(evt, campaignStatus) {
+  let i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+   tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+   document.getElementById(campaignStatus).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
 </div>
