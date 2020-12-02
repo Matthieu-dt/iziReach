@@ -92,6 +92,17 @@
           <i class="far fa-check-square mr-2"><p> Beauty</p></i>
         <% end %>
         </div>
+
+      <div style="display:flex; justify-content:space-around;width: 100%;">
+        <div>
+          <li><strong><%= influencer.price_per_story %>€</strong> per story </li> 
+          <li><strong><%= influencer.price_per_photo %>€</strong> per photo</li>
+       </div>
+       <div>
+          <li><strong><%= influencer.price_per_video %>€</strong> per video</li>
+          <li><strong><%= influencer.price_per_live %>€</strong> per story</li>
+       </div>
+        </div>
         <div class="influencer-footer">
           <% influencer.set_rating.times do %>
             <i class="fas fa-star"></i>
