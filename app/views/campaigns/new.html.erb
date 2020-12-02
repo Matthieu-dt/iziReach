@@ -3,10 +3,10 @@
   <%= simple_form_for [ @company, @campaign ] do |f| %>
     <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5">
       <div class="w-50 px-2">
-        <%= f.input :name, placeholder: "campaign's name", class: 'w-100' %>
+        <%= f.input :name, placeholder: "Les campagnes napoléoniennes...", class: 'w-100' %>
       </div>
       <div class="w-50 px-2">
-        <%= f.input :target, placeholder: "campaign target", class: 'w-100' %>
+        <%= f.input :target, placeholder: "Femmes 25-35 ans...", class: 'w-100' %>
       </div>
     </div>
 
@@ -17,40 +17,40 @@
     <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5">
 
     <div class="d-flex flex-wrap justify-content-center align-items-center w-100 mt-5" style="margin-bottom:15px">
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :lifestyle %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :sport %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :food %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :gaming %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :healthy %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :travel %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :music %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :fashion %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :art %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :technology %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :humour %>
       </div>
-      <div class="w-50 px-2">
+      <div class="w-25 px-2">
         <%= f.input :beauty %>
       </div>
     </div>
@@ -58,30 +58,30 @@
 
 
     <div class="px-2">
-      <%= f.input :description, placeholder: "detailed information about your campaign"%>
+      <%= f.input :description, placeholder: "New revolutionary product launch for christmas..."%>
     </div>
     <div class="px-2 mx-0">
-      <%= f.input :occurs_at, placeholder: "date", class: 'mx-0' %>
+      <%= f.input :occurs_at, placeholder: "D-Day for my campaign", class: 'mx-0' %>
     </div>
     <div class="d-flex flex-wrap justify-content-center align-items-center w-100">
       <div class="w-25 px-2">
-        <%= f.input :number_of_stories, placeholder: "# of stories", class: 'w-100'%>
+        <%= f.input :number_of_stories, placeholder: "# of stories per inf.", class: 'w-100'%>
       </div>
       <div class="w-25 px-2">
-        <%= f.input :number_of_photos, placeholder: "# of photos", class: 'w-100'%>
+        <%= f.input :number_of_photos, placeholder: "# of photos per inf.", class: 'w-100'%>
       </div>
       <div class="w-25 px-2">
-        <%= f.input :number_of_videos, placeholder: "# of videos", class: 'w-100'%>
+        <%= f.input :number_of_videos, placeholder: "# of videos per inf.", class: 'w-100'%>
       </div>
       <div class="w-25 px-2">
-        <%= f.input :number_of_lives, placeholder: "# of lives", class: 'w-100'%>
+        <%= f.input :number_of_lives, placeholder: "# of lives per inf.", class: 'w-100'%>
       </div>
     </div>
     <div class="px-2">
       <%= f.input :photo, as: :file %>
     </div>
     <div class="button_blue mx-auto my-3">
-      <%= f.submit "Create", class: "remove_submit_style" %>
+      <%= f.submit "Create campaign", class: "remove_submit_style" %>
     </div>
   <% end %>
 </div>
