@@ -14,8 +14,8 @@
                         required: false,
                         input_html: { autocomplete: "current-password", class:"test" } %>
           </div>
-          <div class="form-actions gradient-blue-button">
-            <%= f.button :submit, "Continue" %>
+          <div class="d-flex justify-content-center">
+            <%= f.button :submit, "Continue", class: "button_blue shadow_button_blue my-4 mx-1 w-auto"%>
           </div>
         <% end %>
         <div class="link-member">
@@ -24,9 +24,9 @@
           <% end %>
         </div>
       </div>
-      <div class="card-right">
-        <span><h2>LOREM TITLE</h2></span>
-        <span><p>Lorem, ipsum dolor sit amet consectetur adipisicing, elit. Facere fuga mollitia eius quos nostrum blanditiis nihil, in rem minima recusandae eaque quam at, doloremque natus, optio minus. Ratione modi, eos?</p></span>
+      <div class="card-right" style="text-align:center">
+        <span ><h2 style="margin-bottom:30px">Find the perfect match</h2></span>
+        <span><%= image_tag 'influ_test.png', style:"height: 220px" %></span>
       </div>
     </div>
   </div>

@@ -7,8 +7,9 @@
 .container-navbar-middle {
   // background-color: white;
   height: 50px;
-  width: 70%;
+  width: 100%;
   margin-left: 10vw;
+  margin-right: 10vw;
   color: white;
   // border-radius: 25px;
   // position: sticky;
@@ -18,8 +19,9 @@
 }
 
 .list-links {
-  width: 60%;
-  margin: auto;
+  // width: 60%;
+  // margin: auto;
+  margin-left: auto;
 }
 
 .nav_link.link :hover {
@@ -33,7 +35,7 @@
 
 .link {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
   margin: auto;
@@ -43,7 +45,7 @@
   }
   .nav_link {
     display: inline-block;
-    width: 24%;
+    // width: 24%;
     text-align: center;
     > a {
       width: 100%;

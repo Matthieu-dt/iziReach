@@ -6,23 +6,26 @@
     <% end %>
   <% end %>
 
-     <%= form_tag campaign_influencers_path, method: :get do %>
-     <div class="searchinfluencers d-flex justify-content-center" style="margin-top: 15px; margin-left:16px">
+     <%= form_tag campaign_influencers_path, method: :get, class: "d-flex justify-content-center" do %>
+     <div class="searchinfluencers position-relative" style="margin-top: 15px; margin-left:16px; display: initial;">
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control p-2 rounded",
+        class: "p-2 pl-3 bg-light rounded rounded-pill shadow-sm mb-4",
+        style: "width: 40vw;",
         placeholder: "What are you looking for ?"
       %>
-      <%= submit_tag "FIND ME", class: "btn-search rounded-right" %>
+      <%= button_tag :submit, class: "position-absolute border-none", style: "right: 15px; top: 10px; "  do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+      </div>
     <% end %>
-    </div>
 
   <div class="d-flex flex-row justify-content-between align-items-center flex-wrap mx-3  mt-5">
     <% @sorted_influencers.each_with_index do |influencer, index| %>
       <div class="card_gray justify-content-center mb-4 " style="width: 30%; position:relative;">
          <% if index < 3 %>
          <div style="position:absolute; top:22px; left:30px; text-align:center;">
-         <li><i class="fi-xnsusl-star-solid" style="color:yellow;"></i></li>
+         <li><i class="fas fa-star" style="color:yellow;" id="shake_star"></i></li>
          <li style="color:yellow; text-shadow: 10px 10px 10px 0px black">Best match</li>
          </div>
          <% end %>
@@ -36,17 +39,17 @@
           </div>
 
 
-        <div class="influencer-stats" style="position:absolute; top:175px; left:4px">
+        <div class="influencer-stats" style="position:absolute; top:175px; left:15px">
 
-          <div class="stat-card-1">
+          <div class="stat-card-1" style="text-align: center;">
 
-            <h4><%= number_with_delimiter(influencer.followers.to_i, locale: :fr) %></h4>
+            <h4 style="font-size: 20px;"><%= number_with_delimiter(influencer.followers.to_i, locale: :fr) %></h4>
 
-            <p style="color:$blue_new;">followers</p>
+            <p style="color:$blue_new; font-size: 13px;">followers</p>
           </div>
           <div class="stat-card-2">
-            <h4 style="margin-bottom: 0;"><%= influencer.engagement %>%</h4>
-            <p style="color:$blue_new;">engagement</p>
+            <h4 style="font-size: 20px;"><%= influencer.engagement %>%</h4>
+            <p style="color:$blue_new; font-size: 13px;">engagement</p>
           </div>
         </div>
         </div>

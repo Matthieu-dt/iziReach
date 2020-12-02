@@ -6,60 +6,38 @@
     <div class="list-links">
       <div class="link">
         <% if current_user && current_user.company.present? %>
-          <div class="one nav_link <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
-            <%= link_to "Home", root_path%>
+          <div class="one nav_link px-3 <%= "active_link" if action_name == "show" && controller_name == "companies" %>">
+            <%= link_to "My profile", root_path%>
           </div>
-          <div class="two nav_link <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
+          <div class="two nav_link px-3 <%= "active_link" if action_name == "index" && controller_name == "campaigns" %>">
             <%= link_to "All my campaigns", company_campaigns_path(current_user.company)%>
           </div>
-          <div class="three nav_link <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>">
+          <div class="three nav_link px-3 <%= "active_link" if action_name == "new" && controller_name == "campaigns" %>">
             <%= link_to "Create a campaign", new_company_campaign_path(current_user.company)%>
           </div>
         <% elsif current_user && current_user.influencer.present? %>
-          <div class="one nav_link <%= "active_link" if controller_name == "solicitations" %>">
+          <div class="one nav_link px-3 <%= "active_link" if controller_name == "solicitations" %>">
             <%= link_to "home", root_path%>
           </div>
-          <div class="two nav_link <%= "active_link" if action_name == "show" && controller_name == "influencers" %>">
+          <div class="two nav_link px-3 <%= "active_link" if action_name == "show" && controller_name == "influencers" %>">
             <%= link_to "My profile", influencer_path(current_user.influencer)%>
           </div>
         <% else %>
         <% end %>
+          <% if !@home %>
+              <% if user_signed_in? %>
+                <div class="two nav_link px-3 <%= "active_link" if action_name == "destroy" && controller_name == "sessions" %>">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                </div>
+              <% else %>
+                 <div class="two nav_link px-3 <%= "active_link" if action_name == "new" && controller_name == "sessions" %>">
+                  <%= link_to "Login", new_user_session_path %>
+                </div>
+              <% end %>
+          <% end %>
       </div>
     </div>
   </div>
 
-  <% if !@home %>
-  <div class="container-burger">
-    <div class="navbar justify-content-center">
-      <% if user_signed_in? %>
-        <div class="dropdown">
-          <div class="burger-btn" id="navbarDropdown", data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; width: 25px; stroke: #1d1148; stroke-width: 3; overflow: visible;"><g fill="none" fill-rule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg>
-          </div>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <div class="current-user">
-              <% if current_user && current_user.company.present? %>
-                <p><%= current_user.company.name.capitalize %></p>
-              <% elsif current_user && current_user.influencer.present? %>
-                <p><%= current_user.influencer.user_name.capitalize %></p>
-              <% else %>
-                <p>Welcome!</p>
-              <% end %>
-            </div>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </div>
-      <% else %>
-      <li class="nav-item dropdown">
-        <div class="burger-btn" id="navbarDropdown", data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; width: 25px; stroke: #a3d8f4; stroke-width: 3; overflow: visible;"><g fill="none" fill-rule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg>
-        </div>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
 </div>
 
