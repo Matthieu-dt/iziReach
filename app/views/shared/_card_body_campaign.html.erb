@@ -8,32 +8,32 @@
     </div>
     <div class="w-100 d-flex flex-wrap flex-row justify-content-left align-items-left">
       <div class="w-100 p-3 d-flex flex-wrap flex-row justify-content-left align-items-left" style="color: rgb(145, 139, 166);">
-        <div class="w-100 " style="text-align:center"><h4 style="font-size: 30px;"><%= link_to campaign.name, campaign_path(campaign)%></h4></div>
-        <div class="w-100 mb-10"><strong>🕑 Date:</strong> <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
-        <div class="w-100 mb-10"><strong>🎯 Target:</strong> <%= campaign.target %></div>
-        <div class="w-50 mb-10"><strong>👁‍🗨 # of stories:</strong> <%= campaign.number_of_stories %></div>
-        <div class="w-50 mb-10"><strong>🤳 # of lives: </strong><%= campaign.number_of_lives %></div>
+        <div class="w-100 " style="text-align:center; height:90px;"><h4 style="font-size: 30px;"><%= link_to campaign.name, campaign_path(campaign)%></h4></div>
+        <div class="w-100 mb-10 pb-2"><strong>🕑 Date:</strong> <%= campaign.occurs_at.strftime("%m/%d/%Y") %></div>
+        <div class="w-100 mb-10 pb-2"><strong>🎯 Target:</strong> <%= campaign.target %></div>
+        <div class="w-50 mb-10 "><strong>👁‍🗨 # of stories:</strong> <%= campaign.number_of_stories %></div>
+        <div class="w-50 mb-10 "><strong>🤳 # of lives: </strong><%= campaign.number_of_lives %></div>
         <div class="w-50 mb-10"><strong>📸 # of photos:</strong> <%= campaign.number_of_photos %></div>
         <div class="w-50 mb-10"><strong>🎥 # of videos:</strong> <%= campaign.number_of_videos %></div>
         <div class="filters d-flex justify-content-center w-100 mt-3">
-        <% if campaign.lifestyle == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Lifestyle</span><% end %>
-        <% if campaign.sport == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Sport</span><% end %>
-        <% if campaign.food == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Food</span><% end %>
-        <% if campaign.gaming == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Gaming</span><% end %>
-        <% if campaign.healthy == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Healthy</span><% end %>
-        <% if campaign.travel == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Travel</span><% end %>
-        <% if campaign.music == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Music</span><% end %>
-        <% if campaign.fashion == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Fashion</span><% end %>
-        <% if campaign.art == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Art</span><% end %>
-        <% if campaign.technology == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Technology</span><% end %>
-        <% if campaign.humour == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Humor</span><% end %>
-        <% if campaign.beauty == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Beauty</span><% end %>
+        <% if campaign.lifestyle == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Lifestyle</span><% end %>
+        <% if campaign.sport == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Sport</span><% end %>
+        <% if campaign.food == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Food</span><% end %>
+        <% if campaign.gaming == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Gaming</span><% end %>
+        <% if campaign.healthy == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Healthy</span><% end %>
+        <% if campaign.travel == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Travel</span><% end %>
+        <% if campaign.music == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Music</span><% end %>
+        <% if campaign.fashion == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Fashion</span><% end %>
+        <% if campaign.art == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Art</span><% end %>
+        <% if campaign.technology == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Technology</span><% end %>
+        <% if campaign.humour == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Humor</span><% end %>
+        <% if campaign.beauty == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Beauty</span><% end %>
         </div>
       <% if @show_campaign %>
         <p style="font-size: 14px;"><%= campaign.description %></p>
       <% else %>
         <div class="w-100" >
-        <%= truncate(campaign.description, length:50) %> <%= link_to "Read more", campaign_path(campaign)%>
+        <%= truncate(campaign.description, length:30) %> <%= link_to "Read more", campaign_path(campaign)%>
         </div>
       <% end %>
 

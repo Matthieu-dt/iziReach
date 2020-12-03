@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="container-signin">
+  <div class="container-signin mt-5">
     <div class="cards-signin">
-      <div class="card-signin">
-        <h2>Please login to your account !</h2>
+      <div class="card-signin bg-white">
+        <h2 style="font-size:35px">Please login to your account !</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
@@ -15,7 +15,7 @@
                         input_html: { autocomplete: "current-password", class:"test" } %>
           </div>
           <div class="d-flex justify-content-center">
-            <%= f.button :submit, "Continue", class: "button_blue shadow_button_blue my-4 mx-1 w-auto"%>
+            <%= f.button :submit, "Continue", class: "button_blue shadow_button_blue mt-2 mb-1 mx-1 w-auto"%>
           </div>
         <% end %>
         <div class="link-member">
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="card-right" style="text-align:center">
-        <span ><h2 style="margin-bottom:30px">Find the perfect match</h2></span>
+        <span ><h2 style="margin-bottom:30px; font-size:35px;">Find the perfect match</h2></span>
         <span><%= image_tag 'influ_test.png', style:"height: 220px" %></span>
       </div>
     </div>
