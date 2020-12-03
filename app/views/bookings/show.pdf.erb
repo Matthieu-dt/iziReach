@@ -6,7 +6,7 @@
 <h1 style="text-align: center">Contrat de Partenariat</h1>
 <h3 style="text-align: center">Entre les soussignés</h3>
 <p>La société <%= @booking.campaign.company.name %>, située au [...], représentée
-  par M.<%= @booking.campaign.company.user %></p>
+  par M. Julien Catonnet</p>
 <p>L’influenceur Instagram <%= @booking.influencer.first_name.capitalize
 @booking.influencer.last_name.capitalize %> représenté par [NOM
 PRENOM ou NOM DE SOCIETE] à l’adresse [ADRESSE]</p>
@@ -24,9 +24,9 @@ PRENOM ou NOM DE SOCIETE] à l’adresse [ADRESSE]</p>
 <p>L’influenceur instagram s’engage à poster : </p>
   <ul>
     <li><%= @booking.campaign.number_of_stories %> stories</li>
-    <li><%= @booking.campaign.number_of_photos %></li>
-    <li><%= @booking.campaign.number_of_videos %></li>
-    <li><%= @booking.campaign.number_of_lives %></li>
+    <li><%= @booking.campaign.number_of_photos %> photos</li>
+    <li><%= @booking.campaign.number_of_videos %> videos</li>
+    <li><%= @booking.campaign.number_of_lives %> lives</li>
   </ul>
 <p>La société s’engage en contrepartie à verser la somme de <%= @booking.total_price %>€</p>
 <h2>4 DUREE DU CONTRAT</h2>
