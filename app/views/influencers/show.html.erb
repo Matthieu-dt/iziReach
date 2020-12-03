@@ -1,12 +1,15 @@
 <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
-<div class="container">
+
+<div style="padding-top: 10vh; width: 100%;">
+  <h2 class="text-blue font-weight-bold text-center mb-5"><span class="text-gradient font-weight-bold">INFLUENCER</span>'s profile</h2>
+
     <div class="wrapper">
       <div class="element-1">
         <div class="row">
             <div class="col-md-4">
-                <div class="card user-card">
+                <div class="card user-card" style="position: sticky; top: 15%;">
                     <div class="card-header">
-                        <h5>Profile</h5>
+                        
                     </div>
                     <div class="card-block">
                         <div class="user-image">
@@ -14,71 +17,52 @@
                         </div>
                         <h6 class="f-w-600 m-t-25 m-b-10"><%= @influencer.user_name %></h6>
                                 <div class="filters-show">
-                                  <% if @influencer.lifestyle == true %>
-                                    <i class="far fa-check-square mr-2"><p> Lifestyle</p></i>
-                                  <% end %>
-                                  <% if @influencer.sport == true %>
-                                    <i class="far fa-check-square mr-2"><p> Sport</p></i>
-                                  <% end %>
-                                  <% if @influencer.food == true %>
-                                    <i class="far fa-check-square mr-2"><p> Food</p></i>
-                                  <% end %>
-                                  <% if @influencer.gaming == true %>
-                                    <i class="far fa-check-square mr-2"><p> Gaming</p></i>
-                                  <% end %>
-                                  <% if @influencer.healthy == true %>
-                                    <i class="far fa-check-square mr-2"><p> Healthy</p></i>
-                                  <% end %>
-                                  <% if @influencer.travel == true %>
-                                    <i class="far fa-check-square mr-2"><p> Travel</p></i>
-                                  <% end %>
-                                  <% if @influencer.music == true %>
-                                    <i class="far fa-check-square mr-2"><p> Music</p></i>
-                                  <% end %>
-                                  <% if @influencer.fashion == true %>
-                                    <i class="far fa-check-square mr-2"><p> Fashion</p></i>
-                                  <% end %>
-                                  <% if @influencer.art == true %>
-                                    <i class="far fa-check-square mr-2"><p> Art</p></i>
-                                  <% end %>
-                                  <% if @influencer.technology == true %>
-                                    <i class="far fa-check-square mr-2"><p> Technology</p></i>
-                                  <% end %>
-                                  <% if @influencer.humour == true %>
-                                    <i class="far fa-check-square mr-2"><p> Humor</p></i>
-                                  <% end %>
-                                  <% if @influencer.beauty == true %>
-                                    <i class="far fa-check-square mr-2"><p> Beauty</p></i>
-                                  <% end %>
+                                  <% if @influencer.lifestyle == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Lifestyle</span><% end %>
+                                  <% if @influencer.sport == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Sport</span><% end %>
+                                  <% if @influencer.food == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Food</span><% end %>
+                                  <% if @influencer.gaming == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Gaming</span><% end %>
+                                  <% if @influencer.healthy == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Healthy</span><% end %>
+                                  <% if @influencer.travel == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Travel</span><% end %>
+                                  <% if @influencer.music == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Music</span><% end %>
+                                  <% if @influencer.fashion == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Fashion</span><% end %>
+                                  <% if @influencer.art == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Art</span><% end %>
+                                  <% if @influencer.technology == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Technology</span><% end %>
+                                  <% if @influencer.humour == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Humor</span><% end %>
+                                  <% if @influencer.beauty == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Beauty</span><% end %>                                  
                                 </div>
-
                         <hr>
                         <p class="text-muted m-t-15">Reference prices</p>
-                        <div class="prices d-flex">
-                          <li><%= @influencer.price_per_photo %>€</li>
-                          <li><%= @influencer.price_per_video %>€</li>
-                          <li><%= @influencer.price_per_live %>€</li>
-                          <li><%= @influencer.price_per_story %>€</li>
+                        <div class="prices d-flex flex-row justify-content-center align-items-center">
+                          <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+                            <div><strong><%= @influencer.price_per_photo %>€ </strong></div>
+                            <div class="active pt-2" style="border-top: 3px solid #1d1148;"><strong>Photo</strong></div>                            
+                          </div>
+                          <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+                            <div><strong><%= @influencer.price_per_video %>€</div>
+                            <div class="active pt-2" style="border-top: 3px solid #1d1148;">Video </strong></div>
+                          </div>
+                          <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+                            <div><strong><%= @influencer.price_per_live %>€</div>
+                            <div class="active pt-2" style="border-top: 3px solid #1d1148;">Live </strong></div>
+                          </div>
+                          <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+                            <div><strong><%= @influencer.price_per_story %>€</div>
+                            <div class="active pt-2" style="border-top: 3px solid #1d1148;">Story </strong></div>
+                          </div>
                         </div>
-                        <ul class="list-unstyled activity-leval">
-                              <li class="active">Photo</li>
-                              <li class="active">Video</li>
-                              <li class="active">Live</li>
-                              <li class="active">Story</li>
-                        </ul>
                         <div class="bg-c-green counter-block m-t-10 p-20">
                             <div class="row">
                                 <div class="col-4 p-0">
-                                    <p class="p-stats">following</p>
-                                    <p><%= number_with_delimiter(@following.to_i, locale: :fr) %></p>
+                                    <p class="p-stats">Following</p>
+                                    <p class="mb-0" style="color:white"><%= number_with_delimiter(@following.to_i, locale: :fr) %></p>
                                 </div>
                                 <div class="col-4 p-0">
-                                    <p class="p-stats">followers</p>
-                                    <p><%= number_with_delimiter(@influencer.followers.to_i, locale: :fr) %></p>
+                                    <p class="p-stats">Followers</p>
+                                    <p class="mb-0" style="color:white"><%= number_with_delimiter(@influencer.followers.to_i, locale: :fr) %></p>
                                 </div>
                                 <div class="col-4 p-0">
-                                    <p class="p-stats">posts</p>
-                                    <p><%= number_with_delimiter(@uploads.to_i, locale: :fr) %></p>
+                                    <p class="p-stats">Posts</p>
+                                    <p class="mb-0" style="color:white"><%= number_with_delimiter(@uploads.to_i, locale: :fr) %></p>
                                 </div>
                             </div>
                         </div>
@@ -94,26 +78,26 @@
             </div>
             <div class="element-2 col-md-8">
               <div class="row">
-                <div class="col-md-6 p-3">
+                <div class="col-md-6 pt-0 pr-3 pb-3 pl-3">
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                              <div><%= @influencer.engagement %>%</div>
+                              <div class="text-gradient"><%= @influencer.engagement %>%</div>
                             </div>
-                            <div class="bio-desk">
+                            <div class="bio-desk pt-3 pr-2">
                                 <h4 class="red">Average engagement</h4>
                                 <p>Engagement shows how actively involved with your content your audience is.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 p-3 ">
+                <div class="col-md-6 pt-0 pr-3 pb-3 pl-3">
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                              <div><%= @av_likes %></div>
+                              <div class="text-gradient"><%= @av_likes %></div>
                             </div>
-                            <div class="bio-desk">
+                            <div class="bio-desk pt-3 pr-2">
                                 <h4 class="terques">Average likes</h4>
                                 <p>Engaged consumers interact with brands through likes</p>
                             </div>
@@ -124,9 +108,9 @@
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                            <div><%= @av_comments %></div>
+                            <div class="text-gradient"><%= @av_comments %></div>
                             </div>
-                            <div class="bio-desk">
+                            <div class="bio-desk pt-3 pr-2">
                                 <h4 class="green">Average comments</h4>
                                 <p>Engaged consumers interact with brands through comments</p>
                             </div>
@@ -137,9 +121,9 @@
                     <div class="panel metric-card card_gray">
                         <div class="panel-body w-100 d-flex align-items-center">
                             <div class="bio-chart text-center">
-                            <div><%= @top_posts[0] %>%</div>
+                            <div class="text-gradient"><%= @top_posts[0] %>%</div>
                             </div>
-                            <div class="bio-desk">
+                            <div class="bio-desk pt-3 pr-2">
                                 <h4 class="green">Engagement on top post</h4>
                                 <p>Engagement rate on most permormant post for <%= @influencer.user_name %></p>
                             </div>
@@ -147,9 +131,9 @@
                     </div>
                 </div>
               </div>
-              <div class="feed">
+              <div class="feed  d-flex flex-wrap justify-content-between">
                 <% @influencer.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, crop: :fill, height: 270, width: 240, class: "margin-photo"  %>
+                    <%= cl_image_tag photo.key, crop: :fill, height: 270, class: "mb-3", style:"width:32%; object-fit:cover;" %>
                 <% end %>
               </div>
             </div>

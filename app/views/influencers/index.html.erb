@@ -1,7 +1,7 @@
 <div style="padding-top: 10vh; width: 100%;">
   <h2 class="text-blue font-weight-bold text-center">Let's find <span class="text-gradient font-weight-bold">INFLUENCERS !</span></h2>
   <% if @campaign.company.user == current_user %>
-    <%= link_to campaign_path(@campaign), style: 'text-decoration: underline;', class: "mx-3" do %>
+    <%= link_to campaign_path(@campaign), style: 'text-decoration: underline; background: white;', class: "mx-3" do %>
       Back to my campaign
     <% end %>
   <% end %>
@@ -39,7 +39,7 @@
           </div>
 
 
-        <div class="influencer-stats" style="position:absolute; top:175px; left:15px">
+        <div class="influencer-stats" style="position:absolute; top:175px; left:2px">
 
           <div class="stat-card-1" style="text-align: center;">
 
@@ -55,29 +55,37 @@
         </div>
 
         <div class="filters" style="margin-top:30px">
-          <% if influencer.lifestyle == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Lifestyle</span><% end %>
-          <% if influencer.sport == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Sport</span><% end %>
-          <% if influencer.food == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Food</span><% end %>
-          <% if influencer.gaming == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Gaming</span><% end %>
-          <% if influencer.healthy == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Healthy</span><% end %>
-          <% if influencer.travel == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Travel</span><% end %>
-          <% if influencer.music == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Music</span><% end %>
-          <% if influencer.fashion == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Fashion</span><% end %>
-          <% if influencer.art == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Art</span><% end %>
-          <% if influencer.technology == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Technology</span><% end %>
-          <% if influencer.humour == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Humor</span><% end %>
-          <% if influencer.beauty == true %> <span class="badge badge-secondary mx-2 px-2 py-1">Beauty</span><% end %>
+          <% if influencer.lifestyle == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Lifestyle</span><% end %>
+          <% if influencer.sport == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Sport</span><% end %>
+          <% if influencer.food == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Food</span><% end %>
+          <% if influencer.gaming == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Gaming</span><% end %>
+          <% if influencer.healthy == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Healthy</span><% end %>
+          <% if influencer.travel == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Travel</span><% end %>
+          <% if influencer.music == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Music</span><% end %>
+          <% if influencer.fashion == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Fashion</span><% end %>
+          <% if influencer.art == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Art</span><% end %>
+          <% if influencer.technology == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Technology</span><% end %>
+          <% if influencer.humour == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Humor</span><% end %>
+          <% if influencer.beauty == true %> <span class="badge badge-secondary mx-2 px-2 py-1" style="font-weight:normal">Beauty</span><% end %>
         </div>
 
-      <div style="display:flex; justify-content:space-around;width: 100%;">
-        <div>
-          <li><strong><%= influencer.price_per_story %>€</strong> per story </li> 
-          <li><strong><%= influencer.price_per_photo %>€</strong> per photo</li>
-       </div>
-       <div>
-          <li><strong><%= influencer.price_per_video %>€</strong> per video</li>
-          <li><strong><%= influencer.price_per_live %>€</strong> per story</li>
-       </div>
+      <div style="display:flex; justify-content:center;width: 100%;">
+          <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+            <div><strong><%= influencer.price_per_photo %>€ </strong></div>
+                <div class="active pt-2" style="border-top: 3px solid #1d1148;"><strong>Photo</strong></div>                            
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+              <div><strong><%= influencer.price_per_video %>€</div>
+              <div class="active pt-2" style="border-top: 3px solid #1d1148;">Video </strong></div>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+              <div><strong><%= influencer.price_per_live %>€</div>
+              <div class="active pt-2" style="border-top: 3px solid #1d1148;">Live </strong></div>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center mx-2">
+              <div><strong><%= influencer.price_per_story %>€</div>
+              <div class="active pt-2" style="border-top: 3px solid #1d1148;">Story </strong></div>
+            </div>
         </div>
         <div class="influencer-footer">
           <% influencer.set_rating.times do %>
