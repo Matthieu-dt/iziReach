@@ -12,7 +12,7 @@ require "open-uri"
 Booking.destroy_all
 Influencer.destroy_all
 
-usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "bk_blog", "27ruecosy", "vin__cent", "anne_dressingideal"]
+usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "bk_blog", "27ruecosy", "vin__cen", "anne_dressingideal"]
 prices = [20, 25, 30, 35, 40]
 boolean = [true, false, false, false]
 # article = Article.new(title: 'NES', body: "A great console")
