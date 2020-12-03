@@ -12,13 +12,13 @@ require "open-uri"
 Booking.destroy_all
 Influencer.destroy_all
 
-usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "bk_blog"]
+usernames = ["matthieu_dt", "valeskaschneider", "konstantin.nico", "adventureravi", "danidelgadosk8", "bk_blog", "27ruecosy", "vin__cent", "anne_dressingideal"]
 prices = [20, 25, 30, 35, 40]
 boolean = [true, false, false, false]
 # article = Article.new(title: 'NES', body: "A great console")
 
 
-puts "Creating 6 fake influencers"
+puts "Creating 9 fake influencers"
 usernames.each do |username|
   influencer = Influencer.new(
     first_name:       Faker::Name.first_name,
@@ -50,9 +50,11 @@ usernames.each do |username|
   puts "Influencer created"
 end
 
+puts "Creating 9 photos for each influencer"
 Influencer.all.each do |influencer|
       9.times do
       file = URI.open('https://source.unsplash.com/random')
       influencer.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     end
+  puts "9 photos uploaded"
   end
