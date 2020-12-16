@@ -30,7 +30,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params)
     @campaign.company = @company
     authorize @campaign
-    if @campaign.save!
+    if @campaign.save
         redirect_to campaign_path(@campaign)
     else
         render :new

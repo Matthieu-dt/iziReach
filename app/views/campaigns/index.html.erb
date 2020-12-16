@@ -13,6 +13,11 @@
 
     <div class="tab-content w-100">  
       <div class="tab-pane active" id="p1">
+      <% if @campaigns.count == 0 %>
+        <div style="text-align: center; margin-top: 30px;"><%= "No campaign yet." %>
+          <%= link_to "Create your first campaign !", new_company_campaign_path(@current_user.company), style: "text-decoration: underline; background:white", class: "mx-3" %>
+        <% end %>
+        </div>
         <% if @campaigns.where(status: "ongoing").count > 0 %>
           <div class="d-flex justify-content-left flex-wrap flex-row mt-5 align-items-start">
             <% @campaigns.each do |campaign| %>

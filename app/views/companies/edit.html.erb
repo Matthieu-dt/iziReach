@@ -1,13 +1,20 @@
-<div class="container">
+<div class="container p-5">
 
+  <div class="container-companies" style="background: white;">
+  <h2 class="text-blue font-weight-bold mb-5 text-center">Edit <span class="text-gradient font-weight-bold">YOUR COMPANY</span></h2>
   <%= simple_form_for [ @company ] do |f| %>
     <%= f.input :name%>
     <%= f.input :description%>
     <%= f.input :values%>
     <%= f.input :url%>
     <%= f.input :photo, as: :file %>
-    <%= f.submit "Edit", class: "btn btn-primary" %>
+  
+    <div class="d-flex justify-content-center">
+      <div class="btn gradient-pink-button mt-1">
+        <%= f.submit "Edit", class: "btn " %>
+      </div>
+    </div>
   <% end %>
   <%= link_to 'Back', company_path %>
+  </div>
 </div>
-

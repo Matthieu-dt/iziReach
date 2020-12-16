@@ -24,15 +24,16 @@
                       input_html: { autocomplete: "new-password", class:"test" } %>
           </div>
           <div class="form-actions gradient-blue-button">
-            <%= f.button :submit, "Continue" %>
+            <%= f.button :submit,  "Continue", class: "text-white" %>
           </div>
         <% end %>
         <span><p>Already a member? <%= link_to "Sign in", new_user_session_path %><br /></p></span>
       </div>
 
-      <div class="card-right">
-        <span><h2>LOREM TITLE</h2></span>
-        <span><p>Lorem, ipsum dolor sit amet consectetur adipisicing, elit. Facere fuga mollitia eius quos nostrum blanditiis nihil, in rem minima recusandae eaque quam at, doloremque natus, optio minus. Ratione modi, eos?</p></span>
+       <div class="card-right" style="text-align:center">
+        <span ><h2 style="margin-bottom:30px; font-size:35px;">Find the perfect match</h2></span>
+        <span><%= image_tag 'Homepageimg.png', style:"height: 290px" %></span>
+      </div>
       </div>
     </div>
   </div>

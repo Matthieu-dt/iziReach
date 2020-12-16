@@ -1,9 +1,9 @@
 
 <div class="container">
 
-<h2>My solicitations</h2>
+<h2 class="bg-white">My solicitations</h2>
 
-<h3>Pending</h3>
+<h3 class="bg-white">Pending</h3>
 <% current_user.requests.each do |request| %>
  <% if request.status == "pending" %>
     <div class="campaign-card">
@@ -52,7 +52,7 @@
   <% end %>
   <% end %>
 
-<h3>Accepted solicitations</h3>
+<h3>Accepted</h3>
 <% current_user.requests.each do |request| %>
  <% if request.status == "accepted" %>
     <div class="campaign-card">
@@ -85,7 +85,7 @@
  <% end %>
 <% end %>
 
-<h3>Refused solicitations</h3>
+<h3>Refused</h3>
 <% current_user.requests.each do |request| %>
  <% if request.status == "refused" %>
     <div class="campaign-card">
